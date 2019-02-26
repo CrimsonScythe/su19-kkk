@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4857ad82-897b-4df2-a73b-613ce0bbff79" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../DIKUArcade" beforeDir="false" afterPath="$PROJECT_DIR$/../DIKUArcade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/.idea/.idea.Galaga-Exercise-1/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Galaga-Exercise-1/Game.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,14 +24,228 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+              <folding>
+                <marker date="1551179724727" expanded="true" signature="28:117" ph="{...}" />
+                <marker date="1551179724727" expanded="true" signature="57:115" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+              <folding>
+                <marker date="1551179921703" expanded="false" signature="6:215" ph="..." />
+                <marker date="1551179921703" expanded="true" signature="247:8075" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="271:8073" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="373:443" ph="/// OpenGL texture handle ... " />
+                <marker date="1551179921703" expanded="true" signature="484:562" ph="/// The string value for the text ... " />
+                <marker date="1551179921703" expanded="true" signature="601:683" ph="/// The font size for the text string ... " />
+                <marker date="1551179921703" expanded="true" signature="723:805" ph="/// The position and size of the text ... " />
+                <marker date="1551179921703" expanded="true" signature="854:925" ph="/// The color for the text ... " />
+                <marker date="1551179921703" expanded="true" signature="1014:2113" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="2194:3711" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="2662:3255" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="3748:3823" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="3862:3956" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="4000:4037" ph="{...}" />
+                <marker date="1551179921703" expanded="false" signature="4047:6708" ph="ChangeTextProperties" />
+                <marker date="1551179921703" expanded="true" signature="4085:4237" ph="/// Set the text string for this Text object. ... " />
+                <marker date="1551179921703" expanded="true" signature="4282:4356" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="4366:4634" ph="/// Set the font size for this Text object. ... " />
+                <marker date="1551179921703" expanded="true" signature="4680:4959" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="4711:4882" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="4969:5243" ph="/// Change text color ... " />
+                <marker date="1551179921703" expanded="true" signature="5284:5700" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="5428:5550" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="5710:5975" ph="/// Change text color ... " />
+                <marker date="1551179921703" expanded="true" signature="6016:6374" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="6148:6272" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="6384:6551" ph="/// Change text color ... " />
+                <marker date="1551179921703" expanded="true" signature="6612:6688" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="6749:7241" ph="{...}" />
+                <marker date="1551179921703" expanded="true" signature="6763:6879" ph="/* ensure that rotation is performed around the center of the shape ... */" />
+                <marker date="1551179921703" expanded="true" signature="7276:8067" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+              <folding>
+                <marker date="1551096195669" expanded="false" signature="6:153" ph="..." />
+                <marker date="1551096195669" expanded="true" signature="185:6476" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="212:6474" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="222:292" ph="/// OpenGL texture handle ... " />
+                <marker date="1551096195669" expanded="true" signature="365:2380" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="722:771" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="942:1053" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="2461:4841" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="2555:2709" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="3065:3114" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="3285:3396" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="4878:4953" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="4992:5086" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="5138:5630" ph="{...}" />
+                <marker date="1551096195669" expanded="true" signature="5152:5268" ph="/* ensure that rotation is performed around the center of the shape ... */" />
+                <marker date="1551096195669" expanded="true" signature="5672:6468" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-28">
+              <caret line="135" column="27" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
+              <folding>
+                <marker date="1551096195731" expanded="false" signature="6:387" ph="..." />
+                <marker date="1551096195731" expanded="true" signature="410:18057" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="416:549" ph="/// Aspect ratio for a DIKUArcade.Window object, defining ... " />
+                <marker date="1551096195731" expanded="true" signature="578:627" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="633:788" ph="/// Create an OpenTK window wrapper, where we only show ... " />
+                <marker date="1551096195731" expanded="true" signature="813:18055" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="871:1010" ph="/// Every DIKUArcade.Window instance has its own private ... " />
+                <marker date="1551096195731" expanded="true" signature="1055:1192" ph="/* This is the signature for a key event handler: ... */" />
+                <marker date="1551096195731" expanded="true" signature="1424:1518" ph="{...}" />
+                <marker date="1551096195731" expanded="false" signature="1577:2387" ph="OpenGLContext" />
+                <marker date="1551096195731" expanded="true" signature="1608:1778" ph="/// A static, private OpenTK.GameWindow instance. ... " />
+                <marker date="1551096195731" expanded="true" signature="1835:2168" ph="/// Use this method to create an OpenGL context. ... " />
+                <marker date="1551096195731" expanded="true" signature="2218:2367" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="2451:3010" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="3072:3234" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="3305:3822" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="3369:3766" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="3832:4198" ph="/// Register an event bus to this window instance. The specified ... " />
+                <marker date="1551096195731" expanded="true" signature="4262:4678" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="4298:4465" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="4316:4421" ph="/* an event bus was already registered! ... */" />
+                <marker date="1551096195731" expanded="true" signature="4754:5091" ph="{...}" />
+                <marker date="1551096195731" expanded="false" signature="5101:6466" ph="WINDOW_RESIZE" />
+                <marker date="1551096195731" expanded="true" signature="5172:5276" ph="/// Get or set if this Window instance should be resizable. ... " />
+                <marker date="1551096195731" expanded="true" signature="5307:5585" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="5325:5374" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="5391:5575" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="5420:5489" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="5634:6207" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="5682:5721" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="6259:6432" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="6307:6422" ph="{...}" />
+                <marker date="1551096195731" expanded="false" signature="6476:8406" ph="KEY_EVENT_HANDLERS" />
+                <marker date="1551096195731" expanded="true" signature="6553:7023" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="6598:6637" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="6762:6844" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="6883:6940" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="7077:7251" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="7122:7241" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="7261:7436" ph="/// Function signature for a key event handler method. ... " />
+                <marker date="1551096195731" expanded="true" signature="7523:7736" ph="/// Add an event handler for when any keyboard key is pressed. ... " />
+                <marker date="1551096195731" expanded="true" signature="7806:7998" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="8008:8173" ph="/// Add an event handler for when any keyboard key is released. ... " />
+                <marker date="1551096195731" expanded="true" signature="8263:8367" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="8416:8502" ph="/// Check if the Window is still running. ... " />
+                <marker date="1551096195731" expanded="true" signature="8535:8576" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="8586:8652" ph="/// Close the Window. ... " />
+                <marker date="1551096195731" expanded="true" signature="8687:8757" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="8767:8865" ph="/// Clear the Window with a uniform background color. ... " />
+                <marker date="1551096195731" expanded="true" signature="8894:8992" ph="{...}" />
+                <marker date="1551096195731" expanded="false" signature="9002:15977" ph="SET_CLEAR_COLOR" />
+                <marker date="1551096195731" expanded="true" signature="9035:9365" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="9416:9778" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="9560:9714" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="9788:10118" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="10169:10581" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="10361:10516" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="10591:10900" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="10951:11319" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="11083:11228" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="11329:11638" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="11689:12112" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="11865:12011" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="12122:12540" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="12602:12936" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="12722:12884" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="12946:13420" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="13491:13870" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="13651:13818" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="13880:14277" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="14333:14673" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="14441:14594" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="14683:15136" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="15199:15586" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="15343:15501" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="15596:15819" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+                <marker date="1551096195731" expanded="true" signature="15867:15957" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="15987:16071" ph="/// Swap double buffers for the Window. ... " />
+                <marker date="1551096195731" expanded="true" signature="16106:16195" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="16205:16298" ph="/// Check for incoming keyboard or mouse events. ... " />
+                <marker date="1551096195731" expanded="true" signature="16332:16379" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="16389:16561" ph="/// Save a screenshot of the Window's current state. ... " />
+                <marker date="1551096195731" expanded="true" signature="16599:18049" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="16657:16733" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="17521:17570" ph="{...}" />
+                <marker date="1551096195731" expanded="true" signature="17881:17947" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+              <folding>
+                <marker date="1551179920970" expanded="true" signature="30:77" ph="{...}" />
+                <marker date="1551179920970" expanded="true" signature="59:75" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" />
+        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" />
+        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" />
+        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" />
+        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
-    <option name="width" value="1750" />
-    <option name="height" value="980" />
+    <option name="x" value="491" />
+    <option name="y" value="452" />
+    <option name="width" value="1228" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -28,11 +253,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="DIKUArcade" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -55,22 +294,42 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4857ad82-897b-4df2-a73b-613ce0bbff79" name="Default Changelist" comment="" />
-      <created>1551177285081</created>
+      <changelist id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="" />
+      <created>1551179598825</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1551177285081</updated>
-      <workItem from="1551177286318" duration="237000" />
+      <updated>1551179598825</updated>
+      <workItem from="1551179601264" duration="938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237000" />
+    <option name="totallyTimeSpent" value="938000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -89,12 +348,12 @@
       <window_info id="Capture Tool" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="NuGet" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Unit Tests" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Performance Profiler" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -105,7 +364,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Errors In Solution" weight="0.3295302" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Unit Tests Coverage" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -125,5 +384,189 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+          <folding>
+            <marker date="1551096195669" expanded="false" signature="6:153" ph="..." />
+            <marker date="1551096195669" expanded="true" signature="185:6476" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="212:6474" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="222:292" ph="/// OpenGL texture handle ... " />
+            <marker date="1551096195669" expanded="true" signature="365:2380" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="722:771" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="942:1053" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="2461:4841" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="2555:2709" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="3065:3114" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="3285:3396" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="4878:4953" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="4992:5086" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="5138:5630" ph="{...}" />
+            <marker date="1551096195669" expanded="true" signature="5152:5268" ph="/* ensure that rotation is performed around the center of the shape ... */" />
+            <marker date="1551096195669" expanded="true" signature="5672:6468" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28">
+          <caret line="135" column="27" selection-start-line="135" selection-start-column="27" selection-end-line="135" selection-end-column="27" />
+          <folding>
+            <marker date="1551096195731" expanded="false" signature="6:387" ph="..." />
+            <marker date="1551096195731" expanded="true" signature="410:18057" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="416:549" ph="/// Aspect ratio for a DIKUArcade.Window object, defining ... " />
+            <marker date="1551096195731" expanded="true" signature="578:627" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="633:788" ph="/// Create an OpenTK window wrapper, where we only show ... " />
+            <marker date="1551096195731" expanded="true" signature="813:18055" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="871:1010" ph="/// Every DIKUArcade.Window instance has its own private ... " />
+            <marker date="1551096195731" expanded="true" signature="1055:1192" ph="/* This is the signature for a key event handler: ... */" />
+            <marker date="1551096195731" expanded="true" signature="1424:1518" ph="{...}" />
+            <marker date="1551096195731" expanded="false" signature="1577:2387" ph="OpenGLContext" />
+            <marker date="1551096195731" expanded="true" signature="1608:1778" ph="/// A static, private OpenTK.GameWindow instance. ... " />
+            <marker date="1551096195731" expanded="true" signature="1835:2168" ph="/// Use this method to create an OpenGL context. ... " />
+            <marker date="1551096195731" expanded="true" signature="2218:2367" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="2451:3010" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="3072:3234" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="3305:3822" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="3369:3766" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="3832:4198" ph="/// Register an event bus to this window instance. The specified ... " />
+            <marker date="1551096195731" expanded="true" signature="4262:4678" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="4298:4465" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="4316:4421" ph="/* an event bus was already registered! ... */" />
+            <marker date="1551096195731" expanded="true" signature="4754:5091" ph="{...}" />
+            <marker date="1551096195731" expanded="false" signature="5101:6466" ph="WINDOW_RESIZE" />
+            <marker date="1551096195731" expanded="true" signature="5172:5276" ph="/// Get or set if this Window instance should be resizable. ... " />
+            <marker date="1551096195731" expanded="true" signature="5307:5585" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="5325:5374" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="5391:5575" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="5420:5489" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="5634:6207" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="5682:5721" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="6259:6432" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="6307:6422" ph="{...}" />
+            <marker date="1551096195731" expanded="false" signature="6476:8406" ph="KEY_EVENT_HANDLERS" />
+            <marker date="1551096195731" expanded="true" signature="6553:7023" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="6598:6637" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="6762:6844" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="6883:6940" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="7077:7251" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="7122:7241" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="7261:7436" ph="/// Function signature for a key event handler method. ... " />
+            <marker date="1551096195731" expanded="true" signature="7523:7736" ph="/// Add an event handler for when any keyboard key is pressed. ... " />
+            <marker date="1551096195731" expanded="true" signature="7806:7998" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="8008:8173" ph="/// Add an event handler for when any keyboard key is released. ... " />
+            <marker date="1551096195731" expanded="true" signature="8263:8367" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="8416:8502" ph="/// Check if the Window is still running. ... " />
+            <marker date="1551096195731" expanded="true" signature="8535:8576" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="8586:8652" ph="/// Close the Window. ... " />
+            <marker date="1551096195731" expanded="true" signature="8687:8757" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="8767:8865" ph="/// Clear the Window with a uniform background color. ... " />
+            <marker date="1551096195731" expanded="true" signature="8894:8992" ph="{...}" />
+            <marker date="1551096195731" expanded="false" signature="9002:15977" ph="SET_CLEAR_COLOR" />
+            <marker date="1551096195731" expanded="true" signature="9035:9365" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="9416:9778" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="9560:9714" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="9788:10118" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="10169:10581" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="10361:10516" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="10591:10900" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="10951:11319" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="11083:11228" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="11329:11638" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="11689:12112" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="11865:12011" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="12122:12540" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="12602:12936" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="12722:12884" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="12946:13420" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="13491:13870" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="13651:13818" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="13880:14277" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="14333:14673" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="14441:14594" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="14683:15136" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="15199:15586" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="15343:15501" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="15596:15819" ph="/// Set color to be used as clear color when using the Window.Clear() method. ... " />
+            <marker date="1551096195731" expanded="true" signature="15867:15957" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="15987:16071" ph="/// Swap double buffers for the Window. ... " />
+            <marker date="1551096195731" expanded="true" signature="16106:16195" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="16205:16298" ph="/// Check for incoming keyboard or mouse events. ... " />
+            <marker date="1551096195731" expanded="true" signature="16332:16379" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="16389:16561" ph="/// Save a screenshot of the Window's current state. ... " />
+            <marker date="1551096195731" expanded="true" signature="16599:18049" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="16657:16733" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="17521:17570" ph="{...}" />
+            <marker date="1551096195731" expanded="true" signature="17881:17947" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Game.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding>
+            <marker date="1551179920970" expanded="true" signature="30:77" ph="{...}" />
+            <marker date="1551179920970" expanded="true" signature="59:75" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="48" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+          <folding>
+            <marker date="1551179724727" expanded="true" signature="28:117" ph="{...}" />
+            <marker date="1551179724727" expanded="true" signature="57:115" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="72" column="26" lean-forward="true" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <folding>
+            <marker date="1551179921703" expanded="false" signature="6:215" ph="..." />
+            <marker date="1551179921703" expanded="true" signature="247:8075" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="271:8073" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="373:443" ph="/// OpenGL texture handle ... " />
+            <marker date="1551179921703" expanded="true" signature="484:562" ph="/// The string value for the text ... " />
+            <marker date="1551179921703" expanded="true" signature="601:683" ph="/// The font size for the text string ... " />
+            <marker date="1551179921703" expanded="true" signature="723:805" ph="/// The position and size of the text ... " />
+            <marker date="1551179921703" expanded="true" signature="854:925" ph="/// The color for the text ... " />
+            <marker date="1551179921703" expanded="true" signature="1014:2113" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="2194:3711" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="2662:3255" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="3748:3823" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="3862:3956" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="4000:4037" ph="{...}" />
+            <marker date="1551179921703" expanded="false" signature="4047:6708" ph="ChangeTextProperties" />
+            <marker date="1551179921703" expanded="true" signature="4085:4237" ph="/// Set the text string for this Text object. ... " />
+            <marker date="1551179921703" expanded="true" signature="4282:4356" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="4366:4634" ph="/// Set the font size for this Text object. ... " />
+            <marker date="1551179921703" expanded="true" signature="4680:4959" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="4711:4882" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="4969:5243" ph="/// Change text color ... " />
+            <marker date="1551179921703" expanded="true" signature="5284:5700" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="5428:5550" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="5710:5975" ph="/// Change text color ... " />
+            <marker date="1551179921703" expanded="true" signature="6016:6374" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="6148:6272" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="6384:6551" ph="/// Change text color ... " />
+            <marker date="1551179921703" expanded="true" signature="6612:6688" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="6749:7241" ph="{...}" />
+            <marker date="1551179921703" expanded="true" signature="6763:6879" ph="/* ensure that rotation is performed around the center of the shape ... */" />
+            <marker date="1551179921703" expanded="true" signature="7276:8067" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
