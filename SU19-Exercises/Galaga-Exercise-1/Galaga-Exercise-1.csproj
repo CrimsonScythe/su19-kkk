@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,6 +48,44 @@
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\BlueMonster.png" />
+    <Content Include="Assets\Images\BombPickUp.png" />
+    <Content Include="Assets\Images\BulletRed2.png" />
+    <Content Include="Assets\Images\DamagePickUp.png" />
+    <Content Include="Assets\Images\Explosion.png" />
+    <Content Include="Assets\Images\GreenMonster.png" />
+    <Content Include="Assets\Images\LifePickUp.png" />
+    <Content Include="Assets\Images\Player.png" />
+    <Content Include="Assets\Images\PlayerBooster.png" />
+    <Content Include="Assets\Images\PuffOfSmoke.png" />
+    <Content Include="Assets\Images\RedMonster.png" />
+    <Content Include="Assets\Images\Rocket.png" />
+    <Content Include="Assets\Images\RocketPickUp.png" />
+    <Content Include="Assets\Images\ShieldPickUp.png" />
+    <Content Include="Assets\Images\SpaceBackground.png" />
+    <Content Include="Assets\Images\SpeedPickUp.png" />
+    <Content Include="Assets\Images\SpreadPickUp.png" />
+    <Content Include="Assets\Images\TitleImage.png" />
+    <Content Include="Galaga-Assets\Assets\Images\BlueMonster.png" />
+    <Content Include="Galaga-Assets\Assets\Images\BombPickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\BulletRed2.png" />
+    <Content Include="Galaga-Assets\Assets\Images\DamagePickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\Explosion.png" />
+    <Content Include="Galaga-Assets\Assets\Images\GreenMonster.png" />
+    <Content Include="Galaga-Assets\Assets\Images\LifePickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\Player.png" />
+    <Content Include="Galaga-Assets\Assets\Images\PlayerBooster.png" />
+    <Content Include="Galaga-Assets\Assets\Images\PuffOfSmoke.png" />
+    <Content Include="Galaga-Assets\Assets\Images\RedMonster.png" />
+    <Content Include="Galaga-Assets\Assets\Images\Rocket.png" />
+    <Content Include="Galaga-Assets\Assets\Images\RocketPickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\ShieldPickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\SpaceBackground.png" />
+    <Content Include="Galaga-Assets\Assets\Images\SpeedPickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\SpreadPickUp.png" />
+    <Content Include="Galaga-Assets\Assets\Images\TitleImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
