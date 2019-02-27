@@ -97,6 +97,7 @@
           </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Enemy.cs" t="Include" />
         <e p="Galaga-Assets" t="Include">
           <e p="Assets" t="Include">
             <e p="Images" t="Include">

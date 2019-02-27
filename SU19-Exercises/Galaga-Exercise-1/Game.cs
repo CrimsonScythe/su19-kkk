@@ -16,15 +16,29 @@ namespace Galaga_Exercise_1 {
         private GameTimer gameTimer;
         private GameEventBus<object> eventBus;
         private Player player;
+        private Enemy enemy; 
+        private Enemy enemy2; 
+        private Enemy enemy3; 
+        private Enemy enemy4;
+        private Enemy enemy5; 
+        private Enemy enemy6; 
+        private Enemy enemy7; 
+        private Enemy enemy8; 
+        private List<Image> enemyStrides = new List<Image>();
+        private List<Enemy> enemies = new List<Enemy>();
 
         public Game() {
                 
             win = new Window("test" ,500, 500);
             gameTimer = new GameTimer(60,60);
+            enemyStrides = ImageStride.CreateStrides(4,
+                Path.Combine("Assets", "Images", "BlueMonster.png"));
+            enemies = new List<Enemy>(); 
             
             player = new Player(this,
                             new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                             new Image(Path.Combine("Assets", "Images", "Player.png")));
+           
             
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
@@ -35,6 +49,34 @@ namespace Galaga_Exercise_1 {
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
 
+        }
+
+        public void AddEnemies()
+        {
+            enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.8f),
+        new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy);
+            enemy2 = new Enemy(this, new DynamicShape(new Vec2F(0.2f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy2);
+            enemy3 = new Enemy(this, new DynamicShape(new Vec2F(0.3f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy3);
+            enemy4 = new Enemy(this, new DynamicShape(new Vec2F(0.4f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy4); 
+            enemy5 = new Enemy(this, new DynamicShape(new Vec2F(0.5f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy5);
+            enemy6 = new Enemy(this, new DynamicShape(new Vec2F(0.6f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy6);
+            enemy7 = new Enemy(this, new DynamicShape(new Vec2F(0.7f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy7);
+            enemy8 = new Enemy(this, new DynamicShape(new Vec2F(0.8f, 0.8f),
+                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+            enemies.Add(enemy8); 
         }
 
         public void GameLoop() {
@@ -53,6 +95,11 @@ namespace Galaga_Exercise_1 {
                     win.Clear();
                     
                     player.RenderEntity();
+                    AddEnemies();
+                    foreach (Enemy element in enemies)
+                    {
+                        element.RenderEntity(); 
+                    }
 
                     
                     //render gameplay entites here
