@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
-using System.Security.Cryptography.X509Certificates;
 using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
@@ -14,7 +11,6 @@ using DIKUArcade.Timers;
 namespace Galaga_Exercise_1 {
     
     public class Game : IGameEventProcessor<object> {
-
         private Window win;
         private GameTimer gameTimer;
         private Score score;
@@ -34,70 +30,58 @@ namespace Galaga_Exercise_1 {
         public List<PlayerShot> newPlayerShots = new List<PlayerShot>();
         public Image shotImages;
         public List<PlayerShot> playerShots { get; private set; }
-
         private List<Image> explosionStrides;
         private AnimationContainer explosions;
         private int explosionLength = 500;
         
-        public Game() {
-                
-            win = new Window("test" ,500, 500);
-            
-            score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));
-            
+        public Game() {               
+            win = new Window("test" ,500, 500);          
+            score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));           
             gameTimer = new GameTimer(60,60);
             enemyStrides = ImageStride.CreateStrides(4,
                 Path.Combine("Assets", "Images", "BlueMonster.png"));
-            enemies = new List<Enemy>(); 
-            
+            enemies = new List<Enemy>();             
             player = new Player(this,
-                            new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
-                            new Image(Path.Combine("Assets", "Images", "Player.png")));
-
-            AddEnemies();
-            
+                new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
+                new Image(Path.Combine("Assets", "Images", "Player.png")));
+            AddEnemies();            
             shotImages = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
-            playerShots = new List<PlayerShot>();
-            
+            playerShots = new List<PlayerShot>();           
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent,
-                GameEventType.WindowEvent,
-            });
+                GameEventType.WindowEvent, });
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(20);
-
         }
 
-        public void AddEnemies()
-        {
-            enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.8f),
+        private void AddEnemies() {
+            enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.9f),
         new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy);
-            enemy2 = new Enemy(this, new DynamicShape(new Vec2F(0.2f, 0.8f),
+            enemy2 = new Enemy(this, new DynamicShape(new Vec2F(0.2f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy2);
-            enemy3 = new Enemy(this, new DynamicShape(new Vec2F(0.3f, 0.8f),
+            enemy3 = new Enemy(this, new DynamicShape(new Vec2F(0.3f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy3);
-            enemy4 = new Enemy(this, new DynamicShape(new Vec2F(0.4f, 0.8f),
+            enemy4 = new Enemy(this, new DynamicShape(new Vec2F(0.4f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy4); 
-            enemy5 = new Enemy(this, new DynamicShape(new Vec2F(0.5f, 0.8f),
+            enemy5 = new Enemy(this, new DynamicShape(new Vec2F(0.5f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy5);
-            enemy6 = new Enemy(this, new DynamicShape(new Vec2F(0.6f, 0.8f),
+            enemy6 = new Enemy(this, new DynamicShape(new Vec2F(0.6f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy6);
-            enemy7 = new Enemy(this, new DynamicShape(new Vec2F(0.7f, 0.8f),
+            enemy7 = new Enemy(this, new DynamicShape(new Vec2F(0.7f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy7);
-            enemy8 = new Enemy(this, new DynamicShape(new Vec2F(0.8f, 0.8f),
+            enemy8 = new Enemy(this, new DynamicShape(new Vec2F(0.8f, 0.9f),
                 new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy8); 
         }
@@ -106,46 +90,24 @@ namespace Galaga_Exercise_1 {
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
                 while (gameTimer.ShouldUpdate()) {
-                    win.PollEvents();
-                    
-                    player.Move();
-                    
-                    eventBus.ProcessEvents();
-                    
+                    win.PollEvents();                    
+                    player.Move();                    
+                    eventBus.ProcessEvents();                    
                     IterateShots();
-
                     enemies = newEnemies;
-
-                    /**
-                     * not using newEnemies.Clear();
-                     * because that will also clear enemies above.
-                     */
                     newEnemies = new List<Enemy>();
-
                     playerShots = newPlayerShots;
                     newPlayerShots = new List<PlayerShot>();
-
-                    //update game logic here
                 }
-
                 if (gameTimer.ShouldRender()) {
-                    win.Clear();
-                    
-                    player.RenderEntity();
-                   
-                    
-                    foreach (Enemy element in enemies)
-                    {
+                    win.Clear();                   
+                    player.RenderEntity();            
+                    foreach (Enemy element in enemies) {
                         element.RenderEntity(); 
                     }
-
                     foreach (var elem in playerShots) {
                         elem.RenderEntity();
                     }
-
-                    
-                    //render gameplay entites here
-                    
                     explosions.RenderAnimations();
                     score.RenderScore();
                     win.SwapBuffers();
@@ -156,12 +118,10 @@ namespace Galaga_Exercise_1 {
                     win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
-                
-//                enemies = newEnemies;
             }
         }
 
-        public void KeyPress(string key) {
+        private void KeyPress(string key) {
             switch (key) {
                 case "KEY_ESCAPE":
                     eventBus.RegisterEvent(
@@ -181,7 +141,7 @@ namespace Galaga_Exercise_1 {
             }
         }
 
-        public void KeyRelease(string key) {
+        private void KeyRelease(string key) {
             switch (key) {
                 case "KEY_A":
                     player.Direction(new Vec2F(0.0f, 0.0f));
@@ -192,14 +152,13 @@ namespace Galaga_Exercise_1 {
             }
         }
 
-        public void IterateShots() {
+        private void IterateShots() {
             
             foreach (var shot in playerShots) {
                 shot.Shape.Move();
                 if (shot.Shape.Position.Y > 1.0f) {
                     shot.DeleteEntity();
                 }
-
                 foreach (var enemyIter in enemies) {
                     var collisionData = CollisionDetection.Aabb(shot.shape.AsDynamicShape(), enemyIter.shape);
                     if (collisionData.Collision) {
@@ -211,13 +170,11 @@ namespace Galaga_Exercise_1 {
                     }
                 }
             }
-
             foreach (Enemy enem in enemies) {
                 if (!enem.IsDeleted()) {
                     newEnemies.Add(enem);
                 }
             }
-
             foreach (PlayerShot elem in playerShots) {
                 if (!elem.IsDeleted()) {
                     newPlayerShots.Add(elem);
@@ -231,10 +188,9 @@ namespace Galaga_Exercise_1 {
                     case "CLOSE_WINDOW":
                         win.CloseWindow();
                         break;
-                    default:
-                        break;
                 }
-            } else if (eventType == GameEventType.InputEvent) {
+            } 
+            else if (eventType == GameEventType.InputEvent) {
                 switch (gameEvent.Parameter1) {
                     case "KEY_PRESS":
                         KeyPress(gameEvent.Message);
@@ -246,14 +202,11 @@ namespace Galaga_Exercise_1 {
             }
         }
 
-        public void AddExplosion(float posX, float posY,
+        private void AddExplosion(float posX, float posY,
             float extentX, float extentY) {
             explosions.AddAnimation(
                 new StationaryShape(posX,posY,extentX,extentY), explosionLength,
-                new ImageStride(explosionLength / 8, explosionStrides)); 
-            Console.WriteLine("BOOM");
-            
+                new ImageStride(explosionLength / 8, explosionStrides));             
         }
-
     }
 }
