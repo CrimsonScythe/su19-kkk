@@ -7,7 +7,7 @@ namespace Galaga_Exercise_1
     public class Enemy : Entity
     {
         private Game game;
-        private Shape shape;
+        public DynamicShape shape;
 
         public Enemy(Game game, DynamicShape shape, IBaseImage image)
             : base(shape, image)

@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using DIKUArcade.Physics;
 using DIKUArcade.Timers;
 
 namespace Galaga_Exercise_1 {
@@ -14,6 +17,7 @@ namespace Galaga_Exercise_1 {
 
         private Window win;
         private GameTimer gameTimer;
+        private Score score;
         private GameEventBus<object> eventBus;
         private Player player;
         private Enemy enemy; 
@@ -26,10 +30,21 @@ namespace Galaga_Exercise_1 {
         private Enemy enemy8; 
         private List<Image> enemyStrides = new List<Image>();
         private List<Enemy> enemies = new List<Enemy>();
+        public List<Enemy> newEnemies = new List<Enemy>();
+        public List<PlayerShot> newPlayerShots = new List<PlayerShot>();
+        public Image shotImages;
+        public List<PlayerShot> playerShots { get; private set; }
 
+        private List<Image> explosionStrides;
+        private AnimationContainer explosions;
+        private int explosionLength = 500;
+        
         public Game() {
                 
             win = new Window("test" ,500, 500);
+            
+            score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));
+            
             gameTimer = new GameTimer(60,60);
             enemyStrides = ImageStride.CreateStrides(4,
                 Path.Combine("Assets", "Images", "BlueMonster.png"));
@@ -38,7 +53,11 @@ namespace Galaga_Exercise_1 {
             player = new Player(this,
                             new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                             new Image(Path.Combine("Assets", "Images", "Player.png")));
-           
+
+            AddEnemies();
+            
+            shotImages = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
+            playerShots = new List<PlayerShot>();
             
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
@@ -48,6 +67,10 @@ namespace Galaga_Exercise_1 {
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
+
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(20);
 
         }
 
@@ -88,6 +111,20 @@ namespace Galaga_Exercise_1 {
                     player.Move();
                     
                     eventBus.ProcessEvents();
+                    
+                    IterateShots();
+
+                    enemies = newEnemies;
+
+                    /**
+                     * not using newEnemies.Clear();
+                     * because that will also clear enemies above.
+                     */
+                    newEnemies = new List<Enemy>();
+
+                    playerShots = newPlayerShots;
+                    newPlayerShots = new List<PlayerShot>();
+
                     //update game logic here
                 }
 
@@ -95,21 +132,32 @@ namespace Galaga_Exercise_1 {
                     win.Clear();
                     
                     player.RenderEntity();
-                    AddEnemies();
+                   
+                    
                     foreach (Enemy element in enemies)
                     {
                         element.RenderEntity(); 
                     }
 
+                    foreach (var elem in playerShots) {
+                        elem.RenderEntity();
+                    }
+
                     
                     //render gameplay entites here
+                    
+                    explosions.RenderAnimations();
+                    score.RenderScore();
                     win.SwapBuffers();
+                    score.RenderScore();
                 }
 
                 if (gameTimer.ShouldReset()) {
                     win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
+                
+//                enemies = newEnemies;
             }
         }
 
@@ -127,6 +175,9 @@ namespace Galaga_Exercise_1 {
                 case "KEY_D":
                     player.Direction(new Vec2F(0.01f, 0.0f));
                     break;
+                case "KEY_SPACE":
+                    player.CreateShot();
+                    break;
             }
         }
 
@@ -140,7 +191,39 @@ namespace Galaga_Exercise_1 {
                     break;
             }
         }
-        
+
+        public void IterateShots() {
+            
+            foreach (var shot in playerShots) {
+                shot.Shape.Move();
+                if (shot.Shape.Position.Y > 1.0f) {
+                    shot.DeleteEntity();
+                }
+
+                foreach (var enemyIter in enemies) {
+                    var collisionData = CollisionDetection.Aabb(shot.shape.AsDynamicShape(), enemyIter.shape);
+                    if (collisionData.Collision) {
+                        shot.DeleteEntity();
+                        enemyIter.DeleteEntity();
+                        AddExplosion(enemyIter.shape.Position.X,enemyIter.shape.Position.Y,
+                            shot.shape.Extent.X+0.1f,shot.shape.Extent.Y+0.1f);
+                        score.AddPoint(); 
+                    }
+                }
+            }
+
+            foreach (Enemy enem in enemies) {
+                if (!enem.IsDeleted()) {
+                    newEnemies.Add(enem);
+                }
+            }
+
+            foreach (PlayerShot elem in playerShots) {
+                if (!elem.IsDeleted()) {
+                    newPlayerShots.Add(elem);
+                }
+            }
+        }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.WindowEvent) {
@@ -162,5 +245,15 @@ namespace Galaga_Exercise_1 {
                 }
             }
         }
+
+        public void AddExplosion(float posX, float posY,
+            float extentX, float extentY) {
+            explosions.AddAnimation(
+                new StationaryShape(posX,posY,extentX,extentY), explosionLength,
+                new ImageStride(explosionLength / 8, explosionStrides)); 
+            Console.WriteLine("BOOM");
+            
+        }
+
     }
 }
