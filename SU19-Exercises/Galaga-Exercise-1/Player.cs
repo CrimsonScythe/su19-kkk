@@ -18,10 +18,9 @@ namespace Galaga_Exercise_1 {
         }
 
         public void Direction(Vec2F vec2F) {
-            //code below makes it more generic?
+
             this.shape.AsDynamicShape().ChangeDirection(vec2F);
-            // OR
-//            this.shape.ChangeDirection(vec2F);
+
         }
 
         public void Move() {
@@ -41,7 +40,7 @@ namespace Galaga_Exercise_1 {
                     new Vec2F(0.008f, 0.027f) ),
                 game.shotImages);
             game.playerShots.Add(playerShot);
-           
+
         }
         
     }
