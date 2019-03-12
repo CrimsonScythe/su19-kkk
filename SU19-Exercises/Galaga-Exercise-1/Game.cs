@@ -57,9 +57,12 @@ namespace Galaga_Exercise_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(20);
+            
         }
 
         private void AddEnemies() {
+            
+            
             enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.9f),
         new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
             enemies.Add(enemy);
@@ -188,6 +191,7 @@ namespace Galaga_Exercise_1 {
                     case "CLOSE_WINDOW":
                         win.CloseWindow();
                         break;
+                    
                 }
             } 
             else if (eventType == GameEventType.InputEvent) {

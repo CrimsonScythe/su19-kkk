@@ -126,10 +126,12 @@
         <e p="Game.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Player.cs" t="Include" />
+        <e p="PlayerShot.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="Score.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="SU19-Exercises.sln" t="IncludeFlat" />
