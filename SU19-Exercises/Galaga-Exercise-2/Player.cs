@@ -12,18 +12,13 @@ namespace Galaga_Exercise_2 {
         private Game game;
         private Shape shape;
         private IBaseImage image;
-        private GameEventBus<object> eventBus;
-     
+    
         
         public Player(Game game, Shape shape, IBaseImage image) : base(shape, image) {
             this.game = game;
             this.shape = shape;
             this.image = image;       
-            
-//            eventBus = new GameEventBus<object>();
-//            eventBus.InitializeEventBus(new List<GameEventType>(){GameEventType.PlayerEvent});
-//            eventBus.Subscribe(GameEventType.PlayerEvent, this.game);
-//            eventBus.RegisterEvent();
+
         }
         
         public override void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {

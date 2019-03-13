@@ -7,6 +7,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
+using Galaga_Exercise_2.GalagaEntities.Enemy;
 
 namespace Galaga_Exercise_2 {
     
@@ -44,7 +45,7 @@ namespace Galaga_Exercise_2 {
             player = new Player(this,
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
-            AddEnemies();            
+//            AddEnemies();            
             shotImages = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             playerShots = new List<PlayerShot>(); 
             
@@ -66,36 +67,39 @@ namespace Galaga_Exercise_2 {
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(20);
             
+            
+            
         }
 
-        private void AddEnemies() {
+//        private void AddEnemies() {
             
-            
-            enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.9f),
-        new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy);
-            enemy2 = new Enemy(this, new DynamicShape(new Vec2F(0.2f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy2);
-            enemy3 = new Enemy(this, new DynamicShape(new Vec2F(0.3f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy3);
-            enemy4 = new Enemy(this, new DynamicShape(new Vec2F(0.4f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy4); 
-            enemy5 = new Enemy(this, new DynamicShape(new Vec2F(0.5f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy5);
-            enemy6 = new Enemy(this, new DynamicShape(new Vec2F(0.6f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy6);
-            enemy7 = new Enemy(this, new DynamicShape(new Vec2F(0.7f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy7);
-            enemy8 = new Enemy(this, new DynamicShape(new Vec2F(0.8f, 0.9f),
-                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
-            enemies.Add(enemy8); 
-        }
+//            
+//            
+//            enemy = new Enemy(this, new DynamicShape(new Vec2F(0.1f, 0.9f),
+//        new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy);
+//            enemy2 = new Enemy(this, new DynamicShape(new Vec2F(0.2f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy2);
+//            enemy3 = new Enemy(this, new DynamicShape(new Vec2F(0.3f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy3);
+//            enemy4 = new Enemy(this, new DynamicShape(new Vec2F(0.4f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy4); 
+//            enemy5 = new Enemy(this, new DynamicShape(new Vec2F(0.5f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy5);
+//            enemy6 = new Enemy(this, new DynamicShape(new Vec2F(0.6f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy6);
+//            enemy7 = new Enemy(this, new DynamicShape(new Vec2F(0.7f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy7);
+//            enemy8 = new Enemy(this, new DynamicShape(new Vec2F(0.8f, 0.9f),
+//                new Vec2F(0.1f, 0.1f)), new ImageStride(80,enemyStrides));
+//            enemies.Add(enemy8); 
+//        }
 
         public void GameLoop() {
             while (win.IsRunning()) {
