@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IMovementStrategy.cs" />
     <Compile Include="ISquadron.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerShot.cs" />

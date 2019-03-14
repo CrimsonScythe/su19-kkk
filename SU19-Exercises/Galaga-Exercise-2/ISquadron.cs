@@ -5,10 +5,12 @@ using Galaga_Exercise_2.GalagaEntities.Enemy;
 
 namespace Galaga_Exercise_2 {
     public interface ISquadron {
-        EntityContainer<Enemy> Enemies { get; }
+        EntityContainer<Enemy> Enemies { get; set; }
         int MaxEnemies { get; }
 
         void CreateEnemies(List<Image> enemyStrides);
+        void CreateEnemiesZig(List<Image> enemyStrides);
+        void CreateEnemiesSpot(List<Image> enemyStrides);
         
     }
 }

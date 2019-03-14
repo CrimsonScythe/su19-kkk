@@ -140,6 +140,7 @@
         <e p="Galaga-Assets" t="Include" />
         <e p="Galaga-Exercise-2.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="IMovementStrategy.cs" t="Include" />
         <e p="ISquadron.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Player.cs" t="Include" />
