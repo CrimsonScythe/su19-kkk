@@ -7,21 +7,23 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
 namespace Galaga_Exercise_2 {
-    public class Player : Entity {
+    public class Player : IGameEventProcessor<object> {
 
+        public Entity Entity { get; private set; }
         private Game game;
         private Shape shape;
         private IBaseImage image;
     
         
-        public Player(Game game, Shape shape, IBaseImage image) : base(shape, image) {
+        public Player(Game game, Shape shape, IBaseImage image) {
             this.game = game;
             this.shape = shape;
             this.image = image;       
 
+            Entity = new Entity(shape, image);
         }
         
-        public override void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
+        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             switch (eventType) {
                 case GameEventType.PlayerEvent:
                     if (gameEvent.Message.Equals("move left")) {

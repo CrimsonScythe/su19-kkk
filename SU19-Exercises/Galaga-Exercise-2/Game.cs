@@ -32,9 +32,8 @@ namespace Galaga_Exercise_2 {
         private AnimationContainer explosions;
         private int explosionLength = 500;
 
-        private EntityContainer<Enemy> Enemies1, Enemies2, Enemies3;
 
-        
+        private string globalMove = "down";
         
         public Game() {               
             win = new Window("test" ,500, 500);          
@@ -47,7 +46,7 @@ namespace Galaga_Exercise_2 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
-//            CreateEnemies(enemyStrides);
+            CreateEnemies(enemyStrides);
 //            CreateEnemiesSpot(enemyStrides);
 //            CreateEnemiesZig(enemyStrides);
             
@@ -88,7 +87,7 @@ namespace Galaga_Exercise_2 {
                 }
                 if (gameTimer.ShouldRender()) {
                     win.Clear();                   
-                    player.RenderEntity();            
+                    player.Entity.RenderEntity();            
                     foreach (Enemy element in enemies) {
                         element.RenderEntity(); 
                     }
@@ -100,11 +99,37 @@ namespace Galaga_Exercise_2 {
                     score.RenderScore();
                     win.SwapBuffers();
                     score.RenderScore();
-
                     
-//                    NoMove();
-//                    Down(Enemies);
-//                    ZigZagDown(Enemies);
+
+                    bool allDead = true;
+                    bool belowScreen = true;
+                    
+                    
+                    foreach (var iter in enemies) {
+                        if (!iter.IsDeleted()) {
+                            allDead = false;
+                        }
+
+                        if (iter.shape.Position.Y > -0.2f) {
+                            belowScreen = false;
+                        }
+                    }
+
+                    if (allDead || belowScreen)  {
+                        Enemies.ClearContainer();
+
+                        if (globalMove.Equals("down")) {
+                            CreateEnemiesSpot(enemyStrides);
+                            globalMove = "zigzag";
+                        } else if (globalMove.Equals("zigzag")) {
+                            CreateEnemiesZig(enemyStrides);
+                            globalMove = "nomove";
+                        }
+                        
+
+                    } else {
+                        MoveFunction(globalMove);                        
+                    } 
                     
                 }
 
@@ -112,6 +137,20 @@ namespace Galaga_Exercise_2 {
                     win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
+            }
+        }
+
+        public void MoveFunction(string moveFunc) {
+            switch (moveFunc) {
+                case "down":
+                    Down(Enemies);
+                    break;
+                case "zigzag":
+                    ZigZagDown(Enemies);
+                    break;
+                case "nomove":
+                    NoMove();
+                    break;
             }
         }
 
@@ -266,8 +305,9 @@ namespace Galaga_Exercise_2 {
             MoveEnemy(null);
         }
         
-        public void Down(EntityContainer<Enemy> enemies) {
-            MoveEnemies(enemies);
+        public void Down(EntityContainer<Enemy> enem) {
+        
+            MoveEnemies(enem);
         }
 
         public void ZigZagDown(EntityContainer<Enemy> enemies) {
@@ -303,7 +343,7 @@ namespace Galaga_Exercise_2 {
 
         public void MoveEnemies(EntityContainer<Enemy> enemies) {
             foreach (var enem in enemies) {
-                ((Enemy) enem).Shape.MoveY(-0.005f);
+                ((Enemy) enem).Shape.MoveY(-0.002f);
             }
         }
     }
