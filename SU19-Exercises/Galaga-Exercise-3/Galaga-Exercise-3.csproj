@@ -42,6 +42,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="GalagaBus.cs" />
     <Compile Include="GalagaStates\GameStateType.cs" />
+    <Compile Include="GalagaStates\MainMenu.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IMovementStrategy.cs" />
     <Compile Include="ISquadron.cs" />
