@@ -20,7 +20,15 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         private void SwitchState(StateTransformer.GameStateType stateType) {
             switch (stateType) {
-            
+                case StateTransformer.GameStateType.MainMenu:
+                    ActiveState = MainMenu.GetInstance();
+                    break;
+                case StateTransformer.GameStateType.GameRunning:
+                    ActiveState = GameRunning.GetInstance(game);
+                    break;
+                case StateTransformer.GameStateType.GamePaused:
+                    ActiveState = GamePaused.GetInstance();
+                    break;
             }
         }
 
@@ -31,7 +39,14 @@ namespace Galaga_Exercise_3.GalagaStates {
                     ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
                     break;
                 case "KEY_RELEASE":
-                    ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
+//                    ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
+                    break;
+                }
+            } else if (eventType == GameEventType.GameStateEvent) {
+                Console.WriteLine("lkgngf");
+                switch (gameEvent.Message) {
+                case "CHANGE_STATE":
+                    SwitchState(StateTransformer.TransformStringToState(gameEvent.Parameter1));
                     break;
                 }
             }

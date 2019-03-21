@@ -11,9 +11,9 @@ namespace Galaga_Exercise_3.GalagaStates{
     public class GameRunning : IGameState , ISquadron, IMovementStrategy{
 
         private static GameRunning instance = null;
-        private Player player;
+        public Player player;
         private List<Image> enemyStrides = new List<Image>();
-        private List<Enemy> enemies = new List<Enemy>();
+        public List<Enemy> enemies = new List<Enemy>();
         public List<Enemy> newEnemies = new List<Enemy>();
 //        public List<PlayerShot> newPlayerShots = new List<PlayerShot>();
 //        public List<PlayerShot> playerShots { get; private set; }
@@ -51,10 +51,17 @@ namespace Galaga_Exercise_3.GalagaStates{
             enemyStrides = ImageStride.CreateStrides(4,
                 Path.Combine("Assets", "Images", "BlueMonster.png"));
             
+
+            
             enemies = new List<Enemy>(); 
             
             score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));           
 
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(20);
+            
+            CreateEnemies(enemyStrides);
         }
 
         public void UpdateGameLogic() {
@@ -69,6 +76,7 @@ namespace Galaga_Exercise_3.GalagaStates{
         public void RenderState() {
 //            win.Clear();                   
             player.Entity.RenderEntity();            
+            
             foreach (Enemy element in enemies) {
                 element.RenderEntity(); 
             }
@@ -114,12 +122,14 @@ namespace Galaga_Exercise_3.GalagaStates{
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-            throw new System.NotImplementedException();
+//            throw new System.NotImplementedException();
         }
 
         public EntityContainer<Enemy> Enemies { get; set; }
         public int MaxEnemies { get; }
         public void CreateEnemies(List<Image> enemyStrides) {
+
+            
             float initValue = 0.0f;
             Enemies = new EntityContainer<Enemy>(8);
             
@@ -221,7 +231,7 @@ namespace Galaga_Exercise_3.GalagaStates{
 //            }
 //        }
         
-        private void AddExplosion(float posX, float posY,
+        public void AddExplosion(float posX, float posY,
             float extentX, float extentY) {
             explosions.AddAnimation(
                 new StationaryShape(posX,posY,extentX,extentY), explosionLength,

@@ -87,19 +87,21 @@ namespace Galaga_Exercise_3.GalagaStates {
                             switch (activeMenuButton) {
                                 case 0:
                                     // new game button selected
-                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                        GameEventType.GameStateEvent,
-                                        this,
-                                        "CHANGE_STATE",
-                                        "GAME_RUNNING", "");
+                                    GalagaBus.GetBus().RegisterEvent(
+                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                            GameEventType.GameStateEvent,
+                                            this,
+                                            "CHANGE_STATE",
+                                            "GAME_RUNNING", ""));
                                     break;
                                 case 1:
                                     // quit
-                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                        GameEventType.WindowEvent,
-                                        this,
-                                        "CLOSE_WINDOW",
-                                        "", "");
+                                    GalagaBus.GetBus().RegisterEvent(
+                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                            GameEventType.WindowEvent,
+                                            this,
+                                            "CLOSE_WINDOW",
+                                            "", ""));
                                     break;
                             }
                             break;
