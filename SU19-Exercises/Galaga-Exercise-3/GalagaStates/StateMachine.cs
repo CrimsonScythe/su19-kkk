@@ -1,16 +1,20 @@
 using DIKUArcade.EventBus;
 using DIKUArcade.State;
-using Galaga_Exercise_3.GalagaStates;
 
-namespace Galaga_Exercise_3 {
+namespace Galaga_Exercise_3.GalagaStates {
     public class StateMachine : IGameEventProcessor<object> {
         public  IGameState ActiveState { get; private set; }
 
-        public StateMachine() {
+        private Game game;
+
+        public StateMachine(Game game) {
             GalagaBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
             GalagaBus.GetBus().Subscribe(GameEventType.InputEvent, this);
 
-            ActiveState = StateTransformer.GameStateType.MainMenu;
+            this.game = game;
+            
+            ActiveState = MainMenu.GetInstance();
+
         }
 
         private void SwitchState(StateTransformer.GameStateType stateType) {

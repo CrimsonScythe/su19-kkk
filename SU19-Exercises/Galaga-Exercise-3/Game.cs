@@ -8,10 +8,11 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
+using Galaga_Exercise_3.GalagaStates;
 
 namespace Galaga_Exercise_3 {
     
-    public class Game : IGameEventProcessor<object> , ISquadron, IMovementStrategy{
+    public class Game : IGameEventProcessor<object> {
 
         
         
@@ -33,6 +34,8 @@ namespace Galaga_Exercise_3 {
         private AnimationContainer explosions;
         private int explosionLength = 500;
 
+        private StateMachine stateMachine;
+
 
         private string globalMove = "down";
         
@@ -47,7 +50,8 @@ namespace Galaga_Exercise_3 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
-            CreateEnemies(enemyStrides);
+//            CreateEnemies(enemyStrides);
+            stateMachine = new StateMachine(this);
 //            CreateEnemiesSpot(enemyStrides);
 //            CreateEnemiesZig(enemyStrides);
             
@@ -74,86 +78,111 @@ namespace Galaga_Exercise_3 {
         
 
         public void GameLoop() {
+            
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
                 while (gameTimer.ShouldUpdate()) {
-                    win.PollEvents();                    
-                    player.Move();                    
-                    eventBus.ProcessEvents();                    
+                    win.PollEvents();
+                    GalagaBus.GetBus().ProcessEvents();
+                    stateMachine.ActiveState.UpdateGameLogic();
                     IterateShots();
-                    enemies = newEnemies;
-                    newEnemies = new List<Enemy>();
                     playerShots = newPlayerShots;
                     newPlayerShots = new List<PlayerShot>();
                 }
                 if (gameTimer.ShouldRender()) {
-                    win.Clear();                   
-                    player.Entity.RenderEntity();            
-                    foreach (Enemy element in enemies) {
-                        element.RenderEntity(); 
-                    }
+                    win.Clear();
+                    stateMachine.ActiveState.RenderState();
                     foreach (var elem in playerShots) {
                         elem.RenderEntity();
                     }
-                    
-                    explosions.RenderAnimations();
-                    score.RenderScore();
                     win.SwapBuffers();
-                    score.RenderScore();
-                    
-
-                    bool allDead = true;
-                    bool belowScreen = true;
-                    
-                    
-                    foreach (var iter in enemies) {
-                        if (!iter.IsDeleted()) {
-                            allDead = false;
-                        }
-
-                        if (iter.shape.Position.Y > -0.2f) {
-                            belowScreen = false;
-                        }
-                    }
-
-                    if (allDead || belowScreen)  {
-                        Enemies.ClearContainer();
-
-                        if (globalMove.Equals("down")) {
-                            CreateEnemiesSpot(enemyStrides);
-                            globalMove = "zigzag";
-                        } else if (globalMove.Equals("zigzag")) {
-                            CreateEnemiesZig(enemyStrides);
-                            globalMove = "nomove";
-                        }
-                        
-
-                    } else {
-                        MoveFunction(globalMove);                        
-                    } 
-                    
                 }
-
                 if (gameTimer.ShouldReset()) {
-                    win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
+                    win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates + 
                                 ", FPS: " + gameTimer.CapturedFrames;
                 }
             }
+            
+//            while (win.IsRunning()) {
+//                gameTimer.MeasureTime();
+//                while (gameTimer.ShouldUpdate()) {
+//                    win.PollEvents();                    
+//                    player.Move();                    
+//                    eventBus.ProcessEvents();                    
+//                    IterateShots();
+//                    enemies = newEnemies;
+//                    newEnemies = new List<Enemy>();
+//                    playerShots = newPlayerShots;
+//                    newPlayerShots = new List<PlayerShot>();
+//                }
+//                if (gameTimer.ShouldRender()) {
+//                    win.Clear();                   
+//                    player.Entity.RenderEntity();            
+//                    foreach (Enemy element in enemies) {
+//                        element.RenderEntity(); 
+//                    }
+//                    foreach (var elem in playerShots) {
+//                        elem.RenderEntity();
+//                    }
+//                    
+//                    explosions.RenderAnimations();
+//                    score.RenderScore();
+//                    win.SwapBuffers();
+//                    score.RenderScore();
+//                    
+//
+//                    bool allDead = true;
+//                    bool belowScreen = true;
+//                    
+//                    
+//                    foreach (var iter in enemies) {
+//                        if (!iter.IsDeleted()) {
+//                            allDead = false;
+//                        }
+//
+//                        if (iter.shape.Position.Y > -0.2f) {
+//                            belowScreen = false;
+//                        }
+//                    }
+//
+//                    if (allDead || belowScreen)  {
+//                        Enemies.ClearContainer();
+//
+//                        if (globalMove.Equals("down")) {
+//                            CreateEnemiesSpot(enemyStrides);
+//                            globalMove = "zigzag";
+//                        } else if (globalMove.Equals("zigzag")) {
+//                            CreateEnemiesZig(enemyStrides);
+//                            globalMove = "nomove";
+//                        }
+//                        
+//
+//                    } else {
+//                        MoveFunction(globalMove);                        
+//                    } 
+//                    
+//                }
+//
+//                if (gameTimer.ShouldReset()) {
+//                    win.Title = "Galaga | UPS: " + gameTimer.CapturedUpdates +
+//                                ", FPS: " + gameTimer.CapturedFrames;
+//                }
+//            }
         }
 
-        public void MoveFunction(string moveFunc) {
-            switch (moveFunc) {
-                case "down":
-                    Down(Enemies);
-                    break;
-                case "zigzag":
-                    ZigZagDown(Enemies);
-                    break;
-                case "nomove":
-                    NoMove();
-                    break;
-            }
-        }
+//        public void MoveFunction(string moveFunc) {
+//            switch (moveFunc) {
+//                case "down":
+//                    Down(Enemies);
+//                    break;
+//                case "zigzag":
+//                    ZigZagDown(Enemies);
+//                    break;
+//                case "nomove":
+//                    NoMove();
+//                    break;
+//            }
+//        }
 
         private void KeyPress(string key) {
             switch (key) {
@@ -240,112 +269,111 @@ namespace Galaga_Exercise_3 {
             }
         }
 
-        private void AddExplosion(float posX, float posY,
-            float extentX, float extentY) {
+        private void AddExplosion(float posX, float posY, float extentX, float extentY) {
             explosions.AddAnimation(
                 new StationaryShape(posX,posY,extentX,extentY), explosionLength,
                 new ImageStride(explosionLength / 8, explosionStrides));             
         }
-
-        public EntityContainer<Enemy> Enemies { get; set; }
-        public int MaxEnemies { get; }
-        
-        public void CreateEnemies(List<Image> enemyStrides) {
-
-            float initValue = 0.0f;
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
-                initValue += 0.1f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.8f),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));
-                
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }    
-        }
-
-        public void CreateEnemiesSpot(List<Image> enemyStrides)
-        {
-            float initValue = 0.8f;
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
+//
+//        public EntityContainer<Enemy> Enemies { get; set; }
+//        public int MaxEnemies { get; }
+//        
+//        public void CreateEnemies(List<Image> enemyStrides) {
+//
+//            float initValue = 0.0f;
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
 //                initValue += 0.1f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.9f),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }
-        }
-
-        public void CreateEnemiesZig(List<Image> enemyStrides)
-        {
-            float initValueX = 0.0f;
-            float initValueY = 0.7f;
-
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
-                initValueX += 0.1f;
-                initValueY += 0.02f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValueX, initValueY),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }
-        }
-
-        public void NoMove() {
-            MoveEnemy(null);
-        }
-        
-        public void Down(EntityContainer<Enemy> enem) {
-        
-            MoveEnemies(enem);
-        }
-
-        public void ZigZagDown(EntityContainer<Enemy> enemies) {
-
-            float prevPosY = 0.0f;
-            
-            foreach (var enem in enemies) {
-                if (((Enemy) enem).shape.Position.Y - prevPosY > 0.1f) {
-                    MoveEnemy((Enemy) enem);
-                    prevPosY = ((Enemy) enem).shape.Position.Y;
-                }
-            }
-        }
-
-        public void MoveEnemy(Enemy enemy) {
-
-            try { 
-            
-                float newY = 0.0f;
-                float newX = 0.0f;
-            
-                newY = enemy.shape.Position.Y - 0.0003f;
-                newX = (float) (0.8f +
-                                0.05f * Math.Sin((2 * Math.PI) * (0.9f - newY) / 0.045f));
-
-                enemy.shape.Position = new Vec2F(newX, newY);
-                
-            } catch (NullReferenceException e) {
-            
-            }
-
-        }
-
-        public void MoveEnemies(EntityContainer<Enemy> enemies) {
-            foreach (var enem in enemies) {
-                ((Enemy) enem).Shape.MoveY(-0.002f);
-            }
-        }
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.8f),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));
+//                
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }    
+//        }
+//
+//        public void CreateEnemiesSpot(List<Image> enemyStrides)
+//        {
+//            float initValue = 0.8f;
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
+////                initValue += 0.1f;
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.9f),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }
+//        }
+//
+//        public void CreateEnemiesZig(List<Image> enemyStrides)
+//        {
+//            float initValueX = 0.0f;
+//            float initValueY = 0.7f;
+//
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
+//                initValueX += 0.1f;
+//                initValueY += 0.02f;
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValueX, initValueY),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }
+//        }
+//
+//        public void NoMove() {
+//            MoveEnemy(null);
+//        }
+//        
+//        public void Down(EntityContainer<Enemy> enem) {
+//        
+//            MoveEnemies(enem);
+//        }
+//
+//        public void ZigZagDown(EntityContainer<Enemy> enemies) {
+//
+//            float prevPosY = 0.0f;
+//            
+//            foreach (var enem in enemies) {
+//                if (((Enemy) enem).shape.Position.Y - prevPosY > 0.1f) {
+//                    MoveEnemy((Enemy) enem);
+//                    prevPosY = ((Enemy) enem).shape.Position.Y;
+//                }
+//            }
+//        }
+//
+//        public void MoveEnemy(Enemy enemy) {
+//
+//            try { 
+//            
+//                float newY = 0.0f;
+//                float newX = 0.0f;
+//            
+//                newY = enemy.shape.Position.Y - 0.0003f;
+//                newX = (float) (0.8f +
+//                                0.05f * Math.Sin((2 * Math.PI) * (0.9f - newY) / 0.045f));
+//
+//                enemy.shape.Position = new Vec2F(newX, newY);
+//                
+//            } catch (NullReferenceException e) {
+//            
+//            }
+//
+//        }
+//
+//        public void MoveEnemies(EntityContainer<Enemy> enemies) {
+//            foreach (var enem in enemies) {
+//                ((Enemy) enem).Shape.MoveY(-0.002f);
+//            }
+//        }
     }
 }
