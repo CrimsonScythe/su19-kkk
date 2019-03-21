@@ -19,6 +19,23 @@ namespace Galaga_Exercise_3.GalagaStates {
         private int maxMenuButtons;
 
 
+        public MainMenu() {
+            backgroundImage = new Entity(
+                new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
+                new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
+
+            menuButtons = new Text[2];
+            
+            menuButtons[0] = new Text("New Game", new Vec2F(0.5f, 0.5f), new Vec2F(0.3f,0.3f) );
+            menuButtons[1] = new Text("Quit", new Vec2F(0.5f, 0.4f), new Vec2F(0.3f,0.3f) );
+
+            menuButtons[0].SetColor(Color.Red);
+            menuButtons[1].SetColor(Color.White);
+            
+            activeMenuButton = 0;
+
+        }
+        
         public static MainMenu GetInstance() {
             return MainMenu.instance ?? (MainMenu.instance = new MainMenu());
         }
@@ -37,27 +54,10 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         public void RenderState() {
 
-
-            backgroundImage = new Entity(
-                new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
-                new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
-            
             backgroundImage.RenderEntity();
-
-            menuButtons = new Text[2];
-            
-            menuButtons[0] = new Text("New Game", new Vec2F(0.5f, 0.5f), new Vec2F(0.3f,0.3f) );
-            menuButtons[1] = new Text("Quit", new Vec2F(0.5f, 0.4f), new Vec2F(0.3f,0.3f) );
-            
-            menuButtons[0].SetColor(Color.Red);
-            menuButtons[1].SetColor(Color.White);
-            
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
             
-            activeMenuButton = 0;
-
-
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
@@ -66,9 +66,7 @@ namespace Galaga_Exercise_3.GalagaStates {
                 case "KEY_PRESS":
                     switch (keyValue) {
                         case "KEY_UP":
-                            Console.WriteLine("fd");
                             if (activeMenuButton == 1) {
-                                Console.WriteLine("sgflknf");
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.White);
                                 activeMenuButton = 0;
