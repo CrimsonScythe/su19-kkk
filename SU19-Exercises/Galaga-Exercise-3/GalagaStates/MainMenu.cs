@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.IO;
 using DIKUArcade.Entities;
@@ -31,25 +32,28 @@ namespace Galaga_Exercise_3.GalagaStates {
         }
 
         public void UpdateGameLogic() {
-            throw new System.NotImplementedException();
+//            throw new System.NotImplementedException();
         }
 
         public void RenderState() {
 
 
             backgroundImage = new Entity(
-                new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(0.5f, 0.5f)),
+                new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
             
             backgroundImage.RenderEntity();
 
             menuButtons = new Text[2];
             
-            menuButtons[0] = new Text("New Game", new Vec2F(0.5f, 0.5f), new Vec2F(0.1f,0.1f) );
-            menuButtons[1] = new Text("Quit", new Vec2F(0.5f, 0.5f), new Vec2F(0.05f,0.05f) );
+            menuButtons[0] = new Text("New Game", new Vec2F(0.5f, 0.5f), new Vec2F(0.3f,0.3f) );
+            menuButtons[1] = new Text("Quit", new Vec2F(0.5f, 0.4f), new Vec2F(0.3f,0.3f) );
             
             menuButtons[0].SetColor(Color.Red);
             menuButtons[1].SetColor(Color.White);
+            
+            menuButtons[0].RenderText();
+            menuButtons[1].RenderText();
             
             activeMenuButton = 0;
 
@@ -62,10 +66,14 @@ namespace Galaga_Exercise_3.GalagaStates {
                 case "KEY_PRESS":
                     switch (keyValue) {
                         case "KEY_UP":
+                            Console.WriteLine("fd");
                             if (activeMenuButton == 1) {
+                                Console.WriteLine("sgflknf");
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.White);
                                 activeMenuButton = 0;
+                                menuButtons[0].RenderText();
+                                menuButtons[1].RenderText();
                             }
                             break;
                         case "KEY_DOWN":
@@ -73,6 +81,8 @@ namespace Galaga_Exercise_3.GalagaStates {
                                 menuButtons[0].SetColor(Color.White);
                                 menuButtons[1].SetColor(Color.Red);
                                 activeMenuButton = 1;
+                                menuButtons[0].RenderText();
+                                menuButtons[1].RenderText();
                             }
                             break;
                         case "KEY_ENTER":

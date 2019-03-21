@@ -14,8 +14,6 @@ namespace Galaga_Exercise_3 {
     
     public class Game : IGameEventProcessor<object> {
 
-        
-        
         public ISquadron Isquadron { get; set; }
         
         private Window win;
@@ -50,6 +48,10 @@ namespace Galaga_Exercise_3 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
+            GalagaBus.GetBus().InitializeEventBus(new List<GameEventType>(){GameEventType.InputEvent, GameEventType.GameStateEvent});
+            win.RegisterEventBus(GalagaBus.GetBus());
+            
+            
 //            CreateEnemies(enemyStrides);
             stateMachine = new StateMachine(this);
 //            CreateEnemiesSpot(enemyStrides);
@@ -66,6 +68,7 @@ namespace Galaga_Exercise_3 {
             });
             
             win.RegisterEventBus(eventBus);
+            
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             eventBus.Subscribe(GameEventType.PlayerEvent, player);

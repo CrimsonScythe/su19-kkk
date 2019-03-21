@@ -1,3 +1,4 @@
+using System;
 using DIKUArcade.EventBus;
 using DIKUArcade.State;
 
@@ -19,12 +20,21 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         private void SwitchState(StateTransformer.GameStateType stateType) {
             switch (stateType) {
-                
+            
             }
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
-            throw new System.NotImplementedException();
+            if (eventType == GameEventType.InputEvent) {
+                switch (gameEvent.Parameter1) {
+                case "KEY_PRESS":
+                    ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
+                    break;
+                case "KEY_RELEASE":
+                    ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
+                    break;
+                }
+            }
         }
     }
 }
