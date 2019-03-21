@@ -10,7 +10,7 @@ using DIKUArcade.State;
 namespace Galaga_Exercise_3.GalagaStates{
     public class GameRunning : IGameState , ISquadron, IMovementStrategy{
 
-        private static GameRunning instance = null;
+        public static GameRunning instance = null;
         public Player player;
         private List<Image> enemyStrides = new List<Image>();
         public List<Enemy> enemies = new List<Enemy>();
@@ -22,7 +22,7 @@ namespace Galaga_Exercise_3.GalagaStates{
         private List<Image> explosionStrides;
         private AnimationContainer explosions;
         private int explosionLength = 500;
-        private Score score;
+        public Score score;
         
         private string globalMove = "down";
 
@@ -66,7 +66,7 @@ namespace Galaga_Exercise_3.GalagaStates{
 
         public void UpdateGameLogic() {
             player.Move();                    
-//            IterateShots();
+            game.IterateShots();
             enemies = newEnemies;
             newEnemies = new List<Enemy>();
 //            playerShots = newPlayerShots;

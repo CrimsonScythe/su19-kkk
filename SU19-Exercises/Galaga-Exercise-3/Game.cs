@@ -18,7 +18,7 @@ namespace Galaga_Exercise_3 {
         
         private Window win;
         private GameTimer gameTimer;
-        private Score score;
+//        private Score score;
 //        private Player player;
  
 //        private List<Image> enemyStrides = new List<Image>();
@@ -37,7 +37,7 @@ namespace Galaga_Exercise_3 {
         
         public Game() {               
             win = new Window("test" ,500, 500);          
-            score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));           
+//            score = new Score(new Vec2F(0.0f,0.0f), new Vec2F(0.2f,0.2f));           
             gameTimer = new GameTimer(60,60);
 //            enemyStrides = ImageStride.CreateStrides(4,
 //                Path.Combine("Assets", "Images", "BlueMonster.png"));
@@ -87,9 +87,9 @@ namespace Galaga_Exercise_3 {
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     GalagaBus.GetBus().ProcessEvents();
-                    IterateShots();
-                    stateMachine.ActiveState.UpdateGameLogic();
                     
+                    stateMachine.ActiveState.UpdateGameLogic();
+//                    IterateShots();
                     playerShots = newPlayerShots;
                     newPlayerShots = new List<PlayerShot>();
                 }
@@ -99,6 +99,7 @@ namespace Galaga_Exercise_3 {
                     foreach (var elem in playerShots) {
                         elem.RenderEntity();
                     }
+//                    score.RenderScore();
                     win.SwapBuffers();
                 }
                 if (gameTimer.ShouldReset()) {
@@ -193,7 +194,13 @@ namespace Galaga_Exercise_3 {
                 case "KEY_ESCAPE":
                     GalagaBus.GetBus().RegisterEvent(
                         GameEventFactory<object>.CreateGameEventForAllProcessors(
-                            GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
+                            GameEventType.GameStateEvent,
+                            this,
+                            "CHANGE_STATE",
+                            "GAME_PAUSED", ""));
+//                    GalagaBus.GetBus().RegisterEvent(
+//                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                            GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                     break;
                 case "KEY_A":
                     GalagaBus.GetBus().RegisterEvent(
@@ -222,7 +229,7 @@ namespace Galaga_Exercise_3 {
             }
         }
 
-        private void IterateShots() {
+        public void IterateShots() {
             
             foreach (var shot in playerShots) {
                 shot.Shape.Move();
@@ -237,10 +244,12 @@ namespace Galaga_Exercise_3 {
                         enemyIter.DeleteEntity();
                         GameRunning.GetInstance(this).AddExplosion(enemyIter.shape.Position.X,enemyIter.shape.Position.Y,
                             shot.shape.Extent.X+0.1f,shot.shape.Extent.Y+0.1f);
-                        score.AddPoint(); 
+                        GameRunning.GetInstance(this).score.AddPoint(); 
+//                        score.AddPoint();
                     }
                 }
             }
+            
             foreach (Enemy enem in GameRunning.GetInstance(this).enemies) {
                 if (!enem.IsDeleted()) {
                     GameRunning.GetInstance(this).newEnemies.Add(enem);

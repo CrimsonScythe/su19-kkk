@@ -30,6 +30,7 @@ namespace Galaga_Exercise_3.GalagaStates {
                     ActiveState = GamePaused.GetInstance();
                     break;
             }
+
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
