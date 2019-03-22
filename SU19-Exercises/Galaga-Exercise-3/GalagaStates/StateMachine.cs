@@ -5,19 +5,13 @@ using DIKUArcade.State;
 namespace Galaga_Exercise_3.GalagaStates {
     public class StateMachine : IGameEventProcessor<object> {
         public  IGameState ActiveState { get; private set; }
-
         private Game game;
 
-        private string param2;
-        
         public StateMachine(Game game) {
             GalagaBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
             GalagaBus.GetBus().Subscribe(GameEventType.InputEvent, this);
-
-            this.game = game;
-            
+            this.game = game;           
             ActiveState = MainMenu.GetInstance();
-
         }
 
         private void SwitchState(StateTransformer.GameStateType stateType) {
@@ -26,13 +20,12 @@ namespace Galaga_Exercise_3.GalagaStates {
                     ActiveState = MainMenu.GetInstance();
                     break;
                 case StateTransformer.GameStateType.GameRunning:
-                    ActiveState = GameRunning.GetInstance(this.game);
+                    ActiveState = GameRunning.GetInstance(game);
                     break;
                 case StateTransformer.GameStateType.GamePaused:
                     ActiveState = GamePaused.GetInstance();
                     break;
             }
-
         }
 
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
@@ -45,10 +38,8 @@ namespace Galaga_Exercise_3.GalagaStates {
                     break;
                 }
             } else if (eventType == GameEventType.GameStateEvent) {
-                
                 switch (gameEvent.Message) {
                 case "CHANGE_STATE":
-                    param2 = gameEvent.Parameter2;
                     SwitchState(StateTransformer.TransformStringToState(gameEvent.Parameter1));
                     break;
                 }
