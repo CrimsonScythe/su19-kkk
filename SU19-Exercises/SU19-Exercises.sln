@@ -32,5 +32,9 @@ Global
 		{15414F31-14FC-4B0E-AE99-17FF2302833D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15414F31-14FC-4B0E-AE99-17FF2302833D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15414F31-14FC-4B0E-AE99-17FF2302833D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA953512-A74D-4941-ADE9-D4371203C37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {AA953512-A74D-4941-ADE9-D4371203C37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {AA953512-A74D-4941-ADE9-D4371203C37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {AA953512-A74D-4941-ADE9-D4371203C37C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
