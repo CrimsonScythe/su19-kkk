@@ -1,5 +1,6 @@
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using System;
 
 namespace Galaga_Exercise_3 {
     public class Score {

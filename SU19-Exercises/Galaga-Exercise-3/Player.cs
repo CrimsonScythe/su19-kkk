@@ -6,7 +6,6 @@ using DIKUArcade.Math;
 
 namespace Galaga_Exercise_3 {
     public class Player : IGameEventProcessor<object> {
-
         public Entity Entity { get; private set; }
         private Game game;
         private Shape shape;
@@ -17,7 +16,6 @@ namespace Galaga_Exercise_3 {
             this.game = game;
             this.shape = shape;
             this.image = image;       
-
             Entity = new Entity(shape, image);
         }
         
@@ -37,24 +35,17 @@ namespace Galaga_Exercise_3 {
         }
 
         private void Direction(Vec2F vec2F) {
-
-            this.shape.AsDynamicShape().ChangeDirection(vec2F);
-            
+            this.shape.AsDynamicShape().ChangeDirection(vec2F);          
         }
 
 
         public void Move() {
-            //moving right
-
-            Console.WriteLine("IT IS: " + shape.AsDynamicShape().Direction.X);
-            
+            //moving right            
             if (this.shape.AsDynamicShape().Direction.X > 0.0f && this.shape.Position.X < 0.90f) {
-//                Console.WriteLine("dd");
                 this.shape.Move();
             }
             //moving left
             if (this.shape.AsDynamicShape().Direction.X < 0.0f && this.shape.Position.X > 0) {
-//                Console.WriteLine("aa");
                 this.shape.Move();
             }
         }
@@ -65,9 +56,6 @@ namespace Galaga_Exercise_3 {
                     new Vec2F(0.008f, 0.027f) ),
                 game.shotImages);
             game.playerShots.Add(playerShot);
-
-        }
-        
-        
+        }             
     }
 }
