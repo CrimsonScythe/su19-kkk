@@ -1,3 +1,4 @@
+using System;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -44,18 +45,23 @@ namespace Galaga_Exercise_3 {
 
         public void Move() {
             //moving right
-            if (shape.AsDynamicShape().Direction.X > 0.0f && shape.Position.X < 0.90f) {
-                shape.Move();
+
+            Console.WriteLine("IT IS: " + shape.AsDynamicShape().Direction.X);
+            
+            if (this.shape.AsDynamicShape().Direction.X > 0.0f && this.shape.Position.X < 0.90f) {
+//                Console.WriteLine("dd");
+                this.shape.Move();
             }
             //moving left
-            if (shape.AsDynamicShape().Direction.X < 0.0f && shape.Position.X > 0) {
-                shape.Move();
+            if (this.shape.AsDynamicShape().Direction.X < 0.0f && this.shape.Position.X > 0) {
+//                Console.WriteLine("aa");
+                this.shape.Move();
             }
         }
 
         public void CreateShot() {
             PlayerShot playerShot = new PlayerShot(game, 
-                new DynamicShape(new Vec2F(shape.Position.X + 0.05f, shape.Position.Y+0.05f), 
+                new DynamicShape(new Vec2F(this.shape.Position.X + 0.05f, this.shape.Position.Y+0.05f), 
                     new Vec2F(0.008f, 0.027f) ),
                 game.shotImages);
             game.playerShots.Add(playerShot);

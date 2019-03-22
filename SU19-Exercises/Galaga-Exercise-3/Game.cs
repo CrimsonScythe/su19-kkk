@@ -74,7 +74,7 @@ namespace Galaga_Exercise_3 {
             
             GalagaBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             GalagaBus.GetBus().Subscribe(GameEventType.WindowEvent, this);
-            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, GameRunning.GetInstance(this).player);
+//            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, GameRunning.GetInstance(this).player);
             
             
         }
@@ -191,30 +191,19 @@ namespace Galaga_Exercise_3 {
 
         private void KeyPress(string key) {
             switch (key) {
-                case "KEY_ESCAPE":
-                    GalagaBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                            GameEventType.GameStateEvent,
-                            this,
-                            "CHANGE_STATE",
-                            "GAME_PAUSED", ""));
+//                case "KEY_A":
 //                    GalagaBus.GetBus().RegisterEvent(
-//                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                            GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
-                    break;
-                case "KEY_A":
-                    GalagaBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForSpecificProcessor(
-                            GameEventType.PlayerEvent, this, GameRunning.GetInstance(this).player, "move left", "", ""));
-//                    player.Direction(new Vec2F(-0.01f, 0.0f));    
-                    break;
-//                
-                case "KEY_D":
-                    GalagaBus.GetBus().RegisterEvent(
-                        GameEventFactory<object>.CreateGameEventForSpecificProcessor(
-                            GameEventType.PlayerEvent, this, GameRunning.GetInstance(this).player, "move right", "", ""));
-//                    player.Direction(new Vec2F(0.01f, 0.0f));
-                    break;
+//                        GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+//                            GameEventType.PlayerEvent, this, GameRunning.GetInstance(this).player, "move left", "", ""));
+//
+//                    break;
+////                
+//                case "KEY_D":
+//                    GalagaBus.GetBus().RegisterEvent(
+//                        GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+//                            GameEventType.PlayerEvent, this, GameRunning.GetInstance(this).player, "move right", "", ""));
+//
+//                    break;
                 case "KEY_SPACE":
                     GameRunning.GetInstance(this).player.CreateShot();
                     break;

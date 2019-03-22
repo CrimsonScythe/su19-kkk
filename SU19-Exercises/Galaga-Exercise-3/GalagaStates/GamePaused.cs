@@ -87,18 +87,20 @@ namespace Galaga_Exercise_3.GalagaStates
                                             GameEventType.GameStateEvent,
                                             this,
                                             "CHANGE_STATE",
-                                            "GAME_RUNNING", ""));
+                                            "GAME_RUNNING", "continue"));
                                     break;
                                 case 1:
                                     // back to main menu selected
+                                    
+                                    GameRunning.instance = null;
+                                    
                                     GalagaBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
                                             this,
                                             "CHANGE_STATE",
                                             "MAIN_MENU", ""));
-                                    GameRunning.instance = null; 
-
+                                    
                                     break;
                             }
                             break;

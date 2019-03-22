@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 using System.IO;
+using System.Threading;
 using DIKUArcade.Entities;
+using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
 
 namespace Galaga_Exercise_3.GalagaStates{
-    public class GameRunning : IGameState , ISquadron, IMovementStrategy{
+    public class GameRunning : IGameState , ISquadron, IMovementStrategy {
+
 
         public static GameRunning instance = null;
         public Player player;
@@ -39,12 +43,11 @@ namespace Galaga_Exercise_3.GalagaStates{
         }
         
         public void GameLoop() {
-     
         }
 
         public void InitializeGameState() {
             
-                player = new Player(game,
+                player = new Player(game, 
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
@@ -62,15 +65,17 @@ namespace Galaga_Exercise_3.GalagaStates{
             explosions = new AnimationContainer(20);
             
             CreateEnemies(enemyStrides);
+            
+            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
         }
 
         public void UpdateGameLogic() {
+
             player.Move();                    
             game.IterateShots();
             enemies = newEnemies;
             newEnemies = new List<Enemy>();
-//            playerShots = newPlayerShots;
-//            newPlayerShots = new List<PlayerShot>();
+
         }
 
         public void RenderState() {
@@ -122,7 +127,32 @@ namespace Galaga_Exercise_3.GalagaStates{
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-//            throw new System.NotImplementedException();
+            switch (keyAction) {
+                case "KEY_PRESS":
+                    switch (keyValue) {
+                        case "KEY_ESCAPE":
+                            GalagaBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                    GameEventType.GameStateEvent,
+                                    this,
+                                    "CHANGE_STATE",
+                                    "GAME_PAUSED", ""));
+                            break;
+                        case "KEY_A":
+                            GalagaBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                    GameEventType.PlayerEvent, this, player, "move left", "", ""));
+
+                            break;
+                        case "KEY_D":
+                            GalagaBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                    GameEventType.PlayerEvent, this, player, "move right", "", ""));
+
+                            break;
+                    }
+                    break;
+            }
         }
 
         public EntityContainer<Enemy> Enemies { get; set; }
