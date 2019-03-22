@@ -43,14 +43,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GalagaStatesTests.cs" />
+    <Compile Include="StateMachineTests.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Galaga-Exercise-3\Galaga-Exercise-3.csproj">
       <Project>{b06cf0ea-df00-4401-95ab-caf232a4ff8f}</Project>
       <Name>Galaga-Exercise-3</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
