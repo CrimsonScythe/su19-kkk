@@ -19,7 +19,15 @@ namespace Galaga_Exercise_2 {
         }         
         
         public void MoveEnemies(EntityContainer<Enemy> enemies) {
-            float prevPosY = 0.0f;           
+            float prevPosY = 0.0f;
+            foreach (var VARIABLE in enemies) {
+                if (((Enemy) VARIABLE).shape.Position.Y - prevPosY > 0.1f) {
+                    MoveEnemy((Enemy) VARIABLE);
+                    prevPosY = ((Enemy) VARIABLE).shape.Position.Y;
+                }
+//                MoveEnemy((Enemy) VARIABLE);
+            }
+            
 //            foreach (var enem in enemies) {
 //                if (((Enemy) enemies).shape.Position.Y - prevPosY > 0.1f) {
 //                    MoveEnemy((Enemy) enem);

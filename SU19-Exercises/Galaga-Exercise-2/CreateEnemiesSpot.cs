@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -17,7 +18,7 @@ namespace Galaga_Exercise_2 {
         }
         
         public void CreateEnemies(List<Image> enemyStrides) {
-         
+
         float initValue = 0.8f;
        
         Enemies = new EntityContainer<Enemy>(8);

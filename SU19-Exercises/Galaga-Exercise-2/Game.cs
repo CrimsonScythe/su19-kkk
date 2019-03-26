@@ -61,9 +61,10 @@ namespace Galaga_Exercise_2 {
             zigZagDown = new ZigZagDown();
 
             createEnemiesLine = new CreateEnemiesLine(this, enemies);
-            createEnemiesZig = new CreateEnemiesZig(this, enemies);
-            createEnemiesSpot = new CreateEnemiesSpot(this, enemies);
+//            createEnemiesZig = new CreateEnemiesZig(this, enemies);
+//            createEnemiesSpot = new CreateEnemiesSpot(this, enemies);
             
+//            createEnemiesZig.CreateEnemies(enemyStrides);
             createEnemiesLine.CreateEnemies(enemyStrides);
 //            createEnemiesSpot.CreateEnemies(enemyStrides);            
 
@@ -134,13 +135,15 @@ namespace Galaga_Exercise_2 {
 
                     if (allDead || belowScreen)  {
 //                        createEnemiesZig.Enemies.ClearContainer();
-                        createEnemiesLine.Enemies.ClearContainer();
+//                        createEnemiesLine.Enemies.ClearContainer();
 //                        createEnemiesSpot.Enemies.ClearContainer();
                         
                         if (globalMove.Equals("down")) {
+                            createEnemiesSpot = new CreateEnemiesSpot(this, enemies);
                             createEnemiesSpot.CreateEnemies(enemyStrides);
                             globalMove = "zigzag";
                         } else if (globalMove.Equals("zigzag")) {
+                            createEnemiesZig = new CreateEnemiesZig(this, enemies);
                             createEnemiesZig.CreateEnemies(enemyStrides);
                             globalMove = "nomove";
                         }
