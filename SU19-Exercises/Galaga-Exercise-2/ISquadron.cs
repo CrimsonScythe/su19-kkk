@@ -9,8 +9,7 @@ namespace Galaga_Exercise_2 {
         int MaxEnemies { get; }
 
         void CreateEnemies(List<Image> enemyStrides);
-        void CreateEnemiesZig(List<Image> enemyStrides);
-        void CreateEnemiesSpot(List<Image> enemyStrides);
+
         
     }
 }

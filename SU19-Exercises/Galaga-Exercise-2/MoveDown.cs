@@ -9,8 +9,8 @@ namespace Galaga_Exercise_2 {
         }
 
         public void MoveEnemies(EntityContainer<Enemy> enemies) {
-            foreach (Enemy enemy in enemies) {
-                MoveEnemy(enemy);
+            foreach (Enemy iter in enemies) {
+                MoveEnemy(iter);
             }
         }
     }

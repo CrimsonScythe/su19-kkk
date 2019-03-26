@@ -12,7 +12,7 @@ using Galaga_Exercise_2.GalagaEntities.Enemy;
 
 namespace Galaga_Exercise_2 {
     
-    public class Game : IGameEventProcessor<object> , ISquadron, IMovementStrategy{
+    public class Game : IGameEventProcessor<object> {
 
         public ISquadron Isquadron { get; set; }
         
@@ -34,6 +34,14 @@ namespace Galaga_Exercise_2 {
 
 
         private string globalMove = "down";
+
+        private CreateEnemiesZig createEnemiesZig;
+        private CreateEnemiesLine createEnemiesLine;
+        private CreateEnemiesSpot createEnemiesSpot;
+
+        private NoMove noMove;
+        private ZigZagDown zigZagDown;
+        private MoveDown moveDown;
         
         public Game() {               
             win = new Window("test" ,500, 500);          
@@ -46,10 +54,19 @@ namespace Galaga_Exercise_2 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f),new Vec2F(0.1f, 0.1f) ),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
-            CreateEnemies(enemyStrides);
-//            CreateEnemiesSpot(enemyStrides);
-//            CreateEnemiesZig(enemyStrides);
+//            CreateEnemies(enemyStrides);
+
+            moveDown = new MoveDown();
+            noMove = new NoMove();
+            zigZagDown = new ZigZagDown();
+
+            createEnemiesLine = new CreateEnemiesLine(this, enemies);
+            createEnemiesZig = new CreateEnemiesZig(this, enemies);
+            createEnemiesSpot = new CreateEnemiesSpot(this, enemies);
             
+            createEnemiesLine.CreateEnemies(enemyStrides);
+//            createEnemiesSpot.CreateEnemies(enemyStrides);            
+
             shotImages = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));
             playerShots = new List<PlayerShot>(); 
             
@@ -116,13 +133,15 @@ namespace Galaga_Exercise_2 {
                     }
 
                     if (allDead || belowScreen)  {
-                        Enemies.ClearContainer();
-
+//                        createEnemiesZig.Enemies.ClearContainer();
+                        createEnemiesLine.Enemies.ClearContainer();
+//                        createEnemiesSpot.Enemies.ClearContainer();
+                        
                         if (globalMove.Equals("down")) {
-                            CreateEnemiesSpot(enemyStrides);
+                            createEnemiesSpot.CreateEnemies(enemyStrides);
                             globalMove = "zigzag";
                         } else if (globalMove.Equals("zigzag")) {
-                            CreateEnemiesZig(enemyStrides);
+                            createEnemiesZig.CreateEnemies(enemyStrides);
                             globalMove = "nomove";
                         }
                         
@@ -143,13 +162,13 @@ namespace Galaga_Exercise_2 {
         public void MoveFunction(string moveFunc) {
             switch (moveFunc) {
                 case "down":
-                    Down(Enemies);
+                    moveDown.MoveEnemies(createEnemiesLine.Enemies);
                     break;
                 case "zigzag":
-                    ZigZagDown(Enemies);
+                    zigZagDown.MoveEnemies(createEnemiesSpot.Enemies);
                     break;
                 case "nomove":
-                    NoMove();
+                    noMove.MoveEnemies(createEnemiesZig.Enemies);
                     break;
             }
         }
@@ -246,105 +265,105 @@ namespace Galaga_Exercise_2 {
                 new ImageStride(explosionLength / 8, explosionStrides));             
         }
 
-        public EntityContainer<Enemy> Enemies { get; set; }
-        public int MaxEnemies { get; }
-        
-        public void CreateEnemies(List<Image> enemyStrides) {
-
-            float initValue = 0.0f;
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
-                initValue += 0.1f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.8f),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));
-                
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }    
-        }
-
-        public void CreateEnemiesSpot(List<Image> enemyStrides)
-        {
-            float initValue = 0.8f;
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
+//        public EntityContainer<Enemy> Enemies { get; set; }
+//        public int MaxEnemies { get; }
+//        
+//        public void CreateEnemies(List<Image> enemyStrides) {
+//
+//            float initValue = 0.0f;
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
 //                initValue += 0.1f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.9f),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }
-        }
-
-        public void CreateEnemiesZig(List<Image> enemyStrides)
-        {
-            float initValueX = 0.0f;
-            float initValueY = 0.7f;
-
-            Enemies = new EntityContainer<Enemy>(8);
-            
-            for (int i = 0; i < 8; i++) {
-                initValueX += 0.1f;
-                initValueY += 0.02f;
-                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValueX, initValueY),
-                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
-            }
-
-            foreach (var elem in enemies) {
-                Enemies.AddStationaryEntity(elem);
-            }
-        }
-
-        public void NoMove() {
-            MoveEnemy(null);
-        }
-        
-        public void Down(EntityContainer<Enemy> enem) {
-        
-            MoveEnemies(enem);
-        }
-
-        public void ZigZagDown(EntityContainer<Enemy> enemies) {
-
-            float prevPosY = 0.0f;
-            
-            foreach (var enem in enemies) {
-                if (((Enemy) enem).shape.Position.Y - prevPosY > 0.1f) {
-                    MoveEnemy((Enemy) enem);
-                    prevPosY = ((Enemy) enem).shape.Position.Y;
-                }
-            }
-        }
-
-        public void MoveEnemy(Enemy enemy) {
-
-            try { 
-            
-                float newY = 0.0f;
-                float newX = 0.0f;
-            
-                newY = enemy.shape.Position.Y - 0.0003f;
-                newX = (float) (0.8f +
-                                0.05f * Math.Sin((2 * Math.PI) * (0.9f - newY) / 0.045f));
-
-                enemy.shape.Position = new Vec2F(newX, newY);
-                
-            } catch (NullReferenceException e) {
-            
-            }
-
-        }
-
-        public void MoveEnemies(EntityContainer<Enemy> enemies) {
-            foreach (var enem in enemies) {
-                ((Enemy) enem).Shape.MoveY(-0.002f);
-            }
-        }
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.8f),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));
+//                
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }    
+//        }
+//
+//        public void CreateEnemiesSpot(List<Image> enemyStrides)
+//        {
+//            float initValue = 0.8f;
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
+////                initValue += 0.1f;
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValue, 0.9f),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }
+//        }
+//
+//        public void CreateEnemiesZig(List<Image> enemyStrides)
+//        {
+//            float initValueX = 0.0f;
+//            float initValueY = 0.7f;
+//
+//            Enemies = new EntityContainer<Enemy>(8);
+//            
+//            for (int i = 0; i < 8; i++) {
+//                initValueX += 0.1f;
+//                initValueY += 0.02f;
+//                enemies.Add(new Enemy(this, new DynamicShape(new Vec2F(initValueX, initValueY),
+//                    new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides) ));    
+//            }
+//
+//            foreach (var elem in enemies) {
+//                Enemies.AddStationaryEntity(elem);
+//            }
+//        }
+//
+//        public void NoMove() {
+//            MoveEnemy(null);
+//        }
+//        
+//        public void Down(EntityContainer<Enemy> enem) {
+//        
+//            MoveEnemies(enem);
+//        }
+//
+//        public void ZigZagDown(EntityContainer<Enemy> enemies) {
+//
+//            float prevPosY = 0.0f;
+//            
+//            foreach (var enem in enemies) {
+//                if (((Enemy) enem).shape.Position.Y - prevPosY > 0.1f) {
+//                    MoveEnemy((Enemy) enem);
+//                    prevPosY = ((Enemy) enem).shape.Position.Y;
+//                }
+//            }
+//        }
+//
+//        public void MoveEnemy(Enemy enemy) {
+//
+//            try { 
+//            
+//                float newY = 0.0f;
+//                float newX = 0.0f;
+//            
+//                newY = enemy.shape.Position.Y - 0.0003f;
+//                newX = (float) (0.8f +
+//                                0.05f * Math.Sin((2 * Math.PI) * (0.9f - newY) / 0.045f));
+//
+//                enemy.shape.Position = new Vec2F(newX, newY);
+//                
+//            } catch (NullReferenceException e) {
+//            
+//            }
+//
+//        }
+//
+//        public void MoveEnemies(EntityContainer<Enemy> enemies) {
+//            foreach (var enem in enemies) {
+//                ((Enemy) enem).Shape.MoveY(-0.002f);
+//            }
+//        }
     }
 }
