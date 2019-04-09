@@ -6,6 +6,7 @@
     </attachedFolders>
     <explicitIncludes>
       <Path>Galaga-Exercise-3</Path>
+      <Path>SpaceTaxi-1</Path>
     </explicitIncludes>
     <explicitExcludes />
   </component>

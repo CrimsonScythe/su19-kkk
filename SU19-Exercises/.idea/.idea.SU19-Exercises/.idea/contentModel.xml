@@ -199,25 +199,25 @@
         <e p="Tests.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="SpaceTaxi-1" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Game.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
+        <e p="Taxi" t="Include">
+          <e p="Orientation.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+        </e>
+      </e>
       <e p="SU19-Exercises.sln" t="IncludeFlat" />
     </e>
     <e p="C:\Users\hasee\.Rider2018.3\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\hasee\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\hasee\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SU19-Exercises.-1699555295.00" t="ExcludeRecursive" />
-    <e p="C:\Users\hasee\Documents\su\SpaceTaxi-1-1\SpaceTaxi-1" t="IncludeRecursive">
-      <e p="App.config" t="Include" />
-      <e p="bin" t="ExcludeRecursive" />
-      <e p="Game.cs" t="Include" />
-      <e p="obj" t="ExcludeRecursive" />
-      <e p="Program.cs" t="Include" />
-      <e p="Properties" t="Include">
-        <e p="AssemblyInfo.cs" t="Include" />
-      </e>
-      <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
-      <e p="Taxi" t="Include">
-        <e p="Orientation.cs" t="Include" />
-        <e p="Player.cs" t="Include" />
-      </e>
-    </e>
   </component>
 </project>

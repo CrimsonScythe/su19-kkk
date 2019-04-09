@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-3", "Galaga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga_Testing", "Galaga_Testing\Galaga_Testing.csproj", "{15414F31-14FC-4B0E-AE99-17FF2302833D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi-1", "..\..\Users\hasee\Documents\su\SpaceTaxi-1-1\SpaceTaxi-1\SpaceTaxi-1.csproj", "{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi-1", "SpaceTaxi-1\SpaceTaxi-1.csproj", "{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

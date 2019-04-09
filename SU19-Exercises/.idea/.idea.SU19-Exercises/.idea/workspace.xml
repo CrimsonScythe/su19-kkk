@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SU19-Exercises.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SU19-Exercises.sln" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +17,7 @@
         <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Taxi/Player.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
               <folding>
                 <marker date="1554805978643" expanded="true" signature="6:120" ph="..." />
                 <marker date="1554805978643" expanded="true" signature="144:1751" ph="{...}" />
@@ -33,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
               <folding>
                 <marker date="1554805990087" expanded="false" signature="6:64" ph="..." />
                 <marker date="1554805990087" expanded="true" signature="235:5422" ph="{...}" />
@@ -59,6 +60,20 @@
                 <marker date="1554805990087" expanded="true" signature="4914:5036" ph="{...}" />
                 <marker date="1554805990087" expanded="true" signature="5099:5404" ph="{...}" />
                 <marker date="1554805990087" expanded="true" signature="5147:5390" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+              <folding>
+                <marker date="1554806485647" expanded="true" signature="22:183" ph="{...}" />
+                <marker date="1554806485647" expanded="true" signature="51:181" ph="{...}" />
+                <marker date="1554806485647" expanded="true" signature="100:175" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -111,7 +126,7 @@
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Image.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga_Testing/GalagaStatesTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Taxi/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Taxi/Player.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventBus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Shape.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/Entity.cs" root0="FORCE_HIGHLIGHTING" />
@@ -140,7 +155,8 @@
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-1/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GamePaused.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/ISquadron.cs" root0="FORCE_HIGHLIGHTING" />
@@ -168,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-1/Program.cs" />
         <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" />
         <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" />
@@ -219,6 +234,7 @@
         <option value="$PROJECT_DIR$/Galaga-Exercise-2/ZigZagDown.cs" />
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Taxi/Player.cs" />
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" />
+        <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs" />
       </list>
     </option>
   </component>
@@ -264,7 +280,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/SpaceTaxi-1.csproj" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-1.csproj" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -338,12 +354,12 @@
       <workItem from="1553081009731" duration="8383000" />
       <workItem from="1553610325338" duration="4166000" />
       <workItem from="1553619128650" duration="5650000" />
-      <workItem from="1554805450254" duration="758000" />
+      <workItem from="1554805450254" duration="1247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113720000" />
+    <option name="totallyTimeSpent" value="114301000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -377,7 +393,7 @@
       <window_info anchor="bottom" id="Unit Tests" order="12" weight="0.49150142" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Build" order="15" weight="0.3286119" />
+      <window_info anchor="bottom" id="Build" order="15" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -457,7 +473,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/Galaga-Exercise-3/Program.cs" />
     <entry file="file://$USER_HOME$/Desktop/Galaga-Exercise-3/Score.cs" />
     <entry file="file://$USER_HOME$/Desktop/Galaga-Exercise-3/PlayerShot.cs" />
     <entry file="file://$USER_HOME$/Desktop/Galaga-Exercise-3/GalagaBus.cs" />
@@ -1141,7 +1156,7 @@
     <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Taxi/Player.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
           <folding>
             <marker date="1554805978643" expanded="true" signature="6:120" ph="..." />
             <marker date="1554805978643" expanded="true" signature="144:1751" ph="{...}" />
@@ -1159,8 +1174,8 @@
     </entry>
     <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="187">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
           <folding>
             <marker date="1554805990087" expanded="false" signature="6:64" ph="..." />
             <marker date="1554805990087" expanded="true" signature="235:5422" ph="{...}" />
@@ -1182,6 +1197,18 @@
             <marker date="1554805990087" expanded="true" signature="4914:5036" ph="{...}" />
             <marker date="1554805990087" expanded="true" signature="5099:5404" ph="{...}" />
             <marker date="1554805990087" expanded="true" signature="5147:5390" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <marker date="1554806485647" expanded="true" signature="22:183" ph="{...}" />
+            <marker date="1554806485647" expanded="true" signature="51:181" ph="{...}" />
+            <marker date="1554806485647" expanded="true" signature="100:175" ph="{...}" />
           </folding>
         </state>
       </provider>
