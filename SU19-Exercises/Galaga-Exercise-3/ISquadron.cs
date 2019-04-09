@@ -7,7 +7,7 @@ namespace Galaga_Exercise_3 {
             EntityContainer<Enemy> Enemies { get; }
             int MaxEnemies { get; }
             void CreateEnemies(List<Image> enemyStrides);
-            void CreateEnemiesSpot(List<Image> enemyStrides);
-            void CreateEnemiesZig(List<Image> enemyStrides); 
+//            void CreateEnemiesSpot(List<Image> enemyStrides);
+//            void CreateEnemiesZig(List<Image> enemyStrides); 
         }
 }

@@ -2,6 +2,7 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1" />
     <content url="file://$MODULE_DIR$/../../../DIKUArcade/DIKUArcade" />
     <content url="file://$MODULE_DIR$/../.." />
     <orderEntry type="sourceFolder" forTests="false" />
