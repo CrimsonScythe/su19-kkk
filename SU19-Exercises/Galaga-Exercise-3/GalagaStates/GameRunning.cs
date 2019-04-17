@@ -146,7 +146,7 @@ namespace Galaga_Exercise_3.GalagaStates{
 
             foreach (var elem in enemies) {
                 Enemies.AddStationaryEntity(elem);
-            }    
+            }        
         }
 
         public void CreateEnemiesZig(List<Image> enemyStrides) {

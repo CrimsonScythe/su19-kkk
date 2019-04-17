@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASCII Loader.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Taxi\Orientation.cs" />
     <Compile Include="Taxi\Player.cs" />
@@ -55,6 +56,10 @@
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Levels\short-n-sweet.txt" />
+    <Content Include="Levels\the-beach.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

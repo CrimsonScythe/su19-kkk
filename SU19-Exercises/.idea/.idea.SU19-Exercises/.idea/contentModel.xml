@@ -201,8 +201,13 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="SpaceTaxi-1" t="IncludeRecursive">
         <e p="App.config" t="Include" />
+        <e p="ASCII Loader.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="Levels" t="Include">
+          <e p="short-n-sweet.txt" t="Include" />
+          <e p="the-beach.txt" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
