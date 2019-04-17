@@ -22,9 +22,22 @@ namespace SpaceTaxi_1 {
             regex = new Regex("\\bPlatforms");
             
             var ppp = regex.Split(fileLoaded);
-
-            Console.WriteLine(ppp[1]);
             
+            StringReader stringReader = new StringReader(ppp[1].ToString());
+
+            string current = stringReader.ReadLine();
+            
+            while (current != null) {
+//                Console.WriteLine(current);
+                if (!current.Contains(":") && !current.Equals("")) {
+                    legendPairs.Add(new Tuple<string, string>());
+                }
+                current = stringReader.ReadLine();
+            }
+
+            
+            stringReader.ReadLine();
+
             legendPairs = new List<Tuple<string, string>>();
             
             legendPairs.Add(new Tuple<string, string>("s","s"));
