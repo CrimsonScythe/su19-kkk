@@ -10,18 +10,23 @@ namespace SpaceTaxi_1 {
         private string fileName;
         private string fileLoaded;
         private List<Tuple<string, string>> legendPairs;
+        private string Map;
         private Regex regex;
         
         public AsciiLoader(string fileName) {
             this.fileName = fileName;
+            
         }
 
+        
         public void ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
 
             regex = new Regex("\\bPlatforms");
             
             var ppp = regex.Split(fileLoaded);
+
+            Map = ppp[0];
             
             StringReader stringReader = new StringReader(ppp[1].ToString());
 
@@ -40,6 +45,9 @@ namespace SpaceTaxi_1 {
             foreach (var pair in legendPairs) {
                 Console.WriteLine(pair);
             }
+            
+            LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
+            levelCreator.CreateLevel();
         }
         
         private string GetLevelFilePath(string filename) {

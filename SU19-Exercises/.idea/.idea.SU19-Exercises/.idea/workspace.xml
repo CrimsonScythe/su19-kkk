@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SpaceTaxi-1/LevelCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-1.csproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+            <state relative-caret-position="221">
+              <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
               <folding>
                 <marker date="1554805990087" expanded="false" signature="6:211" ph="..." />
                 <marker date="1554805990087" expanded="true" signature="235:5422" ph="{...}" />
@@ -46,12 +51,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Program.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
               <folding>
-                <marker date="1555494835299" expanded="true" signature="22:334" ph="{...}" />
-                <marker date="1555494835299" expanded="true" signature="51:332" ph="{...}" />
-                <marker date="1555494835299" expanded="true" signature="100:326" ph="{...}" />
+                <marker date="1555506995001" expanded="true" signature="22:360" ph="{...}" />
+                <marker date="1555506995001" expanded="true" signature="51:358" ph="{...}" />
+                <marker date="1555506995001" expanded="true" signature="100:352" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -66,23 +71,57 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="459">
+              <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
               <folding>
-                <marker date="1555505430688" expanded="false" signature="6:128" ph="..." />
-                <marker date="1555505430688" expanded="true" signature="152:2070" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="183:2068" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="401:450" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="483:1381" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="932:1267" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="1047:1202" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="1315:1371" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="1448:2053" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="1671:1720" ph="{...}" />
-                <marker date="1555505430688" expanded="true" signature="1906:2017" ph="{...}" />
+                <marker date="1555507312577" expanded="false" signature="6:128" ph="..." />
+                <marker date="1555507312577" expanded="true" signature="152:2276" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="183:2274" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="429:491" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="533:1587" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="1009:1344" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="1124:1279" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="1392:1448" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="1654:2259" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="1877:1926" ph="{...}" />
+                <marker date="1555507312577" expanded="true" signature="2112:2223" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/LevelCreator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+              <folding>
+                <marker date="1555507312281" expanded="true" signature="6:47" ph="..." />
+                <marker date="1555507312281" expanded="true" signature="90:450" ph="{...}" />
+                <marker date="1555507312281" expanded="true" signature="122:448" ph="{...}" />
+                <marker date="1555507312281" expanded="true" signature="299:382" ph="{...}" />
+                <marker date="1555507312281" expanded="true" signature="418:442" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Image.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <marker date="1552400697607" expanded="false" signature="6:40" ph="..." />
+                <marker date="1552400697607" expanded="true" signature="72:503" ph="{...}" />
+                <marker date="1552400697607" expanded="true" signature="110:501" ph="{...}" />
+                <marker date="1552400697607" expanded="true" signature="186:243" ph="{...}" />
+                <marker date="1552400697607" expanded="true" signature="283:330" ph="{...}" />
+                <marker date="1552400697607" expanded="true" signature="372:418" ph="{...}" />
+                <marker date="1552400697607" expanded="true" signature="456:495" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -179,6 +218,7 @@
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GamePaused.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/Taxi/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/ISquadron.cs" root0="FORCE_HIGHLIGHTING" />
@@ -187,6 +227,7 @@
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Window.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/LevelCreator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Player.cs" root0="FORCE_HIGHLIGHTING" />
@@ -206,7 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Galaga-Exercise-1/Game2.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-1/Score.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-1/Game.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-1/Player.cs" />
@@ -254,8 +294,9 @@
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" />
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" />
-        <option value="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs" />
+        <option value="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" />
+        <option value="$PROJECT_DIR$/SpaceTaxi-1/LevelCreator.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" />
       </list>
     </option>
@@ -393,12 +434,12 @@
       <workItem from="1555007637097" duration="536000" />
       <workItem from="1555076024281" duration="1264000" />
       <workItem from="1555491449722" duration="6816000" />
-      <workItem from="1555502298857" duration="3476000" />
+      <workItem from="1555502298857" duration="5003000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130396000" />
+    <option name="totallyTimeSpent" value="131923000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -413,14 +454,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26174498" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26174498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4164306" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4164306" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,23 +554,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Score.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <marker date="1552403334925" expanded="false" signature="6:63" ph="..." />
-            <marker date="1552403334925" expanded="true" signature="93:615" ph="{...}" />
-            <marker date="1552403334925" expanded="true" signature="118:613" ph="{...}" />
-            <marker date="1552403334925" expanded="true" signature="229:331" ph="{...}" />
-            <marker date="1552403334925" expanded="true" signature="364:400" ph="{...}" />
-            <marker date="1552403334925" expanded="true" signature="436:607" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Galaga_Testing/GameStateTests.cs" />
-    <entry file="file://$PROJECT_DIR$/Galaga_Testinng/Tests.cs" />
     <entry file="file://$PROJECT_DIR$/Galaga_Testing/Galaga_Tests.cs" />
     <entry file="file://$PROJECT_DIR$/Galaga_Testing/Tests.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1238,10 +1262,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs" />
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Taxi/Player.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="63" lean-forward="true" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
+          <folding>
+            <marker date="1554805978643" expanded="false" signature="6:120" ph="..." />
+            <marker date="1554805978643" expanded="true" signature="144:1751" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="200:1749" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="430:824" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="915:994" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="1053:1137" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="1174:1440" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="1529:1743" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="1587:1733" ph="{...}" />
+            <marker date="1554805978643" expanded="true" signature="1632:1719" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+        <state relative-caret-position="221">
+          <caret line="53" column="32" lean-forward="true" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
           <folding>
             <marker date="1554805990087" expanded="false" signature="6:211" ph="..." />
             <marker date="1554805990087" expanded="true" signature="235:5422" ph="{...}" />
@@ -1274,14 +1317,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Image.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <marker date="1552400697607" expanded="false" signature="6:40" ph="..." />
+            <marker date="1552400697607" expanded="true" signature="72:503" ph="{...}" />
+            <marker date="1552400697607" expanded="true" signature="110:501" ph="{...}" />
+            <marker date="1552400697607" expanded="true" signature="186:243" ph="{...}" />
+            <marker date="1552400697607" expanded="true" signature="283:330" ph="{...}" />
+            <marker date="1552400697607" expanded="true" signature="372:418" ph="{...}" />
+            <marker date="1552400697607" expanded="true" signature="456:495" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state relative-caret-position="153">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding>
-            <marker date="1555494835299" expanded="true" signature="22:334" ph="{...}" />
-            <marker date="1555494835299" expanded="true" signature="51:332" ph="{...}" />
-            <marker date="1555494835299" expanded="true" signature="100:326" ph="{...}" />
+            <marker date="1555506995001" expanded="true" signature="22:360" ph="{...}" />
+            <marker date="1555506995001" expanded="true" signature="51:358" ph="{...}" />
+            <marker date="1555506995001" expanded="true" signature="100:352" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1295,20 +1354,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="459">
+          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
           <folding>
-            <marker date="1555505430688" expanded="false" signature="6:128" ph="..." />
-            <marker date="1555505430688" expanded="true" signature="152:2070" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="183:2068" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="401:450" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="483:1381" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="932:1267" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="1047:1202" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="1315:1371" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="1448:2053" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="1671:1720" ph="{...}" />
-            <marker date="1555505430688" expanded="true" signature="1906:2017" ph="{...}" />
+            <marker date="1555507312577" expanded="false" signature="6:128" ph="..." />
+            <marker date="1555507312577" expanded="true" signature="152:2276" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="183:2274" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="429:491" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="533:1587" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="1009:1344" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="1124:1279" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="1392:1448" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="1654:2259" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="1877:1926" ph="{...}" />
+            <marker date="1555507312577" expanded="true" signature="2112:2223" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/LevelCreator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <marker date="1555507312281" expanded="true" signature="6:47" ph="..." />
+            <marker date="1555507312281" expanded="true" signature="90:450" ph="{...}" />
+            <marker date="1555507312281" expanded="true" signature="122:448" ph="{...}" />
+            <marker date="1555507312281" expanded="true" signature="299:382" ph="{...}" />
+            <marker date="1555507312281" expanded="true" signature="418:442" ph="{...}" />
           </folding>
         </state>
       </provider>
