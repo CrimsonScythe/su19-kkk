@@ -42,9 +42,9 @@ namespace SpaceTaxi_1 {
                 current = stringReader.ReadLine();
             }
 
-            foreach (var pair in legendPairs) {
-                Console.WriteLine(pair);
-            }
+//            foreach (var pair in legendPairs) {
+//                Console.WriteLine(pair);
+//            }
             
             LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
             levelCreator.CreateLevel();
