@@ -1,25 +1,36 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace SpaceTaxi_1 {
     public class AsciiLoader {
         
         private string fileName;
         private string fileLoaded;
-//        private string defaultPath = @"C:\su19-kkk\SU19-Exercises\SpaceTaxi-1\Levels\";
-//        private  legendHolder;
+        private List<Tuple<string, string>> legendPairs;
+        private Regex regex;
         
         public AsciiLoader(string fileName) {
             this.fileName = fileName;
-
         }
 
         public void ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
 
-//            Console.WriteLine(Path.GetDirectoryName());
-//            Console.WriteLine("df");
-            Console.WriteLine(fileLoaded);
+            regex = new Regex("\\bPlatforms");
+            
+            var ppp = regex.Split(fileLoaded);
+
+            Console.WriteLine(ppp[1]);
+            
+            legendPairs = new List<Tuple<string, string>>();
+            
+            legendPairs.Add(new Tuple<string, string>("s","s"));
+
+//            Console.WriteLine(legendPairs[0]);
+//            Console.WriteLine(fileLoaded);
         }
         
         private string GetLevelFilePath(string filename) {
