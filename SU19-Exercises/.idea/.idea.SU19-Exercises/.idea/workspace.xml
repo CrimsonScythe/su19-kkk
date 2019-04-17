@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-1.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,15 +61,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="239">
+              <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
               <folding>
-                <marker date="1555494899904" expanded="true" signature="6:30" ph="..." />
-                <marker date="1555494899904" expanded="true" signature="54:635" ph="{...}" />
-                <marker date="1555494899904" expanded="true" signature="85:633" ph="{...}" />
-                <marker date="1555494899904" expanded="true" signature="342:418" ph="{...}" />
-                <marker date="1555494899904" expanded="true" signature="451:618" ph="{...}" />
-                <marker date="1555494899904" expanded="true" signature="525:608" ph="/* Console.WriteLine(&quot;df&quot;); ... */" />
+                <marker date="1555495616491" expanded="true" signature="6:30" ph="..." />
+                <marker date="1555495616491" expanded="true" signature="54:1335" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="85:1333" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="164:286" ph="/* private string defaultPath = @&quot;C:\su19-kkk\SU19-Exercises\SpaceTaxi-1\Levels\&quot;; ... */" />
+                <marker date="1555495616491" expanded="true" signature="340:390" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="423:646" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="497:593" ph="/* Console.WriteLine(Path.GetDirectoryName()); ... */" />
+                <marker date="1555495616491" expanded="true" signature="713:1318" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="936:985" ph="{...}" />
+                <marker date="1555495616491" expanded="true" signature="1171:1282" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -236,8 +236,8 @@
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Game.cs" />
         <option value="$USER_HOME$/Documents/su/SpaceTaxi-1-1/SpaceTaxi-1/Program.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-3/GalagaStates/GameRunning.cs" />
-        <option value="$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/Program.cs" />
+        <option value="$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs" />
       </list>
     </option>
@@ -377,12 +377,12 @@
       <workItem from="1554988077816" duration="979000" />
       <workItem from="1555007637097" duration="536000" />
       <workItem from="1555076024281" duration="1264000" />
-      <workItem from="1555491449722" duration="3229000" />
+      <workItem from="1555491449722" duration="3758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123333000" />
+    <option name="totallyTimeSpent" value="123862000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,14 +397,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25838926" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25838926" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3796034" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3796034" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1256,13 +1256,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1292,6 +1285,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1306,15 +1306,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/ASCII Loader.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        <state relative-caret-position="239">
+          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding>
-            <marker date="1555494899904" expanded="true" signature="6:30" ph="..." />
-            <marker date="1555494899904" expanded="true" signature="54:635" ph="{...}" />
-            <marker date="1555494899904" expanded="true" signature="85:633" ph="{...}" />
-            <marker date="1555494899904" expanded="true" signature="342:418" ph="{...}" />
-            <marker date="1555494899904" expanded="true" signature="451:618" ph="{...}" />
-            <marker date="1555494899904" expanded="true" signature="525:608" ph="/* Console.WriteLine(&quot;df&quot;); ... */" />
+            <marker date="1555495616491" expanded="true" signature="6:30" ph="..." />
+            <marker date="1555495616491" expanded="true" signature="54:1335" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="85:1333" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="164:286" ph="/* private string defaultPath = @&quot;C:\su19-kkk\SU19-Exercises\SpaceTaxi-1\Levels\&quot;; ... */" />
+            <marker date="1555495616491" expanded="true" signature="340:390" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="423:646" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="497:593" ph="/* Console.WriteLine(Path.GetDirectoryName()); ... */" />
+            <marker date="1555495616491" expanded="true" signature="713:1318" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="936:985" ph="{...}" />
+            <marker date="1555495616491" expanded="true" signature="1171:1282" ph="{...}" />
           </folding>
         </state>
       </provider>
