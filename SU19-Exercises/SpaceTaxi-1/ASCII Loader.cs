@@ -25,25 +25,21 @@ namespace SpaceTaxi_1 {
             
             StringReader stringReader = new StringReader(ppp[1].ToString());
 
+            legendPairs = new List<Tuple<string, string>>();
+            
             string current = stringReader.ReadLine();
             
             while (current != null) {
 //                Console.WriteLine(current);
                 if (!current.Contains(":") && !current.Equals("")) {
-                    legendPairs.Add(new Tuple<string, string>());
+                    legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], new Regex("\\s").Split(current)[1]));
                 }
                 current = stringReader.ReadLine();
             }
 
-            
-            stringReader.ReadLine();
-
-            legendPairs = new List<Tuple<string, string>>();
-            
-            legendPairs.Add(new Tuple<string, string>("s","s"));
-
-//            Console.WriteLine(legendPairs[0]);
-//            Console.WriteLine(fileLoaded);
+            foreach (var pair in legendPairs) {
+                Console.WriteLine(pair);
+            }
         }
         
         private string GetLevelFilePath(string filename) {
