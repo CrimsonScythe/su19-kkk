@@ -16,6 +16,8 @@ namespace SpaceTaxi_1 {
         private Player player;
         private Window win;
 
+        private List<Obstacle> obstacles;
+
         public Game() {
             // window
             win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
@@ -49,6 +51,12 @@ namespace SpaceTaxi_1 {
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
+            
+            //make level
+            obstacles = new List<Obstacle>();
+            
+            AsciiLoader asciiLoader = new AsciiLoader("short-n-sweet.txt");
+            obstacles = asciiLoader.ReadText();
         }
 
         public void GameLoop() {
@@ -65,6 +73,10 @@ namespace SpaceTaxi_1 {
                     backGroundImage.RenderEntity();
                     player.RenderPlayer();
 
+                    foreach (var obstacle in obstacles) {
+                        obstacle.RenderEntity();
+                    }
+                    
                     win.SwapBuffers();
                 }
 

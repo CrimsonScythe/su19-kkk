@@ -2,20 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using DIKUArcade.Entities;
+using DIKUArcade.Graphics;
+using DIKUArcade.Math;
 
 namespace SpaceTaxi_1 {
     public class LevelCreator {
         private List<Tuple<string, string>> legendPairs;
         private string Map;
-        private int posX;
-        private int posY;
+        private float posX = 0;
+        private float posY = 0;
+        private List<Obstacle> obstacles;
         
         public LevelCreator(List<Tuple<string, string>> legendPairs, string Map) {
             this.legendPairs = legendPairs;
             this.Map = Map;
+            obstacles = new List<Obstacle>();
         }
 
-        public void CreateLevel() {
+        public List<Obstacle> CreateLevel() {
             StringReader stringReader = new StringReader(Map);
            
             
@@ -35,7 +40,9 @@ namespace SpaceTaxi_1 {
 //                    Console.WriteLine(legendPairs[0]);
                     foreach (var pair in legendPairs) {
                         if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
-                            Console.WriteLine(pair.Item2);
+                            obstacles.Add(new Obstacle(new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.5f, 0.5f)),
+                                new Image(GetAssetsFilePath(pair.Item2))));
+                            posX =+ 0.1f;
                         }
                     }
 //                    if(legendPairs.Contains(new Tuple<string, string>(System.Convert.ToChar(currentChar).ToString()+")", "white-square.png")))
@@ -48,7 +55,30 @@ namespace SpaceTaxi_1 {
                 currentLine = stringReader.ReadLine();
             }
 
+            return obstacles;
+        }
+
+            
+        private string GetAssetsFilePath(string filename) {
+            // Find base path.
+            DirectoryInfo dir = new DirectoryInfo(Path.GetDirectoryName(
+                System.Reflection.Assembly.GetExecutingAssembly().Location));
+
+            while (dir.Name != "bin") {
+                dir = dir.Parent;
+            }
+            dir = dir.Parent;
+
+            // Find level file.
+            string path = Path.Combine(dir.FullName.ToString(), "Assets","Images", filename);
+
+            if (!File.Exists(path)) {
+                throw new FileNotFoundException($"Error: The file \"{path}\" does not exist.");
+            }
+
+            return path;
         }
         
     }
+
 }

@@ -19,7 +19,7 @@ namespace SpaceTaxi_1 {
         }
 
         
-        public void ReadText() {
+        public List<Obstacle> ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
 
             regex = new Regex("\\bPlatforms");
@@ -47,7 +47,7 @@ namespace SpaceTaxi_1 {
 //            }
             
             LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
-            levelCreator.CreateLevel();
+            return levelCreator.CreateLevel();
         }
         
         private string GetLevelFilePath(string filename) {
