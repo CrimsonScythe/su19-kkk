@@ -16,7 +16,6 @@ namespace SpaceTaxi_1 {
         }
 
         public void CreateLevel() {
-            
             StringReader stringReader = new StringReader(Map);
            
             
@@ -30,7 +29,19 @@ namespace SpaceTaxi_1 {
             while (currentLine != null) {
 
                 while (currentChar != -1) {
-                    Console.WriteLine(System.Convert.ToChar(currentChar));
+//                    Console.WriteLine(System.Convert.ToChar(currentChar).ToString());
+                   
+                    //if (legendPairs.IndexOf(new Tuple<string, string>(System.Convert.ToString(currentChar, "")))
+//                    Console.WriteLine(legendPairs[0]);
+                    foreach (var pair in legendPairs) {
+                        if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
+                            Console.WriteLine(pair.Item2);
+                        }
+                    }
+//                    if(legendPairs.Contains(new Tuple<string, string>(System.Convert.ToChar(currentChar).ToString()+")", "white-square.png")))
+//                        Console.WriteLine("currentChar works");
+                        
+                        
                     currentChar = stringReader2.Read();
                 }
                                 
@@ -38,5 +49,6 @@ namespace SpaceTaxi_1 {
             }
 
         }
+        
     }
 }
