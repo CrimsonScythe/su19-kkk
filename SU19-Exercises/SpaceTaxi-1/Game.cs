@@ -55,7 +55,8 @@ namespace SpaceTaxi_1 {
             //make level
             obstacles = new List<Obstacle>();
             
-            AsciiLoader asciiLoader = new AsciiLoader("short-n-sweet.txt");
+//            AsciiLoader asciiLoader = new AsciiLoader("short-n-sweet.txt");
+            AsciiLoader asciiLoader = new AsciiLoader("the-beach.txt");
             obstacles = asciiLoader.ReadText();
 
             Console.WriteLine(obstacles.Count);
