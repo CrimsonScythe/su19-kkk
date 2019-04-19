@@ -57,6 +57,8 @@ namespace SpaceTaxi_1 {
             
             AsciiLoader asciiLoader = new AsciiLoader("short-n-sweet.txt");
             obstacles = asciiLoader.ReadText();
+
+            Console.WriteLine(obstacles.Count);
         }
 
         public void GameLoop() {
@@ -92,6 +94,7 @@ namespace SpaceTaxi_1 {
             switch (key) {
             case "KEY_ESCAPE":
                 win.CloseWindow();
+                break;
                 break;
             case "KEY_F12":
                 Console.WriteLine("Saving screenshot");

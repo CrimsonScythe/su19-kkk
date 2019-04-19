@@ -11,7 +11,7 @@ namespace SpaceTaxi_1 {
         private List<Tuple<string, string>> legendPairs;
         private string Map;
         private float posX = 0;
-        private float posY = 0;
+        private float posY = 0.95f;
         private List<Obstacle> obstacles;
         
         public LevelCreator(List<Tuple<string, string>> legendPairs, string Map) {
@@ -34,25 +34,30 @@ namespace SpaceTaxi_1 {
             while (currentLine != null) {
 
                 while (currentChar != -1) {
+
 //                    Console.WriteLine(System.Convert.ToChar(currentChar).ToString());
-                   
-                    //if (legendPairs.IndexOf(new Tuple<string, string>(System.Convert.ToString(currentChar, "")))
-//                    Console.WriteLine(legendPairs[0]);
+
                     foreach (var pair in legendPairs) {
-                        if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
-                            obstacles.Add(new Obstacle(new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.5f, 0.5f)),
-                                new Image(GetAssetsFilePath(pair.Item2))));
-                            posX =+ 0.1f;
-                        }
-                    }
-//                    if(legendPairs.Contains(new Tuple<string, string>(System.Convert.ToChar(currentChar).ToString()+")", "white-square.png")))
-//                        Console.WriteLine("currentChar works");
                         
+                        if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
+                            obstacles.Add(new Obstacle(new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.02f, 0.05f)),
+                                new Image(GetAssetsFilePath(pair.Item2))));
+                            posX += 0.02f;
+                        
+                            Console.WriteLine(System.Convert.ToChar(currentChar).ToString());
+                        }  if (System.Convert.ToChar(currentChar).ToString() == "^") {
+//                            posX += 0.02f;
+                            Console.WriteLine("true");
+                        } 
+                    }
                         
                     currentChar = stringReader2.Read();
                 }
-                                
+
+//                posX = 0;
+//                posY -= 0.1f;
                 currentLine = stringReader.ReadLine();
+               
             }
 
             return obstacles;
