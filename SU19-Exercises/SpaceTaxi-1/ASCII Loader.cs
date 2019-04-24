@@ -16,7 +16,7 @@ namespace SpaceTaxi_1 {
         public AsciiLoader(string fileName) {
             this.fileName = fileName;
             
-        }
+        } 
 
         
         public List<Obstacle> ReadText() {
@@ -35,7 +35,7 @@ namespace SpaceTaxi_1 {
             string current = stringReader.ReadLine();
             
             while (current != null) {
-//                Console.WriteLine(current);
+//                Console.WriteLine(current);    
                 if (!current.Contains(":") && !current.Equals("")) {
                     legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], new Regex("\\s").Split(current)[1]));
                 }
