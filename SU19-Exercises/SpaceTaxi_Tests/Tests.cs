@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
+using System.Security.Policy;
 using NUnit.Framework;
 using SpaceTaxi_1;
 
-namespace SpaceTaxi_Tests {
+namespace SpaceTaxi_Test {
     [TestFixture]
     public class Tests {
         private Game game; 
@@ -12,10 +14,17 @@ namespace SpaceTaxi_Tests {
         }
         
         [TestCase("short-n-sweet.txt")]
-        [TestCase("the-beach.txt")]
-        public void FirstTest(string fileName) {
+        public void LoadFileNameTest(string fileName) {
             game.CreateLevel(fileName);
             Assert.That(game.currentLevel,Is.InstanceOf<Level>());
         }
+
+        [TestCase("")]
+        [TestCase("short-beach.txt")]
+        [TestCase("the-n-sweet.txt")]
+        public void TestNull(string fileName) {
+            Assert.Throws<FileNotFoundException>((() =>  game.CreateLevel(fileName)));
+            
+        }      
     }
 }
