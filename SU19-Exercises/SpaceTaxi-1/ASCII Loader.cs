@@ -5,8 +5,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 
 namespace SpaceTaxi_1 {
-    public class AsciiLoader {
-        
+    public class AsciiLoader {        
         private string fileName;
         private string fileLoaded;
         private List<Tuple<string, string>> legendPairs;
@@ -14,38 +13,25 @@ namespace SpaceTaxi_1 {
         private Regex regex;
         
         public AsciiLoader(string fileName) {
-            this.fileName = fileName;
-            
+            this.fileName = fileName;    
         } 
-
         
         public List<Obstacle> ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
-
-            regex = new Regex("\\bPlatforms");
-            
+            regex = new Regex("\\bPlatforms");            
             var ppp = regex.Split(fileLoaded);
-
-            Map = ppp[0];
-            
+            Map = ppp[0];          
             StringReader stringReader = new StringReader(ppp[1].ToString());
-
-            legendPairs = new List<Tuple<string, string>>();
-            
+            legendPairs = new List<Tuple<string, string>>();           
             string current = stringReader.ReadLine();
             
             while (current != null) {
-//                Console.WriteLine(current);    
                 if (!current.Contains(":") && !current.Equals("")) {
                     legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], new Regex("\\s").Split(current)[1]));
                 }
                 current = stringReader.ReadLine();
             }
 
-//            foreach (var pair in legendPairs) {
-//                Console.WriteLine(pair);
-//            }
-            
             LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
             return levelCreator.CreateLevel();
         }
@@ -66,9 +52,7 @@ namespace SpaceTaxi_1 {
             if (!File.Exists(path)) {
                 throw new FileNotFoundException($"Error: The file \"{path}\" does not exist.");
             }
-
             return path;
-        }
-        
+        }   
     }
 }
