@@ -16,9 +16,7 @@ namespace SpaceTaxi_1 {
         private Player player;
         private Window win;
 
-        private List<Obstacle> obstacles;
-
-        private Level currentLevel;
+        public Level currentLevel;
 
         public Game() {
             // window
@@ -54,9 +52,6 @@ namespace SpaceTaxi_1 {
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
             
-            //make level
-            obstacles = new List<Obstacle>();
-            
             
         }
 
@@ -67,7 +62,7 @@ namespace SpaceTaxi_1 {
             
             currentLevel = new Level(txt.Item1, txt.Item2);
             
-//            obstacles = asciiLoader.ReadText();
+
         }
 
         public void GameLoop() {
