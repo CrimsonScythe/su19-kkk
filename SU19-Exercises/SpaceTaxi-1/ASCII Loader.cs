@@ -16,7 +16,7 @@ namespace SpaceTaxi_1 {
             this.fileName = fileName;    
         } 
         
-        public List<Obstacle> ReadText() {
+        public (List<Tuple<string,string>>, string) ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
             regex = new Regex("\\bPlatforms");            
             var ppp = regex.Split(fileLoaded);
@@ -32,9 +32,30 @@ namespace SpaceTaxi_1 {
                 current = stringReader.ReadLine();
             }
 
-            LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
-            return levelCreator.CreateLevel();
+            return (legendPairs, Map);
+//            LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
+//            return levelCreator.CreateLevel();
         }
+        
+//        public List<Obstacle> ReadText() {
+//            fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
+//            regex = new Regex("\\bPlatforms");            
+//            var ppp = regex.Split(fileLoaded);
+//            Map = ppp[0];          
+//            StringReader stringReader = new StringReader(ppp[1].ToString());
+//            legendPairs = new List<Tuple<string, string>>();           
+//            string current = stringReader.ReadLine();
+//            
+//            while (current != null) {
+//                if (!current.Contains(":") && !current.Equals("")) {
+//                    legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], new Regex("\\s").Split(current)[1]));
+//                }
+//                current = stringReader.ReadLine();
+//            }
+//
+//            LevelCreator levelCreator = new LevelCreator(legendPairs, Map);
+//            return levelCreator.CreateLevel();
+//        }
         
         private string GetLevelFilePath(string filename) {
             // Find base path.

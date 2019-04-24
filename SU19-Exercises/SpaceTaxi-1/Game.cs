@@ -18,6 +18,8 @@ namespace SpaceTaxi_1 {
 
         private List<Obstacle> obstacles;
 
+        private Level currentLevel;
+
         public Game() {
             // window
             win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
@@ -55,12 +57,16 @@ namespace SpaceTaxi_1 {
             //make level
             obstacles = new List<Obstacle>();
             
-            AsciiLoader asciiLoader = new AsciiLoader("short-n-sweet.txt");
-            AsciiLoader asciiLoader2 = new AsciiLoader("the-beach.txt");
             
-            // change between levels 
-            //obstacles = asciiLoader.ReadText();
-            obstacles = asciiLoader2.ReadText();
+        }
+
+        public void CreateLevel(string fileName) {
+            AsciiLoader asciiLoader = new AsciiLoader(fileName);
+            var txt = asciiLoader.ReadText();
+            
+            currentLevel = new Level(txt.Item1, txt.Item2);
+            
+//            obstacles = asciiLoader.ReadText();
         }
 
         public void GameLoop() {
@@ -77,7 +83,7 @@ namespace SpaceTaxi_1 {
                     backGroundImage.RenderEntity();
                     player.RenderPlayer();
 
-                    foreach (var obstacle in obstacles) {
+                    foreach (var obstacle in currentLevel.obstacles) {
                         obstacle.RenderEntity();
                     }
                     

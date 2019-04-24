@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ASCII Loader.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="LevelCreator.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="Taxi\Orientation.cs" />
     <Compile Include="Taxi\Player.cs" />
