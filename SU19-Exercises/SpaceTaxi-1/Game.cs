@@ -61,8 +61,9 @@ namespace SpaceTaxi_1 {
         }
 
         public void CreateLevel(string fileName) {
-            AsciiLoader asciiLoader = new AsciiLoader(fileName);
+            AsciiLoader asciiLoader = new AsciiLoader(fileName);    
             var txt = asciiLoader.ReadText();
+            
             
             currentLevel = new Level(txt.Item1, txt.Item2);
             
