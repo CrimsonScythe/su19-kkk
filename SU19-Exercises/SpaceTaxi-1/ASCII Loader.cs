@@ -12,29 +12,40 @@ namespace SpaceTaxi_1 {
         private string Map;
         private Regex regex;
         
+        // AsciiLoader constructor given a string fileName.
         public AsciiLoader(string fileName) {
             this.fileName = fileName;    
         } 
         
+        /*
+         Uses regex to create a list of a tuple. The tuple contains two strings.
+         The two strings are the ASCII map and the key legends, respectively.                 
+        */
         public (List<Tuple<string,string>>, string) ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
+            // regex spilts the file at the string Platforms
             regex = new Regex("\\bPlatforms");            
             var ppp = regex.Split(fileLoaded);
+            // the map at ppp element 0
             Map = ppp[0];          
             StringReader stringReader = new StringReader(ppp[1].ToString());
             legendPairs = new List<Tuple<string, string>>();           
             string current = stringReader.ReadLine();
             
+            // checks if the current variable is not empty, a ":" or an empty string
             while (current != null) {
                 if (!current.Contains(":") && !current.Equals("")) {
-                    legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], new Regex("\\s").Split(current)[1]));
+                    /*
+                     as long as current is not empty, an empty string or ":" legendPairs will add
+                     the current element.
+                    */
+                    legendPairs.Add(new Tuple<string, string>(new Regex("\\s").Split(current)[0], 
+                        new Regex("\\s").Split(current)[1]));
                 }
                 current = stringReader.ReadLine();
             }
-
             return (legendPairs, Map);
         }
-        
         
         private string GetLevelFilePath(string filename) {
             // Find base path.

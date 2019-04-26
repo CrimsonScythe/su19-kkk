@@ -15,7 +15,7 @@ namespace SpaceTaxi_1 {
         private GameTimer gameTimer;
         private Player player;
         private Window win;
-
+        private List<Obstacle> obstacles;
         public Level currentLevel;
 
         public Game() {
@@ -52,17 +52,16 @@ namespace SpaceTaxi_1 {
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
             
-            
+            //make level
+            obstacles = new List<Obstacle>();                      
         }
 
+        // Creates the level with a given filename (string)
         public void CreateLevel(string fileName) {
             AsciiLoader asciiLoader = new AsciiLoader(fileName);    
             var txt = asciiLoader.ReadText();
-            
-            
-            currentLevel = new Level(txt.Item1, txt.Item2);
-            
-
+            // currentLevel changes to Item1 and Item2 from the txt variable.      
+            currentLevel = new Level(txt.Item1, txt.Item2);           
         }
 
         public void GameLoop() {
@@ -81,8 +80,7 @@ namespace SpaceTaxi_1 {
 
                     foreach (var obstacle in currentLevel.obstacles) {
                         obstacle.RenderEntity();
-                    }
-                    
+                    }                   
                     win.SwapBuffers();
                 }
 
