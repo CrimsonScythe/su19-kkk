@@ -21,6 +21,7 @@ namespace SpaceTaxi_1 {
         private Vec2F gravity = new Vec2F(0f, -0.000005f);
         private Vec2F currentVelocity = new Vec2F(0f,0f);
         
+        
         public Game() {
             // window
             win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
@@ -79,15 +80,15 @@ namespace SpaceTaxi_1 {
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
                     backGroundImage.RenderEntity();
-
                     
+
                     if (gameTimer.CapturedUpdates == 0) {
-                        currentVelocity = gravity * 1 + currentVelocity;
+                        currentVelocity = gravity + player.thrust * 1 + currentVelocity;
                     } else {
-                        currentVelocity = gravity * gameTimer.CapturedUpdates + currentVelocity;
+                        currentVelocity = gravity + player.thrust * gameTimer.CapturedUpdates + currentVelocity;
                     }
 
-                    
+                        
                     player.Entity.Shape.Move(currentVelocity);
                     
                     player.RenderPlayer();
