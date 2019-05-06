@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -44,7 +45,12 @@ namespace SpaceTaxi_1 {
         public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
             if (eventType == GameEventType.PlayerEvent) {
                 switch (gameEvent.Message) {
-                // in the future, we will be handling movement here
+                    case "BOOSTER_UPWARDS" :
+                        Console.WriteLine("up");
+                        break;
+                    case "STOP_ACCELERATE_UP" :
+                        Console.WriteLine("stop up");
+                        break;
                 }
             }
         }

@@ -45,6 +45,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="SpaceTaxi-States\Class1.cs" />
     <Compile Include="Taxi\Orientation.cs" />
     <Compile Include="Taxi\Player.cs" />
     <Compile Include="Program.cs" />

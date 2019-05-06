@@ -81,13 +81,12 @@ namespace SpaceTaxi_1 {
                     backGroundImage.RenderEntity();
 
                     
-
                     if (gameTimer.CapturedUpdates == 0) {
-                        currentVelocity.Y = gravity.Y * 1 + currentVelocity.Y;
+                        currentVelocity = gravity * 1 + currentVelocity;
                     } else {
-                        currentVelocity.Y = gravity.Y * gameTimer.CapturedUpdates + currentVelocity.Y;
+                        currentVelocity = gravity * gameTimer.CapturedUpdates + currentVelocity;
                     }
-                    
+
                     
                     player.Entity.Shape.Move(currentVelocity);
                     

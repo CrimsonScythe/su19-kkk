@@ -298,6 +298,9 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
+        <e p="SpaceTaxi-States" t="Include">
+          <e p="Class1.cs" t="Include" />
+        </e>
         <e p="Taxi" t="Include">
           <e p="Orientation.cs" t="Include" />
           <e p="Player.cs" t="Include" />
