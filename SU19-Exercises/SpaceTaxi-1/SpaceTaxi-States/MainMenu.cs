@@ -22,11 +22,14 @@ namespace SpaceTaxi_1
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-            menuButtons = new Text[2];           
+            menuButtons = new Text[3];           
             menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f,0.4f) );
-            menuButtons[1] = new Text("Quit", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
+            menuButtons[1] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f));
+            menuButtons[2] = new Text("Choose Level", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f) );
             menuButtons[0].SetColor(Color.Red);
-            menuButtons[1].SetColor(Color.White);      
+            menuButtons[1].SetColor(Color.White);
+            menuButtons[2].SetColor(Color.White);
+
             activeMenuButton = 0;
         }
         
@@ -50,7 +53,8 @@ namespace SpaceTaxi_1
             backgroundImage.RenderEntity();
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
-            
+            menuButtons[2].RenderText();
+     
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
@@ -58,29 +62,46 @@ namespace SpaceTaxi_1
             switch (keyAction) {
                 case "KEY_PRESS":
                     switch (keyValue) {
+                        
                         case "KEY_UP":
                             if (activeMenuButton == 1) {
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.White);
+                                menuButtons[2].SetColor(Color.White);
+
                                 activeMenuButton = 0;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
+                                menuButtons[2].RenderText();
                             }
                             break;
                         case "KEY_DOWN":
-                            if (activeMenuButton == 0) {
+                            if (activeMenuButton == 0)
+                            {
+                                menuButtons[0].SetColor(Color.White);
+                                menuButtons[1].SetColor(Color.White);
+                                menuButtons[2].SetColor(Color.Red);
+                                menuButtons[0].RenderText();
+                                menuButtons[1].RenderText();    
+                                menuButtons[2].RenderText();
+                                activeMenuButton = 2;
+
+                            }
+                            if (activeMenuButton == 2) {
                                 menuButtons[0].SetColor(Color.White);
                                 menuButtons[1].SetColor(Color.Red);
+                                menuButtons[2].SetColor(Color.White);
                                 activeMenuButton = 1;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
+                                menuButtons[2].RenderText();
                             }
+
+                           
                             break;
                         case "KEY_ENTER":
                             switch (activeMenuButton) {
-                                case 0:
-                                    game.CreateLevel("short-n-sweet.txt"); // other Level: "the-beach.txt"
-
+                                case 0:                             
                                     // new game button selected                                    
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
@@ -97,6 +118,14 @@ namespace SpaceTaxi_1
                                             this,
                                             "CLOSE_WINDOW",
                                             "", ""));
+                                    break;
+                                 case 2:
+                                    SpaceTaxiBus.GetBus().RegisterEvent(
+                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                            GameEventType.WindowEvent,
+                                            this,
+                                            "CREATE_LEVEL",
+                                            "", "")); 
                                     break;
                             }
                             break;
