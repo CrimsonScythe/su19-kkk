@@ -18,6 +18,9 @@ namespace SpaceTaxi_1 {
         private List<Obstacle> obstacles;
         public Level currentLevel;
 
+        private Vec2F gravity = new Vec2F(0f, -0.000005f);
+        private Vec2F currentVelocity = new Vec2F(0f,0f);
+        
         public Game() {
             // window
             win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
@@ -76,8 +79,21 @@ namespace SpaceTaxi_1 {
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
                     backGroundImage.RenderEntity();
+
+                    
+
+                    if (gameTimer.CapturedUpdates == 0) {
+                        currentVelocity.Y = gravity.Y * 1 + currentVelocity.Y;
+                    } else {
+                        currentVelocity.Y = gravity.Y * gameTimer.CapturedUpdates + currentVelocity.Y;
+                    }
+                    
+                    
+                    player.Entity.Shape.Move(currentVelocity);
+                    
                     player.RenderPlayer();
 
+                        
                     foreach (var obstacle in currentLevel.obstacles) {
                         obstacle.RenderEntity();
                     }                   
