@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/Taxi/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/Taxi/Player.cs" afterDir="false" />
-    </list>
+    <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -87,6 +83,19 @@
                 <marker date="1557144253682" expanded="true" signature="6231:6353" ph="{...}" />
                 <marker date="1557144253682" expanded="true" signature="6416:6721" ph="{...}" />
                 <marker date="1557144253682" expanded="true" signature="6464:6707" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/Class1.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <folding>
+                <marker date="1557145240093" expanded="true" signature="22:66" ph="{...}" />
+                <marker date="1557145240093" expanded="true" signature="48:64" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -234,21 +243,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Galaga-Exercise-3/Enemy.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding>
-                <marker date="1553245340474" expanded="false" signature="6:76" ph="..." />
-                <marker date="1553245340474" expanded="true" signature="106:434" ph="{...}" />
-                <marker date="1553245340474" expanded="true" signature="140:432" ph="{...}" />
-                <marker date="1553245340474" expanded="true" signature="334:426" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -361,6 +355,7 @@
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-2/Score.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/StationaryShape.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Texture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/Class1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Physics/CollisionDetection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Graphics/Text.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DIKUArcade/DIKUArcade/Entities/DynamicShape.cs" root0="FORCE_HIGHLIGHTING" />
@@ -372,7 +367,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Galaga-Exercise-2/Program.cs" />
         <option value="$PROJECT_DIR$/../DIKUArcade/DIKUArcade/EventBus/GameEventBus.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-2/Enemy.cs" />
         <option value="$PROJECT_DIR$/Galaga-Exercise-2/IMovementStrategy.cs" />
@@ -423,6 +417,7 @@
         <option value="$PROJECT_DIR$/SpaceTaxi_Tests/Tests.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/Taxi/Player.cs" />
         <option value="$PROJECT_DIR$/SpaceTaxi-1/Game.cs" />
+        <option value="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/Class1.cs" />
       </list>
     </option>
   </component>
@@ -456,16 +451,6 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="DIKUArcade" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Galaga-Exercise-3" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -576,12 +561,12 @@
       <workItem from="1556026935757" duration="1388000" />
       <workItem from="1556096657041" duration="3994000" />
       <workItem from="1557051777361" duration="9000" />
-      <workItem from="1557137722882" duration="7197000" />
+      <workItem from="1557137722882" duration="7477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171090000" />
+    <option name="totallyTimeSpent" value="171370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -696,7 +681,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/GetLevelFilePath.cs" />
     <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Enemy.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1501,6 +1485,17 @@
             <marker date="1557144253682" expanded="true" signature="6231:6353" ph="{...}" />
             <marker date="1557144253682" expanded="true" signature="6416:6721" ph="{...}" />
             <marker date="1557144253682" expanded="true" signature="6464:6707" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/Class1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding>
+            <marker date="1557145240093" expanded="true" signature="22:66" ph="{...}" />
+            <marker date="1557145240093" expanded="true" signature="48:64" ph="{...}" />
           </folding>
         </state>
       </provider>
