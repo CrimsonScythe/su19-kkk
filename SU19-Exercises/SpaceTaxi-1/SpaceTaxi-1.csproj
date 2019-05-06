@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +46,12 @@
     <Compile Include="Game.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
-    <Compile Include="SpaceTaxi-States\Class1.cs" />
+    <Compile Include="SpaceTaxi-States\GamePaused.cs" />
+    <Compile Include="SpaceTaxi-States\GameRunning.cs" />
+    <Compile Include="SpaceTaxi-States\GameStateType.cs" />
+    <Compile Include="SpaceTaxi-States\MainMenu.cs" />
+    <Compile Include="SpaceTaxi-States\StateMachine.cs" />
+    <Compile Include="SpaceTaxiBus.cs" />
     <Compile Include="Taxi\Orientation.cs" />
     <Compile Include="Taxi\Player.cs" />
     <Compile Include="Program.cs" />

@@ -27,6 +27,7 @@ namespace Galaga_Exercise_2 {
                  initValueY += 0.02f;
                  enemies.Add(new Enemy(game, new DynamicShape(new Vec2F(initValueX, initValueY),
                         new Vec2F(0.1f, 0.1f)), new ImageStride(80, enemyStrides)));
+                 
                 }
 
                 foreach (var elem in enemies) {

@@ -46,7 +46,8 @@ namespace SpaceTaxi_1 {
             if (eventType == GameEventType.PlayerEvent) {
                 switch (gameEvent.Message) {
                 case "BOOSTER_UPWARDS":
-                    thrust.Y = 0.000005f;
+                    thrust.Y = 0.00001f;
+//                    this.Entity.
                     break;
                 case "STOP_ACCELERATE_UP":
                     thrust.Y = 0f;

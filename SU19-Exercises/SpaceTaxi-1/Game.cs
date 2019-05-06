@@ -20,7 +20,8 @@ namespace SpaceTaxi_1 {
 
         private Vec2F gravity = new Vec2F(0f, -0.000005f);
         private Vec2F currentVelocity = new Vec2F(0f,0f);
-        
+
+        private StateMachine stateMachine;
         
         public Game() {
             // window
@@ -57,7 +58,12 @@ namespace SpaceTaxi_1 {
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
             
             //make level
-            obstacles = new List<Obstacle>();                      
+            obstacles = new List<Obstacle>(); 
+            
+            
+            stateMachine = new StateMachine(this);
+            
+            
         }
 
         // Creates the level with a given filename (string)
@@ -67,7 +73,7 @@ namespace SpaceTaxi_1 {
             // currentLevel changes to Item1 and Item2 from the txt variable.      
             currentLevel = new Level(txt.Item1, txt.Item2);           
         }
-
+    
         public void GameLoop() {
             while (win.IsRunning()) {
                 gameTimer.MeasureTime();
@@ -75,17 +81,18 @@ namespace SpaceTaxi_1 {
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     eventBus.ProcessEvents();
+                    stateMachine.ActiveState.UpdateGameLogic();
                 }
 
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
                     backGroundImage.RenderEntity();
-                    
+                    stateMachine.ActiveState.RenderState();
 
                     if (gameTimer.CapturedUpdates == 0) {
-                        currentVelocity = gravity + player.thrust * 1 + currentVelocity;
+                        currentVelocity = (gravity + player.thrust) * 1 + currentVelocity;
                     } else {
-                        currentVelocity = gravity + player.thrust * gameTimer.CapturedUpdates + currentVelocity;
+                        currentVelocity = (gravity + player.thrust) * gameTimer.CapturedUpdates + currentVelocity;
                     }
 
                         

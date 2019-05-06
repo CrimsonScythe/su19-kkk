@@ -168,7 +168,7 @@ namespace Galaga_Exercise_2 {
                     player.CreateShot();
                     break;
             }
-        }
+        } 
 
         private void KeyRelease(string key) {
             if (key.Equals("KEY_A") || key.Equals("KEY_D")) {
