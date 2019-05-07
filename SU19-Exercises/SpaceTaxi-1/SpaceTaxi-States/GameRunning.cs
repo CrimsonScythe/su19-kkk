@@ -22,12 +22,12 @@ namespace SpaceTaxi_1
         private Game game;
         public Level currentLevel;
         private List<Obstacle> obstacles;
-        private Entity entity;
 
 
         private GameRunning(Game game)
         {
             this.game = game;
+            
             InitializeGameState();
         }
 
@@ -45,10 +45,15 @@ namespace SpaceTaxi_1
         { 
             obstacles = new List<Obstacle>(); 
             player = new Player();
-            entity = new Entity(new DynamicShape(ChoseLevel.GetInstance().position, new Vec2F(0.1f,0.1f)), 
-                new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
+            player.SetPosition(0.45f, 0.6f);
+            player.SetExtent(0.1f, 0.1f);
             
+//            entity = new Entity(new DynamicShape(ChoseLevel.GetInstance().position, new Vec2F(0.1f,0.1f)), 
+//                new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
 
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            CreateLevel(ChoseLevel.GetInstance().filename); 
+            
         }
 
         public void UpdateGameLogic()
@@ -65,10 +70,9 @@ namespace SpaceTaxi_1
 
         public void RenderState()
         {
-            CreateLevel(ChoseLevel.GetInstance().filename); 
-            entity.RenderEntity();
+            
             player.RenderPlayer();
-            player.Entity.RenderEntity();
+//            player.Entity.RenderEntity();
                        
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
@@ -91,20 +95,51 @@ namespace SpaceTaxi_1
                                     "CHANGE_STATE",
                                     "GAME_PAUSED", ""));
                             break;
-                        case "KEY_A":
+                        
+                        case "KEY_UP":
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForSpecificProcessor(
-                                    GameEventType.PlayerEvent, this, player, "move left", "", ""));
-
+                                    GameEventType.PlayerEvent, this, player, "BOOSTER_UPWARDS", "", ""));
+//                            Console.WriteLine("pressed key");
                             break;
-                        case "KEY_D":
+                        case "KEY_LEFT":
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForSpecificProcessor(
-                                    GameEventType.PlayerEvent, this, player, "move right", "", ""));
-
+                                    GameEventType.PlayerEvent, this, player, "BOOSTER_TO_LEFT", "", ""));
+                            break;
+                        case "KEY_RIGHT":
+                            SpaceTaxiBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                    GameEventType.PlayerEvent, this, player, "BOOSTER_TO_RIGHT", "", ""));
+                            break;
+                        default:
+                            Console.WriteLine("pressed");
                             break;
                     }
 
+                    break;
+                case "KEY_RELEASE":
+                    switch (keyValue) {
+                    case "KEY_LEFT":
+                        SpaceTaxiBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                GameEventType.PlayerEvent, this, player, "STOP_ACCELERATE_LEFT", "", ""));
+                        break;
+                    case "KEY_RIGHT":
+                        SpaceTaxiBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                GameEventType.PlayerEvent, this, player, "STOP_ACCELERATE_RIGHT", "", ""));
+                        break;
+                    case "KEY_UP":
+                        SpaceTaxiBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForSpecificProcessor(
+                                GameEventType.PlayerEvent, this,player, "STOP_ACCELERATE_UP", "", ""));
+                        break;
+                    default:
+                        Console.WriteLine("realeased");
+                        break;
+                    
+                    }
                     break;
             }
         }

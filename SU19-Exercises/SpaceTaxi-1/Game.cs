@@ -13,7 +13,7 @@ namespace SpaceTaxi_1 {
         private Entity backGroundImage;
         private GameEventBus<object> eventBus;
         private GameTimer gameTimer;
-        private Player player;
+//        private Player player;
         public Window win;
         private List<Obstacle> obstacles;
         public Level currentLevel;
@@ -47,14 +47,14 @@ namespace SpaceTaxi_1 {
             backGroundImage.RenderEntity();
 
             // game entities
-            player = new Player();
-            player.SetPosition(0.45f, 0.6f);
-            player.SetExtent(0.1f, 0.1f);
+//            player = new Player();
+//            player.SetPosition(0.45f, 0.6f);
+//            player.SetExtent(0.1f, 0.1f);
 
             // event delegation
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.InputEvent, this);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.WindowEvent, this); 
-            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player); 
+//            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player); 
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
 
             
@@ -83,14 +83,15 @@ namespace SpaceTaxi_1 {
                     backGroundImage.RenderEntity();
                     stateMachine.ActiveState.RenderState();
 
+                    
                     if (gameTimer.CapturedUpdates == 0) {
-                        currentVelocity = (gravity + player.thrust) * 1 + currentVelocity;
+                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * 1 + currentVelocity;
                     } else {
-                        currentVelocity = (gravity + player.thrust) * gameTimer.CapturedUpdates + currentVelocity;
+                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * gameTimer.CapturedUpdates + currentVelocity;
                     }
-
                         
-                    player.Entity.Shape.Move(currentVelocity);
+                    
+                    GameRunning.GetInstance(this).player.Entity.Shape.Move(currentVelocity);
                                     
                     win.SwapBuffers(); 
                 }
@@ -105,45 +106,45 @@ namespace SpaceTaxi_1 {
 
         public void KeyPress(string key) {
             switch (key) {
-            case "KEY_F12":
-                Console.WriteLine("Saving screenshot");
-                win.SaveScreenShot();
-                break;
-            case "KEY_UP":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "BOOSTER_UPWARDS", "", ""));
-                break;
-            case "KEY_LEFT":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "BOOSTER_TO_LEFT", "", ""));
-                break;
-            case "KEY_RIGHT":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "BOOSTER_TO_RIGHT", "", ""));
-                break;
+//            case "KEY_F12":
+//                Console.WriteLine("Saving screenshot");
+//                win.SaveScreenShot();
+//                break;
+//            case "KEY_UP":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "BOOSTER_UPWARDS", "", ""));
+//                break;
+//            case "KEY_LEFT":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "BOOSTER_TO_LEFT", "", ""));
+//                break;
+//            case "KEY_RIGHT":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "BOOSTER_TO_RIGHT", "", ""));
+//                break;
             }
         }
 
         public void KeyRelease(string key) {
             switch (key) {
-            case "KEY_LEFT":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_LEFT", "", ""));
-                break;
-            case "KEY_RIGHT":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_RIGHT", "", ""));
-                break;
-            case "KEY_UP":
-                eventBus.RegisterEvent(
-                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_UP", "", ""));
-                break;
+//            case "KEY_LEFT":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_LEFT", "", ""));
+//                break;
+//            case "KEY_RIGHT":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_RIGHT", "", ""));
+//                break;
+//            case "KEY_UP":
+//                eventBus.RegisterEvent(
+//                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                        GameEventType.PlayerEvent, this, "STOP_ACCELERATE_UP", "", ""));
+//                break;
             }
         }
 

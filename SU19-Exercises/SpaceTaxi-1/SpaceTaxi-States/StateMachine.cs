@@ -40,6 +40,7 @@ namespace SpaceTaxi_1
                         ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
                         break;
                     case "KEY_RELEASE":
+                        ActiveState.HandleKeyEvent(gameEvent.Message,gameEvent.Parameter1);
                         break;
                 }
             } else if (eventType == GameEventType.GameStateEvent) {

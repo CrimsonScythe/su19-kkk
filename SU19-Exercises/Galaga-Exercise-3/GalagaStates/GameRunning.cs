@@ -37,6 +37,7 @@ namespace Galaga_Exercise_3.GalagaStates{
         }
         
         public void GameLoop() {
+            
         }
 
         public void InitializeGameState() {            

@@ -46,6 +46,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="SpaceTaxi-States\ChoseLevel.cs" />
     <Compile Include="SpaceTaxi-States\GamePaused.cs" />
     <Compile Include="SpaceTaxi-States\GameRunning.cs" />
     <Compile Include="SpaceTaxi-States\GameStateType.cs" />
