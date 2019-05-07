@@ -1,6 +1,10 @@
 ﻿namespace SpaceTaxi_1 {
     public enum Orientation {
         Left,
-        Right
+        Right,
+        Up,
+        None,
+        UpLeft,
+        UpRight
     }
 }
