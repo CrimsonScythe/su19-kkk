@@ -29,7 +29,7 @@ namespace SpaceTaxi_1
             menuButtons[0] = new Text("Continue", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f, 0.4f));
             menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f, 0.4f));
             menuButtons[0].SetColor(Color.Red);
-            menuButtons[1].SetColor(Color.White);
+            menuButtons[1].SetColor(Color.DarkRed);
             activeMenuButton = 0;
         }
 
@@ -46,7 +46,7 @@ namespace SpaceTaxi_1
                         case "KEY_UP":
                             if (activeMenuButton == 1) {
                                 menuButtons[0].SetColor(Color.Red);
-                                menuButtons[1].SetColor(Color.White);
+                                menuButtons[1].SetColor(Color.DarkRed);
                                 activeMenuButton = 0;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
@@ -55,7 +55,7 @@ namespace SpaceTaxi_1
                             break;
                         case "KEY_DOWN":
                             if (activeMenuButton == 0) {
-                                menuButtons[0].SetColor(Color.White);
+                                menuButtons[0].SetColor(Color.DarkRed);
                                 menuButtons[1].SetColor(Color.Red);
                                 activeMenuButton = 1;
                                 menuButtons[0].RenderText();

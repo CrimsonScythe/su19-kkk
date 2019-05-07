@@ -15,16 +15,20 @@ namespace SpaceTaxi_1
         public static GameRunning instance = null;
         public Player player;
         private List<Image> enemyStrides = new List<Image>();
-
         private List<Image> explosionStrides;
         private AnimationContainer explosions;
         private int explosionLength = 500;
         private string globalMove = "down";
         private Game game;
+        public Level currentLevel;
+        private List<Obstacle> obstacles;
+        private Entity entity;
+
 
         private GameRunning(Game game)
         {
             this.game = game;
+            InitializeGameState();
         }
 
         public static GameRunning GetInstance(Game gm)
@@ -37,18 +41,37 @@ namespace SpaceTaxi_1
         }
 
         public void InitializeGameState()
-        {
-            throw new NotImplementedException();
+        { 
+            obstacles = new List<Obstacle>(); 
+            player = new Player();
+            entity = new Entity(new DynamicShape(new Vec2F(0.45f,0.075f), new Vec2F(0.1f,0.1f)), 
+                new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
+            
+
         }
 
         public void UpdateGameLogic()
         {
-            throw new NotImplementedException();
+        }
+
+        public void CreateLevel(string fileName)
+        {
+            AsciiLoader asciiLoader = new AsciiLoader(fileName);
+            var txt = asciiLoader.ReadText();
+            // currentLevel changes to Item1 and Item2 from the txt variable.      
+            currentLevel = new Level(txt.Item1, txt.Item2);
         }
 
         public void RenderState()
         {
-            throw new NotImplementedException();
+            CreateLevel(ChoseLevel.GetInstance().filename); 
+            entity.RenderEntity();
+            player.RenderPlayer();
+            player.Entity.RenderEntity();
+                       
+            foreach (var obstacle in currentLevel.obstacles) {
+                obstacle.RenderEntity(); 
+            }               
         }
 
 

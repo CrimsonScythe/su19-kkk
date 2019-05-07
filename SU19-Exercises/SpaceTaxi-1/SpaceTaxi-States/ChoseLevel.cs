@@ -1,6 +1,6 @@
+using System;
 using System.Drawing;
 using System.IO;
-using DIKUArcade;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -10,71 +10,52 @@ using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1
 {
-    public class MainMenu : IGameState {
-
-        private static MainMenu instance = null;
+    public class ChoseLevel : IGameState {
+        private static ChoseLevel instance = null;
         private Entity backgroundImage;
         private Text[] menuButtons;
-        private int activeMenuButton =0;
+        private int activeMenuButton;
         private int maxMenuButtons;
-        private Game game;
-        private Window win;
+        public string filename = "short-n-sweet.txt";
 
-        public MainMenu() {
+        public static ChoseLevel GetInstance() {
+            return ChoseLevel.instance ?? (ChoseLevel.instance = new ChoseLevel());
+        }
+
+        private ChoseLevel() {
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-            menuButtons = new Text[3];           
-            menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f,0.4f) );
-            menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
-            menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );
+            menuButtons = new Text[3];
+            menuButtons[0] = new Text("Short n Sweet", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f, 0.4f));
+            menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f, 0.4f));
+            menuButtons[2] = new Text("Back", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f, 0.4f));
             menuButtons[0].SetColor(Color.Red);
             menuButtons[1].SetColor(Color.DarkRed);
             menuButtons[2].SetColor(Color.DarkRed);
-
             activeMenuButton = 0;
-        }
-        
-        public static MainMenu GetInstance() {
-            return MainMenu.instance ?? (MainMenu.instance = new MainMenu());
-        }
-        
-        public void GameLoop() {
-            throw new System.NotImplementedException();
-        }
-
-        public void InitializeGameState() {
-            throw new System.NotImplementedException();
-        }
-
-        public void UpdateGameLogic() {
         }
 
         public void RenderState() {
-
             backgroundImage.RenderEntity();
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
             menuButtons[2].RenderText();
-     
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-
-            switch (keyAction) {
+            switch (keyAction) {            
                 case "KEY_PRESS":
                     switch (keyValue) {
-                        
                         case "KEY_UP":
                             if (activeMenuButton == 1) {
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.DarkRed);
                                 menuButtons[2].SetColor(Color.DarkRed);
-
                                 activeMenuButton = 0;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
-                                menuButtons[2].RenderText();
+                                menuButtons[1].RenderText();
                             }
                             if (activeMenuButton == 2) {
                                 menuButtons[0].SetColor(Color.DarkRed);
@@ -109,54 +90,58 @@ namespace SpaceTaxi_1
                                 menuButtons[2].RenderText();
                             }
 
-                                                 
                             break;
-                       
                         case "KEY_ENTER":
                             switch (activeMenuButton) {
-                          
-                                case 0:                             
-                                    // new game button selected                                    
+                                case 0:                                   
+                                    // short n sweet chose
+                                    filename = "short-n-sweet.txt";
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
                                             this,
                                             "CHANGE_STATE",
-                                            "GAME_RUNNING", ""));                                
+                                            "GAME_RUNNING", filename));
                                     break;
                                 case 1:
+                                    // the beach chose
+                                    filename = "the-beach.txt";
+                                    GameRunning.instance = null;                                   
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
                                             this,
                                             "CHANGE_STATE",
-                                            "CHOSE_LEVEL", ""));
+                                            "GAME_RUNNING", filename));                                   
                                     break;
                                 case 2:
-                                    // quit
+                                    // back chose
+                                    GameRunning.instance = null;                                   
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                            GameEventType.WindowEvent,
+                                            GameEventType.GameStateEvent,
                                             this,
-                                            "CLOSE_WINDOW",
-                                            "", ""));
-                                    break;                                
+                                            "CHANGE_STATE",
+                                            "MAIN_MENU", ""));                                   
+                                    break;
                             }
-                            break;
-                        case "KEY_ESCAPE" : 
-                            SpaceTaxiBus.GetBus().RegisterEvent(
-                                GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                    GameEventType.WindowEvent,
-                                    this,
-                                    "CLOSE_WINDOW",
-                                    "", ""));
                             break;
                     }
                     break;
-                case "KEY_RELEASE":                    
+                case "KEY_RELEASE":
                     break;
-            }           
+            }
+        }
+    
+        public void GameLoop() {
+            throw new System.NotImplementedException();
+        }
+
+        public void InitializeGameState() {
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateGameLogic() {
         }
     }
 }
-  

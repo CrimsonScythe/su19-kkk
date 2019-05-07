@@ -6,6 +6,7 @@ namespace SpaceTaxi_1
 {
     public class StateMachine : IGameEventProcessor<object> {
         public  IGameState ActiveState { get; private set; }
+
         private Game game;
 
         public StateMachine(Game game) {
@@ -25,6 +26,9 @@ namespace SpaceTaxi_1
                     break;
                 case StateTransformer.GameStateType.GamePaused:
                     ActiveState = GamePaused.GetInstance();
+                    break;
+                case StateTransformer.GameStateType.ChoseLevel:
+                    ActiveState = ChoseLevel.GetInstance();
                     break;
             }
         }

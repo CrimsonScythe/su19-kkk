@@ -4,10 +4,12 @@ namespace SpaceTaxi_1
 {
     public class StateTransformer {
         
-        public enum GameStateType { GameRunning, MainMenu, GamePaused }
+        public enum GameStateType { GameRunning, MainMenu, GamePaused, ChoseLevel }
 
         public static GameStateType TransformStringToState(string state) {
             switch (state) {
+                case "CHOSE_LEVEL" :
+                    return GameStateType.ChoseLevel;
                 case "GAME_RUNNING" :
                     return GameStateType.GameRunning;
                 case "GAME_PAUSED":
@@ -20,7 +22,9 @@ namespace SpaceTaxi_1
         }
 
         public static string TransformStateToString(GameStateType state) {
-            switch (state) {
+            switch (state) { 
+                case GameStateType.ChoseLevel:
+                    return "CHOSE_LEVEL";
                 case GameStateType.GameRunning:
                     return "GAME_RUNNING";
                 case GameStateType.GamePaused:
