@@ -55,6 +55,7 @@ namespace SpaceTaxi_1
 
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             CreateLevel(ChoseLevel.GetInstance().filename); 
+         
             
         }
 
@@ -72,8 +73,8 @@ namespace SpaceTaxi_1
 
         public void RenderState()
         {
-            CreateLevel(ChoseLevel.GetInstance().filename); 
-            player.Entity.RenderEntity();
+            
+            
             player.RenderPlayer();
             
                        
