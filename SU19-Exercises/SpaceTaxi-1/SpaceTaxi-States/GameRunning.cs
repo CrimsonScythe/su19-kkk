@@ -39,12 +39,13 @@ namespace SpaceTaxi_1
         public void GameLoop()
         {
         }
+        
 
         public void InitializeGameState()
         { 
             obstacles = new List<Obstacle>(); 
             player = new Player();
-            entity = new Entity(new DynamicShape(new Vec2F(0.45f,0.075f), new Vec2F(0.1f,0.1f)), 
+            entity = new Entity(new DynamicShape(ChoseLevel.GetInstance().position, new Vec2F(0.1f,0.1f)), 
                 new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
             
 
