@@ -76,7 +76,9 @@ namespace SpaceTaxi_1
                                     break;
                                 case 1:
                                     // back to main menu selected                                  
-                                    GameRunning.instance = null;                                   
+                                    GameRunning.instance = null;
+                                    ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
+                                    ChoseLevel.GetInstance().position = new Vec2F(0.45f,0.075f); 
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
