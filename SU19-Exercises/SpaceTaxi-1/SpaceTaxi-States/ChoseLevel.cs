@@ -17,7 +17,11 @@ namespace SpaceTaxi_1
         private int activeMenuButton;
         private int maxMenuButtons;
         public string filename = "short-n-sweet.txt";
-        public Vec2F position = new Vec2F(0.45f,0.075f);
+        public float posX = 0.45f;
+        public float posY = 0.075f;
+        public float extX = 0.1f;
+        public float extY = 0.1f;
+
 
         public static ChoseLevel GetInstance() {
             return ChoseLevel.instance ?? (ChoseLevel.instance = new ChoseLevel());
@@ -97,7 +101,10 @@ namespace SpaceTaxi_1
                                 case 0:                                   
                                     // short n sweet chose
                                     filename = "short-n-sweet.txt";
-                                    position = new Vec2F(0.45f,0.075f); 
+                                    posX = 0.45f;
+                                    posY = 0.075f;
+                                    extX = 0.1f;
+                                    extY = 0.1f;
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
@@ -108,7 +115,10 @@ namespace SpaceTaxi_1
                                 case 1:
                                     // the beach chose
                                     filename = "the-beach.txt";
-                                    position = new Vec2F(0.25f,0.162f); 
+                                    posX = 0.25f; 
+                                    posY = 0.162f;
+                                    extX = 0.1f; 
+                                    extY = 0.1f;
                                     GameRunning.instance = null;                                   
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
