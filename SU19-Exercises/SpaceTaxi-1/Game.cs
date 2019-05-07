@@ -14,13 +14,12 @@ namespace SpaceTaxi_1 {
         private GameEventBus<object> eventBus;
         private GameTimer gameTimer;
         private Player player;
-        private Window win;
+        public Window win;
         private List<Obstacle> obstacles;
         public Level currentLevel;
 
         private Vec2F gravity = new Vec2F(0f, -0.000005f);
         private Vec2F currentVelocity = new Vec2F(0f,0f);
-
         private StateMachine stateMachine;
         
         public Game() {
@@ -53,27 +52,20 @@ namespace SpaceTaxi_1 {
             player.SetExtent(0.1f, 0.1f);
 
             // event delegation
-            eventBus.Subscribe(GameEventType.InputEvent, this);
-            eventBus.Subscribe(GameEventType.WindowEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player); 
-            eventBus.Subscribe(GameEventType.GameStateEvent, this);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.InputEvent, this);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.WindowEvent, this); 
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player); 
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.GameStateEvent, this);
 
             
             //make level
-            obstacles = new List<Obstacle>(); 
             
             stateMachine = new StateMachine(this);
             
             
         }
-
-        // Creates the level with a given filename (string)
-        public void CreateLevel(string fileName) {
-            AsciiLoader asciiLoader = new AsciiLoader(fileName);    
-            var txt = asciiLoader.ReadText();
-            // currentLevel changes to Item1 and Item2 from the txt variable.      
-            currentLevel = new Level(txt.Item1, txt.Item2);           
-        }
+                   
+        
     
         public void GameLoop() {
             while (win.IsRunning()) {
@@ -99,13 +91,7 @@ namespace SpaceTaxi_1 {
 
                         
                     player.Entity.Shape.Move(currentVelocity);
-                    
-                    // player.RenderPlayer();
-
-                        
-                    /* foreach (var obstacle in currentLevel.obstacles) {
-                        obstacle.RenderEntity(); 
-                    } */                   
+                                    
                     win.SwapBuffers(); 
                 }
 
@@ -119,10 +105,6 @@ namespace SpaceTaxi_1 {
 
         public void KeyPress(string key) {
             switch (key) {
-            case "KEY_ESCAPE":
-                win.CloseWindow();
-                break;
-                break;
             case "KEY_F12":
                 Console.WriteLine("Saving screenshot");
                 win.SaveScreenShot();
