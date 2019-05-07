@@ -29,13 +29,13 @@ namespace SpaceTaxi_1 {
 
             // event bus
             eventBus = new GameEventBus<object>();
-            eventBus.InitializeEventBus(new List<GameEventType> {
-                GameEventType.InputEvent, // key press / key release
-                GameEventType.WindowEvent, // messages to the window, e.g. CloseWindow()
-                GameEventType.PlayerEvent // commands issued to the player object, e.g. move,
-                                          // destroy, receive health, etc.
+            SpaceTaxiBus.GetBus().InitializeEventBus(new List<GameEventType>() {
+                GameEventType.InputEvent,
+                GameEventType.WindowEvent, 
+                GameEventType.GameStateEvent,
+                GameEventType.PlayerEvent
             });
-            win.RegisterEventBus(eventBus);
+            win.RegisterEventBus(SpaceTaxiBus.GetBus());
 
             // game timer
             gameTimer = new GameTimer(60); // 60 UPS, no FPS limit
@@ -55,11 +55,12 @@ namespace SpaceTaxi_1 {
             // event delegation
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
-            eventBus.Subscribe(GameEventType.PlayerEvent, player);
+            eventBus.Subscribe(GameEventType.PlayerEvent, player); 
+            eventBus.Subscribe(GameEventType.GameStateEvent, this);
+
             
             //make level
             obstacles = new List<Obstacle>(); 
-            
             
             stateMachine = new StateMachine(this);
             
@@ -79,6 +80,7 @@ namespace SpaceTaxi_1 {
                 gameTimer.MeasureTime();
 
                 while (gameTimer.ShouldUpdate()) {
+                    SpaceTaxiBus.GetBus().ProcessEvents();                  
                     win.PollEvents();
                     eventBus.ProcessEvents();
                     stateMachine.ActiveState.UpdateGameLogic();
@@ -98,13 +100,13 @@ namespace SpaceTaxi_1 {
                         
                     player.Entity.Shape.Move(currentVelocity);
                     
-                    player.RenderPlayer();
+                    // player.RenderPlayer();
 
                         
-                    foreach (var obstacle in currentLevel.obstacles) {
-                        obstacle.RenderEntity();
-                    }                   
-                    win.SwapBuffers();
+                    /* foreach (var obstacle in currentLevel.obstacles) {
+                        obstacle.RenderEntity(); 
+                    } */                   
+                    win.SwapBuffers(); 
                 }
 
                 if (gameTimer.ShouldReset()) {
