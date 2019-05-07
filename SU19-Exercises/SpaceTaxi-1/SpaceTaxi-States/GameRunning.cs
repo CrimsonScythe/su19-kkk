@@ -24,7 +24,6 @@ namespace SpaceTaxi_1
         private List<Obstacle> obstacles;
         private Entity entity;
 
-
         private GameRunning(Game game)
         {
             this.game = game;
@@ -43,15 +42,17 @@ namespace SpaceTaxi_1
 
         public void InitializeGameState()
         { 
-            obstacles = new List<Obstacle>(); 
             player = new Player();
-            entity = new Entity(new DynamicShape(ChoseLevel.GetInstance().position, new Vec2F(0.1f,0.1f)), 
-                new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
+            obstacles = new List<Obstacle>(); 
+            player.SetPosition(ChoseLevel.GetInstance().posX,ChoseLevel.GetInstance().posY);
+            player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+
             
 
         }
 
-        public void UpdateGameLogic()
+        public void UpdateGameLogic() 
         {
         }
 
@@ -66,9 +67,9 @@ namespace SpaceTaxi_1
         public void RenderState()
         {
             CreateLevel(ChoseLevel.GetInstance().filename); 
-            entity.RenderEntity();
-            player.RenderPlayer();
             player.Entity.RenderEntity();
+            player.RenderPlayer();
+            
                        
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
