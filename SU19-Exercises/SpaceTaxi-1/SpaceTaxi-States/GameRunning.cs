@@ -23,6 +23,8 @@ namespace SpaceTaxi_1
         private Game game;
         public Level currentLevel;
         private bool isOnPlatform = false;
+        private string platformName;
+        private Vec2F currentVelocity;
         
         private GameRunning(Game game)
         {
@@ -51,38 +53,70 @@ namespace SpaceTaxi_1
             CreateLevel(ChoseLevel.GetInstance().filename);             
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(5);           
-                   
+            explosions = new AnimationContainer(5);
+
+            currentVelocity = new Vec2F(0f, 0f);
+
+
         }
+
+        public string GetPlatformName() {
+
+            var name = "";
+            
+            switch (currentLevel.levelName) {
+            case "short-n-sweet.txt":
+                name = "neptune-square.png";
+                break;
+            case "the-beach.txt":
+                name = "ironstone-square.png";
+                break;
+            }
+
+            return name;
+        }
+        
 
         public void UpdateGameLogic() {
 
-            Console.WriteLine(game.currentVelocity.Y);
             
             foreach (var obstacle in currentLevel.obstacles) {
 
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);
                 
                 if (collisionData.Collision) {
+                
                     
-                    
-                    switch (currentLevel.levelName) {
-                        case "short-n-sweet.txt":
+                            if (obstacle.fileName.Equals(GetPlatformName())) {
 
-                            if (obstacle.fileName == "neptune-square.png"
-                                || obstacle.fileName == "neptune-lower-left.png"
-                                || obstacle.fileName == "neptune-lower-right.png") {
-
-                                if (game.currentVelocity.Y < -0.0001f && game.currentVelocity.Y > -0.0075f) {
+                                //if collision from below then gameover and explosion
+                                if (collisionData.DirectionFactor.Y < 1) {
+                                    AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
+                                
+                                    SpaceTaxiBus.GetBus().RegisterEvent(
+                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                            GameEventType.GameStateEvent,
+                                            this,
+                                            "CHANGE_STATE",
+                                            "GAME_OVER", ""));   
+                                }
+                                
+                                if (currentVelocity.Y < -0.0001f && currentVelocity.Y > -0.0075f) {
 
                                     isOnPlatform = true;
-                                    game.currentVelocity.Y = 0;
-                                    game.currentVelocity.X = 0;
+                                    currentVelocity.Y = 0;
+                                    currentVelocity.X = 0;
 
                                 }
 
-                            } else {
+                                /*
+                                 * No need to add explosion logic here, since player falls and collides
+                                 * with obstacles.
+                                 */
                                 
+                            } else {
+
                                 
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
@@ -92,20 +126,9 @@ namespace SpaceTaxi_1
                                         GameEventType.GameStateEvent,
                                         this,
                                         "CHANGE_STATE",
-                                        "GAME_OVER", "")); 
-//                                
+                                        "GAME_OVER", ""));   
                                 
                             } 
-                            break;
-                        case "the-beach.txt":
-                            if (obstacle.fileName != "ironstone-square.png") {
-                                
-                            } else {
-                                Console.WriteLine(collisionData.DirectionFactor);
-                            }
-                            break;
-                    }
-                    
                 } 
                 
             }
@@ -139,15 +162,15 @@ namespace SpaceTaxi_1
             if (!isOnPlatform) {
                 
             if (game.gameTimer.CapturedUpdates == 0) {
-                game.currentVelocity = (game.gravity + player.thrust) * 1 + game.currentVelocity;
+                currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
             } else {
-                game.currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + game.currentVelocity;
+                currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
             }
 
             }
 
             if (!isOnPlatform) {
-                player.Entity.Shape.Move(game.currentVelocity);
+                player.Entity.Shape.Move(currentVelocity);
             }
             
 

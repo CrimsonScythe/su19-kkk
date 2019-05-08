@@ -129,6 +129,7 @@ namespace SpaceTaxi_1
                           
                                 case 0:                             
                                     // new game button selected  
+                                    GameRunning.instance = null;
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,

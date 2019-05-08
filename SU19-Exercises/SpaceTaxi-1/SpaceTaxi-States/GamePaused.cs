@@ -71,7 +71,6 @@ namespace SpaceTaxi_1
                             switch (activeMenuButton) {
                                 case 0:                                   
                                     // continue selected
-                                    GameRunning.instance = null;
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
@@ -81,7 +80,7 @@ namespace SpaceTaxi_1
                                     break;
                                 case 1:
                                     // back to main menu selected                                  
-                                    GameRunning.instance = null;
+//                                    GameRunning.instance = null;
                                     ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
                                     ChoseLevel.GetInstance().posX = 0.45f;
                                     ChoseLevel.GetInstance().posY = 0.075f;
