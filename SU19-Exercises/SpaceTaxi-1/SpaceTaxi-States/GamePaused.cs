@@ -26,7 +26,7 @@ namespace SpaceTaxi_1
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
             menuButtons = new Text[2];
-            menuButtons[0] = new Text("Continue", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f, 0.4f));
+            menuButtons[0] = new Text("Continue", new Vec2F(0.35f, 0.2f), new Vec2F(0.5f, 0.4f));
             menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f, 0.4f));
             menuButtons[0].SetColor(Color.Red);
             menuButtons[1].SetColor(Color.DarkRed);
@@ -45,6 +45,8 @@ namespace SpaceTaxi_1
                     switch (keyValue) {
                         case "KEY_UP":
                             if (activeMenuButton == 1) {
+                                menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f, 0.4f));
+                                menuButtons[0] = new Text("Continue", new Vec2F(0.35f, 0.2f), new Vec2F(0.5f, 0.4f));
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.DarkRed);
                                 activeMenuButton = 0;
@@ -55,6 +57,8 @@ namespace SpaceTaxi_1
                             break;
                         case "KEY_DOWN":
                             if (activeMenuButton == 0) {
+                                menuButtons[0] = new Text("Continue", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f, 0.4f));
+                                menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f, 0.4f));
                                 menuButtons[0].SetColor(Color.DarkRed);
                                 menuButtons[1].SetColor(Color.Red);
                                 activeMenuButton = 1;
@@ -67,6 +71,7 @@ namespace SpaceTaxi_1
                             switch (activeMenuButton) {
                                 case 0:                                   
                                     // continue selected
+                                    GameRunning.instance = null;
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,

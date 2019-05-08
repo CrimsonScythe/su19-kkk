@@ -54,6 +54,8 @@ namespace SpaceTaxi_1
                     switch (keyValue) {
                         case "KEY_UP":
                             if (activeMenuButton == 1) {
+                                menuButtons[0] = new Text("Short n Sweet", new Vec2F(0.35f, 0.2f), new Vec2F(0.5f,0.4f) );
+                                menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
                                 menuButtons[0].SetColor(Color.Red);
                                 menuButtons[1].SetColor(Color.DarkRed);
                                 menuButtons[2].SetColor(Color.DarkRed);
@@ -63,6 +65,8 @@ namespace SpaceTaxi_1
                                 menuButtons[1].RenderText();
                             }
                             if (activeMenuButton == 2) {
+                                menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
+                                menuButtons[2] = new Text("Back", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );
                                 menuButtons[0].SetColor(Color.DarkRed);
                                 menuButtons[1].SetColor(Color.Red);
                                 menuButtons[2].SetColor(Color.DarkRed);
@@ -76,6 +80,8 @@ namespace SpaceTaxi_1
                         case "KEY_DOWN":
                             if (activeMenuButton == 1)
                             {
+                                menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
+                                menuButtons[2] = new Text("Back", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f) );
                                 menuButtons[0].SetColor(Color.DarkRed);
                                 menuButtons[1].SetColor(Color.DarkRed);
                                 menuButtons[2].SetColor(Color.Red);
@@ -86,6 +92,8 @@ namespace SpaceTaxi_1
                             }
                             if (activeMenuButton == 0)
                             {
+                                menuButtons[0] = new Text("Short n Sweet", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f,0.4f) );
+                                menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
                                 menuButtons[0].SetColor(Color.DarkRed);
                                 menuButtons[1].SetColor(Color.Red);
                                 menuButtons[2].SetColor(Color.DarkRed);
@@ -100,6 +108,7 @@ namespace SpaceTaxi_1
                             switch (activeMenuButton) {
                                 case 0:                                   
                                     // short n sweet chose
+                                    GameRunning.instance = null;
                                     filename = "short-n-sweet.txt";
                                     posX = 0.45f;
                                     posY = 0.075f;
@@ -114,6 +123,7 @@ namespace SpaceTaxi_1
                                     break;
                                 case 1:
                                     // the beach chose
+                                    GameRunning.instance = null;
                                     filename = "the-beach.txt";
                                     posX = 0.25f; 
                                     posY = 0.162f;
