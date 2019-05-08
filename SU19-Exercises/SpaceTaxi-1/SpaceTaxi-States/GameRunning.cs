@@ -43,28 +43,19 @@ namespace SpaceTaxi_1
         public void InitializeGameState()
         { 
             player = new Player();
-
-//            obstacles = new List<Obstacle>(); 
             player.SetPosition(ChoseLevel.GetInstance().posX,ChoseLevel.GetInstance().posY);
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-
-            
-//            entity = new Entity(new DynamicShape(ChoseLevel.GetInstance().position, new Vec2F(0.1f,0.1f)), 
-//                new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png")));
-
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-            CreateLevel(ChoseLevel.GetInstance().filename); 
-         
-            
+            CreateLevel(ChoseLevel.GetInstance().filename);             
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            explosions = new AnimationContainer(20);           
+                   
         }
 
         public void UpdateGameLogic() 
-        {
-
-//            Console.WriteLine(player.Entity.Shape.AsDynamicShape().Direction);
-            
-            
+        {                      
             foreach (var obstacle in currentLevel.obstacles) {
 
                 if (CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape).Collision) {
@@ -72,6 +63,8 @@ namespace SpaceTaxi_1
                         case "short-n-sweet.txt":
                             if (obstacle.fileName != "neptune-square.png") {
                                 // EXPLOSION HERE AND RUNNING GAME MUST END
+                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
                             } else {
                                 game.gravity = new Vec2F(0f,0f);
                             }
@@ -95,20 +88,25 @@ namespace SpaceTaxi_1
             currentLevel = new Level(txt.Item1, txt.Item2, fileName);
         }
 
-        public void RenderState()
+        public void AddExplosion(float posX, float posY,
+            float extentX, float extentY)
         {
-            
-            
+            explosions.AddAnimation(
+                new StationaryShape(posX, posY, extentX, extentY), explosionLength,
+                new ImageStride(explosionLength / 8, explosionStrides));
+        }
+
+        public void RenderState()
+        {                        
             player.RenderPlayer();
-            
+            explosions.RenderAnimations();
             
             if (game.gameTimer.CapturedUpdates == 0) {
                 game.currentVelocity = (game.gravity + player.thrust) * 1 + game.currentVelocity;
             } else {
                 game.currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + game.currentVelocity;
             }
-                        
-                    
+                                            
             player.Entity.Shape.Move(game.currentVelocity);
                        
             foreach (var obstacle in currentLevel.obstacles) {
@@ -137,7 +135,6 @@ namespace SpaceTaxi_1
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForSpecificProcessor(
                                     GameEventType.PlayerEvent, this, player, "BOOSTER_UPWARDS", "", ""));
-//                            Console.WriteLine("pressed key");
                             break;
                         case "KEY_LEFT":
                             SpaceTaxiBus.GetBus().RegisterEvent(
@@ -182,4 +179,6 @@ namespace SpaceTaxi_1
         }
     }
 }
+
+
    
