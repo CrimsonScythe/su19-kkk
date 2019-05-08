@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
@@ -60,6 +61,7 @@ namespace SpaceTaxi_1 {
 //            Entity.Image = taxiOrientation == Orientation.Left
 //                ? taxiBoosterOffImageLeft
 //                : taxiBoosterOffImageRight;
+
             switch (taxiOrientation) {
                 case Orientation.Up:
                     Entity.Image = taxiBoosterOnImageUp;
@@ -104,7 +106,6 @@ namespace SpaceTaxi_1 {
                     if (taxiOrientation == Orientation.Up) {
                         taxiOrientation = Orientation.UpLeft;
                     } else {
-                       
                         taxiOrientation = Orientation.Left;
                     }
                     thrust.X = -0.000005f;

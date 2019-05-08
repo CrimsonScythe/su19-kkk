@@ -12,14 +12,14 @@ namespace SpaceTaxi_1 {
     public class Game : IGameEventProcessor<object> {
         private Entity backGroundImage;
         private GameEventBus<object> eventBus;
-        private GameTimer gameTimer;
+        public GameTimer gameTimer;
 //        private Player player;
         public Window win;
         private List<Obstacle> obstacles;
         public Level currentLevel;
 
-        private Vec2F gravity = new Vec2F(0f, -0.000005f);
-        private Vec2F currentVelocity = new Vec2F(0f,0f);
+        public Vec2F gravity = new Vec2F(0f, -0.000005f);
+        public Vec2F currentVelocity = new Vec2F(0f,0f);
         private StateMachine stateMachine;
         
         public Game() {
@@ -84,14 +84,14 @@ namespace SpaceTaxi_1 {
                     stateMachine.ActiveState.RenderState();
 
                     
-                    if (gameTimer.CapturedUpdates == 0) {
-                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * 1 + currentVelocity;
-                    } else {
-                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * gameTimer.CapturedUpdates + currentVelocity;
-                    }
-                        
-                    
-                    GameRunning.GetInstance(this).player.Entity.Shape.Move(currentVelocity);
+//                    if (gameTimer.CapturedUpdates == 0) {
+//                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * 1 + currentVelocity;
+//                    } else {
+//                        currentVelocity = (gravity + GameRunning.GetInstance(this).player.thrust) * gameTimer.CapturedUpdates + currentVelocity;
+//                    }
+//                        
+//                    
+//                    GameRunning.GetInstance(this).player.Entity.Shape.Move(currentVelocity);
                                     
                     win.SwapBuffers(); 
                 }

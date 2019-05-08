@@ -116,6 +116,7 @@ namespace SpaceTaxi_1
                             switch (activeMenuButton) {
                           
                                 case 0:                             
+                                    
                                     // new game button selected                                    
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(

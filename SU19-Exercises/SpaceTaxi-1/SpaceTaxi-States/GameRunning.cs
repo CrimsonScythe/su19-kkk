@@ -5,6 +5,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
+using DIKUArcade.Physics;
 using DIKUArcade.State;
 
 namespace SpaceTaxi_1
@@ -44,7 +45,7 @@ namespace SpaceTaxi_1
         { 
             player = new Player();
 
-            obstacles = new List<Obstacle>(); 
+//            obstacles = new List<Obstacle>(); 
             player.SetPosition(ChoseLevel.GetInstance().posX,ChoseLevel.GetInstance().posY);
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
@@ -61,6 +62,14 @@ namespace SpaceTaxi_1
 
         public void UpdateGameLogic() 
         {
+            foreach (var obstacle in currentLevel.obstacles) {
+//                Console.WriteLine("" + obstacle.);
+                var collisionData = CollisionDetection.Aabb( obstacle.Shape.AsDynamicShape(), player.Entity.Shape);
+                if (collisionData.Collision) {
+                    Console.WriteLine(obstacle.Image);
+                }
+            }
+            
         }
 
         public void CreateLevel(string fileName)
@@ -77,6 +86,15 @@ namespace SpaceTaxi_1
             
             player.RenderPlayer();
             
+            
+            if (game.gameTimer.CapturedUpdates == 0) {
+                game.currentVelocity = (game.gravity + player.thrust) * 1 + game.currentVelocity;
+            } else {
+                game.currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + game.currentVelocity;
+            }
+                        
+                    
+            player.Entity.Shape.Move(game.currentVelocity);
                        
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
