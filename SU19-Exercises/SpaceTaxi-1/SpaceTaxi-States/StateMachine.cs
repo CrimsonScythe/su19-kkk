@@ -2,6 +2,10 @@ using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using System; 
 
+using DIKUArcade.EventBus;
+using DIKUArcade.State;
+using System; 
+
 namespace SpaceTaxi_1
 {
     public class StateMachine : IGameEventProcessor<object> {
@@ -29,6 +33,9 @@ namespace SpaceTaxi_1
                     break;
                 case StateTransformer.GameStateType.ChoseLevel:
                     ActiveState = ChoseLevel.GetInstance();
+                    break;
+                case StateTransformer.GameStateType.GameOver:
+                    ActiveState = GameOver.GetInstance();
                     break;
             }
         }

@@ -22,7 +22,8 @@ namespace SpaceTaxi_1
         private string globalMove = "down";
         private Game game;
         public Level currentLevel;
-
+        private bool isOnPlatform = false;
+        
         private GameRunning(Game game)
         {
             this.game = game;
@@ -54,15 +55,21 @@ namespace SpaceTaxi_1
                    
         }
 
-        public void UpdateGameLogic() 
-        {                      
+        public void UpdateGameLogic() {
+
+//            Console.WriteLine(game.currentVelocity.Y);
+//            Console.WriteLine(player.Entity.Shape.AsDynamicShape().Direction);
+            
             foreach (var obstacle in currentLevel.obstacles) {
 
-                if (CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape).Collision) {
+                var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);
+                
+                if (collisionData.Collision) {
                     switch (currentLevel.levelName) {
                         case "short-n-sweet.txt":
                             if (obstacle.fileName != "neptune-square.png") {
                                 // EXPLOSION HERE AND RUNNING GAME MUST END
+
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
                                 SpaceTaxiBus.GetBus().RegisterEvent(
@@ -71,16 +78,23 @@ namespace SpaceTaxi_1
                                         this,
                                         "CHANGE_STATE",
                                         "GAME_OVER", "")); 
-                            } else {
-                                game.gravity = new Vec2F(0f,0f);
+                            }  else if (game.currentVelocity.Y < -0.00001f) {
+                                isOnPlatform = true;
+                                game.currentVelocity.Y = 0;
+                                game.currentVelocity.X = 0;
+
                             }
                             break;
                         case "the-beach.txt":
-
+                            if (obstacle.fileName != "ironstone-square.png") {
+                                
+                            } else {
+                                Console.WriteLine(collisionData.DirectionFactor);
+                            }
                             break;
                     }
                     
-                }
+                } 
                 
             }
             
@@ -106,16 +120,25 @@ namespace SpaceTaxi_1
         public void RenderState()
         {                        
             player.RenderPlayer();
+
             explosions.RenderAnimations();
-            
+
+
+            if (!isOnPlatform) {
+                
             if (game.gameTimer.CapturedUpdates == 0) {
                 game.currentVelocity = (game.gravity + player.thrust) * 1 + game.currentVelocity;
             } else {
                 game.currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + game.currentVelocity;
             }
-                                            
-            player.Entity.Shape.Move(game.currentVelocity);
-                       
+
+            }
+
+            if (!isOnPlatform) {
+                player.Entity.Shape.Move(game.currentVelocity);
+            }
+            
+
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
             }          
@@ -139,6 +162,8 @@ namespace SpaceTaxi_1
                             break;
                         
                         case "KEY_UP":
+                            
+                            isOnPlatform = false;
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForSpecificProcessor(
                                     GameEventType.PlayerEvent, this, player, "BOOSTER_UPWARDS", "", ""));
@@ -176,10 +201,7 @@ namespace SpaceTaxi_1
                             GameEventFactory<object>.CreateGameEventForSpecificProcessor(
                                 GameEventType.PlayerEvent, this,player, "STOP_ACCELERATE_UP", "", ""));
                         break;
-                    default:
-                        Console.WriteLine("realeased");
-                        break;
-                    
+                   
                     }
                     break;
             }

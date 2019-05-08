@@ -47,6 +47,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="SpaceTaxi-States\ChoseLevel.cs" />
+    <Compile Include="SpaceTaxi-States\GameOver.cs" />
     <Compile Include="SpaceTaxi-States\GamePaused.cs" />
     <Compile Include="SpaceTaxi-States\GameRunning.cs" />
     <Compile Include="SpaceTaxi-States\GameStateType.cs" />
@@ -89,6 +90,7 @@
     <Content Include="Assets\Images\emperor-square.png" />
     <Content Include="Assets\Images\emperor-upper-left.png" />
     <Content Include="Assets\Images\emperor-upper-right.png" />
+    <Content Include="Assets\Images\Explosion.png" />
     <Content Include="Assets\Images\generate-images.sh" />
     <Content Include="Assets\Images\green-lower-left.png" />
     <Content Include="Assets\Images\green-lower-right.png" />

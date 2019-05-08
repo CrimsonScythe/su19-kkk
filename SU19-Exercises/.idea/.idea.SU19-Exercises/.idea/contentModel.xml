@@ -225,6 +225,7 @@
             <e p="emperor-square.png" t="Include" />
             <e p="emperor-upper-left.png" t="Include" />
             <e p="emperor-upper-right.png" t="Include" />
+            <e p="Explosion.png" t="Include" />
             <e p="generate-images.sh" t="Include" />
             <e p="green-lower-left.png" t="Include" />
             <e p="green-lower-right.png" t="Include" />
@@ -300,6 +301,7 @@
         <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
         <e p="SpaceTaxi-States" t="Include">
           <e p="ChoseLevel.cs" t="Include" />
+          <e p="GameOver.cs" t="Include" />
           <e p="GamePaused.cs" t="Include" />
           <e p="GameRunning.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
