@@ -5,7 +5,7 @@ using DIKUArcade.Math;
 namespace SpaceTaxi_1 {
     public class Obstacle : Entity {
         private Game game;
-        private DynamicShape shape;
+        public DynamicShape shape;
         public string fileName;
         private Vec2F vec2F { get; }
         /*
