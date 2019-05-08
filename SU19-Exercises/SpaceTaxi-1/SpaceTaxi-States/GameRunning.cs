@@ -57,33 +57,45 @@ namespace SpaceTaxi_1
 
         public void UpdateGameLogic() {
 
-//            Console.WriteLine(game.currentVelocity.Y);
-//            Console.WriteLine(player.Entity.Shape.AsDynamicShape().Direction);
+            Console.WriteLine(game.currentVelocity.Y);
             
             foreach (var obstacle in currentLevel.obstacles) {
 
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);
                 
                 if (collisionData.Collision) {
+                    
+                    
                     switch (currentLevel.levelName) {
                         case "short-n-sweet.txt":
-                            if (obstacle.fileName != "neptune-square.png") {
-                                // EXPLOSION HERE AND RUNNING GAME MUST END
 
+                            if (obstacle.fileName == "neptune-square.png"
+                                || obstacle.fileName == "neptune-lower-left.png"
+                                || obstacle.fileName == "neptune-lower-right.png") {
+
+                                if (game.currentVelocity.Y < -0.0001f && game.currentVelocity.Y > -0.0075f) {
+
+                                    isOnPlatform = true;
+                                    game.currentVelocity.Y = 0;
+                                    game.currentVelocity.X = 0;
+
+                                }
+
+                            } else {
+                                
+                                
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
+                                
                                 SpaceTaxiBus.GetBus().RegisterEvent(
                                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                                         GameEventType.GameStateEvent,
                                         this,
                                         "CHANGE_STATE",
                                         "GAME_OVER", "")); 
-                            }  else if (game.currentVelocity.Y < -0.00001f) {
-                                isOnPlatform = true;
-                                game.currentVelocity.Y = 0;
-                                game.currentVelocity.X = 0;
-
-                            }
+//                                
+                                
+                            } 
                             break;
                         case "the-beach.txt":
                             if (obstacle.fileName != "ironstone-square.png") {
