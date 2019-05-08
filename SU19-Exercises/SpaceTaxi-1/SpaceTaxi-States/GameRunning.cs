@@ -50,7 +50,7 @@ namespace SpaceTaxi_1
             CreateLevel(ChoseLevel.GetInstance().filename);             
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(20);           
+            explosions = new AnimationContainer(5);           
                    
         }
 
@@ -65,6 +65,12 @@ namespace SpaceTaxi_1
                                 // EXPLOSION HERE AND RUNNING GAME MUST END
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
+                                SpaceTaxiBus.GetBus().RegisterEvent(
+                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                        GameEventType.GameStateEvent,
+                                        this,
+                                        "CHANGE_STATE",
+                                        "GAME_OVER", "")); 
                             } else {
                                 game.gravity = new Vec2F(0f,0f);
                             }
@@ -86,6 +92,7 @@ namespace SpaceTaxi_1
             var txt = asciiLoader.ReadText();
             // currentLevel changes to Item1 and Item2 from the txt variable.      
             currentLevel = new Level(txt.Item1, txt.Item2, fileName);
+             
         }
 
         public void AddExplosion(float posX, float posY,
