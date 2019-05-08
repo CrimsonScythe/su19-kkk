@@ -10,9 +10,9 @@ using Image = DIKUArcade.Graphics.Image;
 
 namespace SpaceTaxi_1
 {
-    public class MainMenu : IGameState {
+    public class GameOver : IGameState {
 
-        private static MainMenu instance = null;
+        private static GameOver instance = null;
         private Entity backgroundImage;
         private Text[] menuButtons;
         private int activeMenuButton =0;
@@ -20,25 +20,24 @@ namespace SpaceTaxi_1
         private Game game;
         private Window win;
 
-        public MainMenu() {
+        public GameOver() {
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
-                new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
-            menuButtons = new Text[4];           
-            menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f) );
-            menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f));
-            menuButtons[2] = new Text("Quit", new Vec2F(0.35f, -0.1f), new Vec2F(0.4f,0.4f) );
-            menuButtons[3] = new Text("SPACE TAXI", new Vec2F(0.03f, 0.4f), new Vec2F(1.2f,0.4f) );
-            menuButtons[0].SetColor(Color.Red);
-            menuButtons[1].SetColor(Color.DarkRed);
+                new Image(Path.Combine("Assets", "Images", "SpaceBackground.png"))); 
+            
+            menuButtons = new Text[3];           
+            menuButtons[0] = new Text("GAME OVER!", new Vec2F(0.035f, 0.4f), new Vec2F(1.1f,0.4f) );
+            menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
+            menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );
+            menuButtons[0].SetColor(Color.Yellow);
+            menuButtons[1].SetColor(Color.Red);
             menuButtons[2].SetColor(Color.DarkRed);
-            menuButtons[3].SetColor(Color.Yellow);
 
-            activeMenuButton = 0;
+            activeMenuButton = 1;
         }
         
-        public static MainMenu GetInstance() {
-            return MainMenu.instance ?? (MainMenu.instance = new MainMenu());
+        public static GameOver GetInstance() {
+            return GameOver.instance ?? (GameOver.instance = new GameOver());
         }
         
         public void GameLoop() {
@@ -58,7 +57,7 @@ namespace SpaceTaxi_1
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
             menuButtons[2].RenderText();
-            menuButtons[3].RenderText();  
+     
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
@@ -68,81 +67,41 @@ namespace SpaceTaxi_1
                     switch (keyValue) {
                         
                         case "KEY_UP":
-                            if (activeMenuButton == 1) {
-                                menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f) );
-                                menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f));
-                                menuButtons[0].SetColor(Color.Red);
-                                menuButtons[1].SetColor(Color.DarkRed);
-                                menuButtons[2].SetColor(Color.DarkRed);
-                                activeMenuButton = 0;
-                                menuButtons[0].RenderText();
-                                menuButtons[1].RenderText();
-                                menuButtons[2].RenderText();
-                                menuButtons[3].RenderText();
-                            }
                             if (activeMenuButton == 2) {
-                                menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f));
-                                menuButtons[2] = new Text("Quit", new Vec2F(0.35f, -0.1f), new Vec2F(0.4f,0.4f) );
-                                menuButtons[0].SetColor(Color.DarkRed);
+                                menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
+                                menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );
                                 menuButtons[1].SetColor(Color.Red);
                                 menuButtons[2].SetColor(Color.DarkRed);
                                 activeMenuButton = 1;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
-                                menuButtons[3].RenderText();
                             }
                             break;
                         case "KEY_DOWN":
                             if (activeMenuButton == 1)
                             {
-                                menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f));
-                                menuButtons[2] = new Text("Quit", new Vec2F(0.35f, -0.1f), new Vec2F(0.5f,0.4f) );
-                                menuButtons[0].SetColor(Color.DarkRed);
+                                menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
+                                menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f) );
                                 menuButtons[1].SetColor(Color.DarkRed);
                                 menuButtons[2].SetColor(Color.Red);
                                 activeMenuButton = 2;
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
-                                menuButtons[3].RenderText();
                             }
-                            if (activeMenuButton == 0)
-                            {
-                                menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f) );
-                                menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f));
-                                menuButtons[0].SetColor(Color.DarkRed);
-                                menuButtons[1].SetColor(Color.Red);
-                                menuButtons[2].SetColor(Color.DarkRed);
-                                activeMenuButton = 1;
-                                menuButtons[0].RenderText();
-                                menuButtons[1].RenderText();
-                                menuButtons[2].RenderText();
-                                menuButtons[3].RenderText();
-                            }
-
                                                  
                             break;
                        
                         case "KEY_ENTER":
-                            switch (activeMenuButton) {
-                          
-                                case 0:                             
-                                    // new game button selected  
-                                    SpaceTaxiBus.GetBus().RegisterEvent(
-                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                            GameEventType.GameStateEvent,
-                                            this,
-                                            "CHANGE_STATE",
-                                            "GAME_RUNNING", ""));                                
-                                    break;
+                            switch (activeMenuButton) {                                                         
                                 case 1:
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
                                             this,
                                             "CHANGE_STATE",
-                                            "CHOSE_LEVEL", ""));
+                                            "MAIN_MENU", ""));
                                     break;
                                 case 2:
                                     // quit
@@ -171,4 +130,4 @@ namespace SpaceTaxi_1
         }
     }
 }
-  
+    
