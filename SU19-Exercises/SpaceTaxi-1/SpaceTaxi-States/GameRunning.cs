@@ -22,7 +22,6 @@ namespace SpaceTaxi_1
         private string globalMove = "down";
         private Game game;
         public Level currentLevel;
-        private List<Obstacle> obstacles;
 
         private GameRunning(Game game)
         {
@@ -62,12 +61,28 @@ namespace SpaceTaxi_1
 
         public void UpdateGameLogic() 
         {
+
+//            Console.WriteLine(player.Entity.Shape.AsDynamicShape().Direction);
+            
+            
             foreach (var obstacle in currentLevel.obstacles) {
-//                Console.WriteLine("" + obstacle.);
-                var collisionData = CollisionDetection.Aabb( obstacle.Shape.AsDynamicShape(), player.Entity.Shape);
-                if (collisionData.Collision) {
-                    Console.WriteLine(obstacle.Image);
+
+                if (CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape).Collision) {
+                    switch (currentLevel.levelName) {
+                        case "short-n-sweet.txt":
+                            if (obstacle.fileName != "neptune-square.png") {
+                                // EXPLOSION HERE AND RUNNING GAME MUST END
+                            } else {
+                                game.gravity = new Vec2F(0f,0f);
+                            }
+                            break;
+                        case "the-beach.txt":
+
+                            break;
+                    }
+                    
                 }
+                
             }
             
         }
@@ -77,7 +92,7 @@ namespace SpaceTaxi_1
             AsciiLoader asciiLoader = new AsciiLoader(fileName);
             var txt = asciiLoader.ReadText();
             // currentLevel changes to Item1 and Item2 from the txt variable.      
-            currentLevel = new Level(txt.Item1, txt.Item2);
+            currentLevel = new Level(txt.Item1, txt.Item2, fileName);
         }
 
         public void RenderState()

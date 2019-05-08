@@ -14,7 +14,9 @@ namespace SpaceTaxi_1 {
         private readonly ImageStride taxiBoosterOnImageRight;
         private readonly ImageStride taxiBoosterOnImageUpRight;
         private readonly ImageStride taxiBoosterOnImageUpLeft;
+        
         private readonly DynamicShape shape;
+        
         private Orientation taxiOrientation;
         public Vec2F thrust = new Vec2F(0f, 0f);
 
@@ -42,6 +44,9 @@ namespace SpaceTaxi_1 {
 //            taxiBoosterOnImageUp = new ImageStride(80, ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom.png")));
           
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
+            
+            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(0.01f, 0.01f));
+            
         }
 
         public Entity Entity { get; }

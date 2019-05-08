@@ -13,12 +13,15 @@ namespace SpaceTaxi_1 {
         private string Map;
         private float posX = -0.025f;
         private float posY = 0.96f;
-        public List<Obstacle> obstacles;        
+        public List<Obstacle> obstacles;
+
+        public string levelName;
         /*
          The Level constructor makes obstacles all the places where there are key legends.
          This makes it based on the ASCII map and the key legends given from the ASCII loader class.
         */
-        public Level(List<Tuple<string, string>> legendPairs, string Map) {
+        public Level(List<Tuple<string, string>> legendPairs, string Map, string levelName) {
+            this.levelName = levelName;
             this.legendPairs = legendPairs;
             this.Map = Map;
             obstacles = new List<Obstacle>();           
@@ -34,8 +37,9 @@ namespace SpaceTaxi_1 {
                     foreach (var pair in legendPairs) {                       
                         if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
                             // adds an obstacle with a shape (the position and an Image. 
-                            obstacles.Add(new Obstacle(new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.025f, 0.0435f)),
-                                new Image(GetAssetsFilePath(pair.Item2))));
+                            obstacles.Add(new Obstacle
+                            (new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.025f, 0.0435f)),
+                                new Image(GetAssetsFilePath(pair.Item2)),pair.Item2));
                         }
                     }                        
                     currentChar = stringReader2.Read();
