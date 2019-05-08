@@ -18,7 +18,7 @@ namespace SpaceTaxi_1 {
         private List<Obstacle> obstacles;
         public Level currentLevel;
         public Vec2F gravity = new Vec2F(0f, -0.000005f);
-        
+//        public Vec2F gravity = new Vec2F(0f, 0f);
         private StateMachine stateMachine;
         
         public Game() {

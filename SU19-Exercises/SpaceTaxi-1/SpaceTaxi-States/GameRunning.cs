@@ -129,7 +129,28 @@ namespace SpaceTaxi_1
                                         "GAME_OVER", ""));   
                                 
                             } 
-                } 
+                } else {
+                    if (player.shape.Position.Y > 1) {
+
+                        currentVelocity.Y = 0;
+                        currentVelocity.X = 0;
+                        isOnPlatform = true;
+                        
+                        GameRunning.instance = null;
+
+                        ChoseLevel.GetInstance().filename = "the-beach.txt";
+                        ChoseLevel.GetInstance().posX = 0.25f;
+                        ChoseLevel.GetInstance().posY = 0.162f;
+                        
+                        
+                        SpaceTaxiBus.GetBus().RegisterEvent(
+                            GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                GameEventType.GameStateEvent,
+                                this,
+                                "CHANGE_STATE",
+                                "GAME_RUNNING", ""));    
+                    }
+                }
                 
             }
             
