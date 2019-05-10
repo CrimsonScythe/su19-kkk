@@ -5,10 +5,8 @@ using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace SpaceTaxi_1
-{
-    public class Player : IGameEventProcessor<object>
-    {
+namespace SpaceTaxi_1 {
+    public class Player : IGameEventProcessor<object> {
         private readonly Image taxiBoosterOffImageLeft;
         private readonly Image taxiBoosterOffImageRight;
         private readonly ImageStride taxiBoosterOnImageUp;
@@ -16,16 +14,12 @@ namespace SpaceTaxi_1
         private readonly ImageStride taxiBoosterOnImageRight;
         private readonly ImageStride taxiBoosterOnImageUpRight;
         private readonly ImageStride taxiBoosterOnImageUpLeft;
-
         public DynamicShape shape;
-
         private Orientation taxiOrientation;
         public Vec2F thrust = new Vec2F(0f, 0f);
-
         private bool isUp = false;
 
-        public Player()
-        {
+        public Player() {
             shape = new DynamicShape(new Vec2F(), new Vec2F());
             taxiBoosterOffImageLeft =
                 new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
@@ -37,50 +31,34 @@ namespace SpaceTaxi_1
             taxiBoosterOnImageRight =
                 new ImageStride(80,
                     ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Back_Right.png")));
-
             taxiBoosterOnImageUp =
                 new ImageStride(80,
                     ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom.png")));
-
             taxiBoosterOnImageUpRight =
                 new ImageStride(80,
                     ImageStride.CreateStrides(2,
                         Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back_Right.png")));
-
             taxiBoosterOnImageUpLeft =
                 new ImageStride(80,
                     ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom_Back.png")));
-//            taxiBoosterOnImageUp = new ImageStride(80, ImageStride.CreateStrides(2, Path.Combine("Assets", "Images", "Taxi_Thrust_Bottom.png")));
-
             Entity = new Entity(shape, taxiBoosterOffImageLeft);
-
             Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(0.01f, 0.01f));
-
         }
 
         public Entity Entity { get; }
 
-        public void SetPosition(float x, float y)
-        {
+        public void SetPosition(float x, float y) {
             shape.Position.X = x;
             shape.Position.Y = y;
         }
 
-        public void SetExtent(float width, float height)
-        {
+        public void SetExtent(float width, float height) {
             shape.Extent.X = width;
             shape.Extent.Y = height;
         }
 
-        public void RenderPlayer()
-        {
-            //TODO: Next version needs animation. Skipped for clarity.
-//            Entity.Image = taxiOrientation == Orientation.Left
-//                ? taxiBoosterOffImageLeft
-//                : taxiBoosterOffImageRight;
-
-            switch (taxiOrientation)
-            {
+        public void RenderPlayer() {
+            switch (taxiOrientation) {
                 case Orientation.Up:
                     Entity.Image = taxiBoosterOnImageUp;
                     break;
@@ -100,27 +78,20 @@ namespace SpaceTaxi_1
                     Entity.Image = taxiBoosterOnImageUpRight;
                     break;
             }
-
             Entity.RenderEntity();
         }
 
-        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent)
-        {
-            if (eventType == GameEventType.PlayerEvent)
-            {
-                switch (gameEvent.Message)
-                {
+        public void ProcessEvent(GameEventType eventType, GameEvent<object> gameEvent) {
+            if (eventType == GameEventType.PlayerEvent) {
+                switch (gameEvent.Message) {
                     case "BOOSTER_UPWARDS":
-                        if (taxiOrientation == Orientation.Left)
-                        {
+                        if (taxiOrientation == Orientation.Left) {
                             taxiOrientation = Orientation.UpLeft;
                         }
-                        else if (taxiOrientation == Orientation.Right)
-                        {
+                        else if (taxiOrientation == Orientation.Right) {
                             taxiOrientation = Orientation.UpRight;
                         }
-                        else
-                        {
+                        else {
                             taxiOrientation = Orientation.Up;
                         }
 
@@ -131,12 +102,10 @@ namespace SpaceTaxi_1
                         taxiOrientation = Orientation.None;
                         break;
                     case "BOOSTER_TO_LEFT":
-                        if (taxiOrientation == Orientation.Up)
-                        {
+                        if (taxiOrientation == Orientation.Up) {
                             taxiOrientation = Orientation.UpLeft;
                         }
-                        else
-                        {
+                        else {
                             taxiOrientation = Orientation.Left;
                         }
 
@@ -147,12 +116,10 @@ namespace SpaceTaxi_1
                         thrust.X = 0f;
                         break;
                     case "BOOSTER_TO_RIGHT":
-                        if (taxiOrientation == Orientation.Up)
-                        {
+                        if (taxiOrientation == Orientation.Up) {
                             taxiOrientation = Orientation.UpRight;
                         }
-                        else
-                        {
+                        else {
                             taxiOrientation = Orientation.Right;
                         }
 
@@ -162,8 +129,6 @@ namespace SpaceTaxi_1
                         taxiOrientation = Orientation.None;
                         thrust.X = 0f;
                         break;
-
-                    // in the future, we will be handling movement here
                 }
             }
         }
