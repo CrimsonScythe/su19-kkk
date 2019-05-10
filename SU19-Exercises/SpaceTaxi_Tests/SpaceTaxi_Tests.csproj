@@ -51,14 +51,98 @@
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpaceTaxi-1\SpaceTaxi-1.csproj">
       <Project>{6b6b73fe-d105-4f0e-9b51-069b6fd6328f}</Project>
       <Name>SpaceTaxi-1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Images" />
     <Folder Include="Levels" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Images\aspargus-edge-bottom.png" />
+    <Content Include="Assets\Images\aspargus-edge-left.png" />
+    <Content Include="Assets\Images\aspargus-edge-right.png" />
+    <Content Include="Assets\Images\aspargus-edge-top-left.png" />
+    <Content Include="Assets\Images\aspargus-edge-top-right.png" />
+    <Content Include="Assets\Images\aspargus-edge-top.png" />
+    <Content Include="Assets\Images\aspargus-passage.png" />
+    <Content Include="Assets\Images\aspargus-passage1.png" />
+    <Content Include="Assets\Images\aspargus-passage2.png" />
+    <Content Include="Assets\Images\CustomerStandLeft.png" />
+    <Content Include="Assets\Images\CustomerStandRight.png" />
+    <Content Include="Assets\Images\CustomerWalkLeft.png" />
+    <Content Include="Assets\Images\CustomerWalkRight.png" />
+    <Content Include="Assets\Images\deep-bronze-left-half-circle.png" />
+    <Content Include="Assets\Images\deep-bronze-right-half-circle.png" />
+    <Content Include="Assets\Images\deep-bronze-square.png" />
+    <Content Include="Assets\Images\emperor-lower-left.png" />
+    <Content Include="Assets\Images\emperor-lower-right.png" />
+    <Content Include="Assets\Images\emperor-square.png" />
+    <Content Include="Assets\Images\emperor-upper-left.png" />
+    <Content Include="Assets\Images\emperor-upper-right.png" />
+    <Content Include="Assets\Images\Explosion.png" />
+    <Content Include="Assets\Images\generate-images.sh" />
+    <Content Include="Assets\Images\green-lower-left.png" />
+    <Content Include="Assets\Images\green-lower-right.png" />
+    <Content Include="Assets\Images\green-square.png" />
+    <Content Include="Assets\Images\green-upper-left.png" />
+    <Content Include="Assets\Images\green-upper-right.png" />
+    <Content Include="Assets\Images\ironstone-lower-left.png" />
+    <Content Include="Assets\Images\ironstone-lower-right.png" />
+    <Content Include="Assets\Images\ironstone-square.png" />
+    <Content Include="Assets\Images\ironstone-upper-left.png" />
+    <Content Include="Assets\Images\ironstone-upper-right.png" />
+    <Content Include="Assets\Images\minsk-square.png" />
+    <Content Include="Assets\Images\nandor-square.png" />
+    <Content Include="Assets\Images\neptune-lower-left.png" />
+    <Content Include="Assets\Images\neptune-lower-right.png" />
+    <Content Include="Assets\Images\neptune-square.png" />
+    <Content Include="Assets\Images\neptune-upper-left.png" />
+    <Content Include="Assets\Images\neptune-upper-right.png" />
+    <Content Include="Assets\Images\obstacle.png" />
+    <Content Include="Assets\Images\olive-green-square.png" />
+    <Content Include="Assets\Images\platform.png" />
+    <Content Include="Assets\Images\purple-circle.png" />
+    <Content Include="Assets\Images\salt-box-square.png" />
+    <Content Include="Assets\Images\sanguine-brown-lower-left.png" />
+    <Content Include="Assets\Images\sanguine-brown-lower-right.png" />
+    <Content Include="Assets\Images\sanguine-brown-square.png" />
+    <Content Include="Assets\Images\sanguine-brown-upper-left.png" />
+    <Content Include="Assets\Images\sanguine-brown-upper-right.png" />
+    <Content Include="Assets\Images\sanguine_brown-lower-left.png" />
+    <Content Include="Assets\Images\sanguine_brown-lower-right.png" />
+    <Content Include="Assets\Images\sanguine_brown-square.png" />
+    <Content Include="Assets\Images\sanguine_brown-upper-left.png" />
+    <Content Include="Assets\Images\sanguine_brown-upper-right.png" />
+    <Content Include="Assets\Images\SpaceBackground.png" />
+    <Content Include="Assets\Images\studio-lower-left.png" />
+    <Content Include="Assets\Images\studio-lower-right.png" />
+    <Content Include="Assets\Images\studio-square.png" />
+    <Content Include="Assets\Images\studio-upper-left.png" />
+    <Content Include="Assets\Images\studio-upper-right.png" />
+    <Content Include="Assets\Images\tacha-square.png" />
+    <Content Include="Assets\Images\tacha-upper-right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Back.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Back_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Back.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Back_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_Bottom_Right.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_None.png" />
+    <Content Include="Assets\Images\Taxi_Thrust_None_Right.png" />
+    <Content Include="Assets\Images\white-left-half-circle.png" />
+    <Content Include="Assets\Images\white-lower-left.png" />
+    <Content Include="Assets\Images\white-lower-right.png" />
+    <Content Include="Assets\Images\white-right-half-circle.png" />
+    <Content Include="Assets\Images\white-square.png" />
+    <Content Include="Assets\Images\white-upper-left.png" />
+    <Content Include="Assets\Images\white-upper-right.png" />
+    <Content Include="Assets\Images\yellow-stick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -61,7 +61,7 @@ namespace SpaceTaxi_1
         }
 
         public string GetPlatformName() {
-
+    
             var name = "";
             
             switch (currentLevel.levelName) {
