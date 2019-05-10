@@ -8,10 +8,8 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
 
-namespace SpaceTaxi_1
-{
-    public class GameRunning : IGameState
-    {
+namespace SpaceTaxi_1 {
+    public class GameRunning : IGameState {
 
         public static GameRunning instance = null;
         public Player player;
@@ -21,30 +19,26 @@ namespace SpaceTaxi_1
         private int explosionLength = 500;
         private string globalMove = "down";
         private Game game;
-        public Level currentLevel;
+        private Level currentLevel;
         private bool isOnPlatform = false;
         private string platformName;
         private Vec2F currentVelocity;
         
-        private GameRunning(Game game)
-        {
+        private GameRunning(Game game) {
             this.game = game;
             
             InitializeGameState();
         }
 
-        public static GameRunning GetInstance(Game gm)
-        {
+        public static GameRunning GetInstance(Game gm) {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm));
         }
 
-        public void GameLoop()
-        {
+        public void GameLoop() {
         }
         
 
-        public void InitializeGameState()
-        { 
+        public void InitializeGameState() { 
             player = new Player();
             player.SetPosition(ChoseLevel.GetInstance().posX,ChoseLevel.GetInstance().posY);
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
@@ -60,8 +54,8 @@ namespace SpaceTaxi_1
 
         }
 
-        public string GetPlatformName() {
-    
+        private string GetPlatformName() {
+
             var name = "";
             
             switch (currentLevel.levelName) {
@@ -81,19 +75,13 @@ namespace SpaceTaxi_1
 
             
             foreach (var obstacle in currentLevel.obstacles) {
-
-                var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);
-                
+                var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
-                
-                    
                             if (obstacle.fileName.Equals(GetPlatformName())) {
-
                                 //if collision from below then gameover and explosion
                                 if (collisionData.DirectionFactor.Y < 1) {
                                     AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
-                                
+                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                            
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
@@ -107,42 +95,27 @@ namespace SpaceTaxi_1
                                     isOnPlatform = true;
                                     currentVelocity.Y = 0;
                                     currentVelocity.X = 0;
-
                                 }
-
-                                /*
-                                 * No need to add explosion logic here, since player falls and collides
-                                 * with obstacles.
-                                 */
                                 
                             } else {
-
-                                
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);
-                                
+                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
                                 SpaceTaxiBus.GetBus().RegisterEvent(
                                     GameEventFactory<object>.CreateGameEventForAllProcessors(
                                         GameEventType.GameStateEvent,
                                         this,
                                         "CHANGE_STATE",
-                                        "GAME_OVER", ""));   
-                                
+                                        "GAME_OVER", ""));                                 
                             } 
                 } else {
                     if (player.shape.Position.Y > 1) {
-
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
-                        isOnPlatform = true;
-                        
+                        isOnPlatform = true;                        
                         GameRunning.instance = null;
-
                         ChoseLevel.GetInstance().filename = "the-beach.txt";
                         ChoseLevel.GetInstance().posX = 0.25f;
                         ChoseLevel.GetInstance().posY = 0.162f;
-                        
-                        
                         SpaceTaxiBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent,
@@ -150,44 +123,33 @@ namespace SpaceTaxi_1
                                 "CHANGE_STATE",
                                 "GAME_RUNNING", ""));    
                     }
-                }
-                
-            }
-            
+                }               
+            }           
         }
 
-        public void CreateLevel(string fileName)
-        {
+        private void CreateLevel(string fileName) {
             AsciiLoader asciiLoader = new AsciiLoader(fileName);
             var txt = asciiLoader.ReadText();
             // currentLevel changes to Item1 and Item2 from the txt variable.      
-            currentLevel = new Level(txt.Item1, txt.Item2, fileName);
-             
+            currentLevel = new Level(txt.Item1, txt.Item2, fileName);             
         }
 
-        public void AddExplosion(float posX, float posY,
-            float extentX, float extentY)
-        {
+        private void AddExplosion(float posX, float posY,
+            float extentX, float extentY) {
             explosions.AddAnimation(
                 new StationaryShape(posX, posY, extentX, extentY), explosionLength,
                 new ImageStride(explosionLength / 8, explosionStrides));
         }
 
-        public void RenderState()
-        {                        
+        public void RenderState() {                        
             player.RenderPlayer();
-
             explosions.RenderAnimations();
-
-
-            if (!isOnPlatform) {
-                
+            if (!isOnPlatform) {               
             if (game.gameTimer.CapturedUpdates == 0) {
                 currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
             } else {
                 currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
             }
-
             }
 
             if (!isOnPlatform) {
@@ -201,13 +163,10 @@ namespace SpaceTaxi_1
         }
 
 
-        public void HandleKeyEvent(string keyValue, string keyAction)
-        {
-            switch (keyAction)
-            {
+        public void HandleKeyEvent(string keyValue, string keyAction) {
+            switch (keyAction) {
                 case "KEY_PRESS":
-                    switch (keyValue)
-                    {
+                    switch (keyValue) {
                         case "KEY_ESCAPE":
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(

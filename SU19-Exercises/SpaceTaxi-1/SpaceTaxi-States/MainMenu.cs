@@ -8,8 +8,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace SpaceTaxi_1
-{
+namespace SpaceTaxi_1 {
     public class MainMenu : IGameState {
 
         private static MainMenu instance = null;
@@ -20,7 +19,7 @@ namespace SpaceTaxi_1
         private Game game;
         private Window win;
 
-        public MainMenu() {
+        private MainMenu() {
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
@@ -94,8 +93,7 @@ namespace SpaceTaxi_1
                             }
                             break;
                         case "KEY_DOWN":
-                            if (activeMenuButton == 1)
-                            {
+                            if (activeMenuButton == 1) {
                                 menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f));
                                 menuButtons[2] = new Text("Quit", new Vec2F(0.35f, -0.1f), new Vec2F(0.5f,0.4f) );
                                 menuButtons[0].SetColor(Color.DarkRed);
@@ -107,8 +105,7 @@ namespace SpaceTaxi_1
                                 menuButtons[2].RenderText();
                                 menuButtons[3].RenderText();
                             }
-                            if (activeMenuButton == 0)
-                            {
+                            if (activeMenuButton == 0) {
                                 menuButtons[0] = new Text("New Game", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f) );
                                 menuButtons[1] = new Text("Choose Level", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f));
                                 menuButtons[0].SetColor(Color.DarkRed);
@@ -120,7 +117,6 @@ namespace SpaceTaxi_1
                                 menuButtons[2].RenderText();
                                 menuButtons[3].RenderText();
                             }
-
                                                  
                             break;
                        

@@ -8,8 +8,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace SpaceTaxi_1
-{
+namespace SpaceTaxi_1 {
     public class GamePaused : IGameState {
         private static GamePaused instance = null;
         private Entity backgroundImage;
@@ -80,7 +79,6 @@ namespace SpaceTaxi_1
                                     break;
                                 case 1:
                                     // back to main menu selected                                  
-//                                    GameRunning.instance = null;
                                     ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
                                     ChoseLevel.GetInstance().posX = 0.45f;
                                     ChoseLevel.GetInstance().posY = 0.075f;

@@ -8,8 +8,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace SpaceTaxi_1
-{
+namespace SpaceTaxi_1 {
     public class GameOver : IGameState {
 
         private static GameOver instance = null;
@@ -79,8 +78,7 @@ namespace SpaceTaxi_1
                             }
                             break;
                         case "KEY_DOWN":
-                            if (activeMenuButton == 1)
-                            {
+                            if (activeMenuButton == 1) {
                                 menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
                                 menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f) );
                                 menuButtons[1].SetColor(Color.DarkRed);

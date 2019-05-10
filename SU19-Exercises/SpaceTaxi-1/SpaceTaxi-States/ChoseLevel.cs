@@ -8,8 +8,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace SpaceTaxi_1
-{
+namespace SpaceTaxi_1 {
     public class ChoseLevel : IGameState {
         private static ChoseLevel instance = null;
         private Entity backgroundImage;

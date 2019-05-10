@@ -1,7 +1,8 @@
 using System;
 
-namespace SpaceTaxi_1
-{
+using System;
+
+namespace SpaceTaxi_1 {
     public class StateTransformer {
         
         public enum GameStateType { GameRunning, MainMenu, GamePaused, ChoseLevel, GameOver}
