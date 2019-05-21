@@ -23,6 +23,8 @@ namespace SpaceTaxi_1 {
         private bool isOnPlatform = false;
         private string platformName;
         private Vec2F currentVelocity;
+        public Score score;      
+
         
         private GameRunning(Game game) {
             this.game = game;
@@ -48,10 +50,8 @@ namespace SpaceTaxi_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
-
+            score = new Score(new Vec2F(0.5f,0.5f), new Vec2F(0.2f,0.2f));           
             currentVelocity = new Vec2F(0f, 0f);
-
-
         }
 
         private string GetPlatformName() {
@@ -71,9 +71,7 @@ namespace SpaceTaxi_1 {
         }
         
 
-        public void UpdateGameLogic() {
-
-            
+        public void UpdateGameLogic() {            
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
@@ -141,7 +139,7 @@ namespace SpaceTaxi_1 {
                 new ImageStride(explosionLength / 8, explosionStrides));
         }
 
-        public void RenderState() {                        
+        public void RenderState() {   
             player.RenderPlayer();
             explosions.RenderAnimations();
             if (!isOnPlatform) {               
@@ -149,17 +147,16 @@ namespace SpaceTaxi_1 {
                 currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
             } else {
                 currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
-            }
+                }
             }
 
             if (!isOnPlatform) {
                 player.Entity.Shape.Move(currentVelocity);
             }
-            
-
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
-            }          
+            }   
+            score.RenderScore();
         }
 
 
