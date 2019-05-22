@@ -35,6 +35,8 @@ namespace SpaceTaxi_1 {
         private Stopwatch stopwatch;
 
         private Customer customer = null;
+
+        private Obstacle spawnPlatform;
         
         private GameRunning(Game game, Customer customer) {
             this.game = game;
@@ -66,6 +68,16 @@ namespace SpaceTaxi_1 {
             
             score = new Score(new Vec2F(0.05f,0.55f), new Vec2F(0.4f,0.4f));           
             currentVelocity = new Vec2F(0f, 0f);
+            
+            
+            foreach (var obstacle in currentLevel.obstacles) {
+                if (obstacle.symbol.ToString().Equals(currentLevel.customer.spawnplatform)) {
+//                    spawnPlatform = obstacle;
+                    Console.WriteLine("works");
+                    currentLevel.customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X, obstacle.shape.Position.Y+0.2f);
+                    break;
+                }
+            }
             
             //if customer is not null then it is a customer from the previous level
 //            if (customer != null) {
@@ -112,7 +124,7 @@ namespace SpaceTaxi_1 {
                                 if (customer != null) {
 //                                    Console.WriteLine("not null");
 //                                    Console.WriteLine(customer.landplatform);
-                                    if (obstacle.fileName.Equals(customer.landplatform)) {
+                                    if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
                                         Console.WriteLine("ADDPOINT");
                                         score.AddPoint();
                                     }
@@ -145,8 +157,8 @@ namespace SpaceTaxi_1 {
 //                                        GameEventType.GameStateEvent,
 //                                        this,
 //                                        "CHANGE_STATE",
-//                                        "GAME_OVER", ""));                                 
-                            } 
+//                                        "GAME_OVER", ""));                               
+                            }   
                 } else {
                     if (player.shape.Position.Y > 1) {
 
@@ -220,8 +232,24 @@ namespace SpaceTaxi_1 {
 
 //            Console.WriteLine(currentLevel.customer.spawntime);
 
+
+//replace constant below with spawntime
             if (stopwatch.Elapsed.Seconds >= currentLevel.customer.spawntime) {
-                currentLevel.customer.RenderCustomer();
+                var collisiondata =
+                    CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
+
+                if (collisiondata.Collision)
+                {
+                    Console.WriteLine("collison");
+                    currentLevel.customer.entity.DeleteEntity();
+                } 
+                if (!currentLevel.customer.entity.IsDeleted())
+                {
+                
+                    
+                    currentLevel.customer.RenderCustomer();
+                }
+               
             }
             
 //            Console.WriteLine(game.gameTimer.CapturedUpdates);

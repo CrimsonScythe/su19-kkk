@@ -27,7 +27,7 @@ namespace SpaceTaxi_1 {
             this.droptime = droptime;
             this.droppoints = droppoints;
             
-            shape = new DynamicShape(new Vec2F(0.3f,0.3f), new Vec2F(0.1f,0.1f));
+            shape = new DynamicShape(new Vec2F(), new Vec2F());
             image1 = new DIKUArcade.Graphics.Image(Path.Combine("Assets","Images", "CustomerStandLeft.png"));
             entity = new Entity(shape, image1);
 

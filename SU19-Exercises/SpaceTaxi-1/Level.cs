@@ -49,7 +49,7 @@ namespace SpaceTaxi_1 {
                             // adds an obstacle with a shape (the position and an Image. 
                             obstacles.Add(new Obstacle
                             (new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.025f, 0.0435f)),
-                                new Image(GetAssetsFilePath(pair.Item2)),pair.Item2));
+                                new Image(GetAssetsFilePath(pair.Item2)),pair.Item2, System.Convert.ToChar(currentChar)));
                         }
                     }                        
                     currentChar = stringReader2.Read();
