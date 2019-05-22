@@ -121,14 +121,14 @@ namespace SpaceTaxi_1 {
                                 
                                 //if collision from below then gameover and explosion
                                 if (collisionData.DirectionFactor.Y < 1) {
-//                                    AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-//                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                            
-//                                    SpaceTaxiBus.GetBus().RegisterEvent(
-//                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                            GameEventType.GameStateEvent,
-//                                            this,
-//                                            "CHANGE_STATE",
-//                                            "GAME_OVER", ""));   
+                                    AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                            
+                                    SpaceTaxiBus.GetBus().RegisterEvent(
+                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                            GameEventType.GameStateEvent,
+                                            this,
+                                            "CHANGE_STATE",
+                                            "GAME_OVER", ""));   
                                 }
                                 
                                 if (currentVelocity.Y < -0.0001f && currentVelocity.Y > -0.0075f) {
@@ -138,14 +138,14 @@ namespace SpaceTaxi_1 {
                                 }
                                 
                             } else {
-//                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-//                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
-//                                SpaceTaxiBus.GetBus().RegisterEvent(
-//                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                        GameEventType.GameStateEvent,
-//                                        this,
-//                                        "CHANGE_STATE",
-//                                        "GAME_OVER", ""));                                 
+                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
+                                SpaceTaxiBus.GetBus().RegisterEvent(
+                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                        GameEventType.GameStateEvent,
+                                        this,
+                                        "CHANGE_STATE",
+                                        "GAME_OVER", ""));                                 
                             } 
                 } else {
                     if (player.shape.Position.Y > 1) {
