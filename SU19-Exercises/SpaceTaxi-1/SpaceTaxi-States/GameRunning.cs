@@ -221,7 +221,19 @@ namespace SpaceTaxi_1 {
 //            Console.WriteLine(currentLevel.customer.spawntime);
 
             if (stopwatch.Elapsed.Seconds >= currentLevel.customer.spawntime) {
-                currentLevel.customer.RenderCustomer();
+                var collisiondata =
+                    CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
+
+                if (collisiondata.Collision)
+                {
+                    Console.WriteLine("collison");
+                    currentLevel.customer.entity.DeleteEntity();
+                } 
+                if (!currentLevel.customer.entity.IsDeleted())
+                {
+                    currentLevel.customer.RenderCustomer();
+                }
+               
             }
             
 //            Console.WriteLine(game.gameTimer.CapturedUpdates);
