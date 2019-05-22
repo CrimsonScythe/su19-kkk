@@ -33,15 +33,20 @@ namespace SpaceTaxi_1 {
         private int elapsedtime;
 
         private Stopwatch stopwatch;
+
+        private Customer customer = null;
         
-        private GameRunning(Game game) {
+        private GameRunning(Game game, Customer customer) {
             this.game = game;
+            if (customer!=null) {
+                this.customer = customer;
+            }
             
             InitializeGameState();
         }
 
-        public static GameRunning GetInstance(Game gm) {
-            return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm));
+        public static GameRunning GetInstance(Game gm, Customer cust) {
+            return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm, cust));
         }
 
         public void GameLoop() {
@@ -61,6 +66,11 @@ namespace SpaceTaxi_1 {
             
             score = new Score(new Vec2F(0.05f,0.55f), new Vec2F(0.4f,0.4f));           
             currentVelocity = new Vec2F(0f, 0f);
+            
+            //if customer is not null then it is a customer from the previous level
+//            if (customer != null) {
+                
+//            }
         }
 
         private List<string> GetPlatformName() {
@@ -122,6 +132,12 @@ namespace SpaceTaxi_1 {
                             } 
                 } else {
                     if (player.shape.Position.Y > 1) {
+
+                        //if customer has been picked up
+                        if (currentLevel.customer.entity.IsDeleted()) {
+                            ChoseLevel.GetInstance().Customer = currentLevel.customer;
+                        }
+                        
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
                         isOnPlatform = true;                        

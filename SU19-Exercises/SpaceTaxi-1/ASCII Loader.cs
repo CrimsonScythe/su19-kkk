@@ -41,7 +41,7 @@ namespace SpaceTaxi_1 {
             string current = stringReader.ReadLine();
             
             // checks if the current variable is not empty, a ":" or an empty string
-            while (current != null) {
+            while (current != null) {    
 
               
                 if (new Regex("\\bCustomer\\b").IsMatch(current)) {
