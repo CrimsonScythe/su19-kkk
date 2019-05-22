@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using DIKUArcade.Entities;
 
 namespace SpaceTaxi_1 {
     public class AsciiLoader {        
@@ -11,7 +12,7 @@ namespace SpaceTaxi_1 {
         private List<Tuple<string, string>> legendPairs;
         private string Map;
         private Regex regex;
-        
+        private List<Customer> cusList;
         private string name;
         private int spawntime;
         private string spawnplatform;
@@ -29,7 +30,7 @@ namespace SpaceTaxi_1 {
          Uses regex to create a list of a tuple. The tuple contains two strings.
          The two strings are the ASCII map and the key legends, respectively.                 
         */
-        public (List<Tuple<string,string>>, string, Customer) ReadText() {
+        public (List<Tuple<string,string>>, string, List<Customer>) ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
             // regex spilts the file at the string Platforms
             regex = new Regex("\\bPlatforms");            
@@ -41,8 +42,7 @@ namespace SpaceTaxi_1 {
             string current = stringReader.ReadLine();
             
             // checks if the current variable is not empty, a ":" or an empty string
-            while (current != null) {    
-
+            while (current != null) {
               
                 if (new Regex("\\bCustomer\\b").IsMatch(current)) {
                     var splitted = new Regex("\\s").Split(current);
@@ -58,9 +58,9 @@ namespace SpaceTaxi_1 {
                     droptime = Convert.ToInt32(splitted[5]);
 
                     droppoints = Convert.ToInt32(splitted[6]);
-
-//                    Console.WriteLine(spawntime);
                 }
+                
+                cusList.Add(new Customer(name,spawntime,spawnplatform,landplatform,droptime,droppoints));
                 
                 if (!current.Contains(":") && !current.Equals("")) {
                     /*
@@ -73,9 +73,7 @@ namespace SpaceTaxi_1 {
                 current = stringReader.ReadLine();
             }
             
-            customer = new Customer(name, spawntime, spawnplatform, landplatform, droptime, droppoints);
-
-            return (legendPairs, Map, customer);
+            return (legendPairs, Map, cusList);
         }
         
         private string GetLevelFilePath(string filename) {

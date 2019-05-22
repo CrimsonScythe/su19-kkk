@@ -15,22 +15,19 @@ namespace SpaceTaxi_1 {
         private float posX = -0.025f;
         private float posY = 0.96f;
         public List<Obstacle> obstacles;
-
+        private List<Customer> cusList;
         public string levelName;
-
-        public Customer customer;
-
         
         
         /*
          The Level constructor makes obstacles all the places where there are key legends.
          This makes it based on the ASCII map and the key legends given from the ASCII loader class.
         */
-        public Level(List<Tuple<string, string>> legendPairs, string Map, string levelName, Customer customer) {
+        public Level(List<Tuple<string, string>> legendPairs, string Map, string levelName, List<Customer> cusList) {
             this.levelName = levelName;
             this.legendPairs = legendPairs;
             this.Map = Map;
-            this.customer = customer;
+            this.cusList = cusList;
             obstacles = new List<Obstacle>();           
             StringReader stringReader = new StringReader(Map);                      
             string currentLine = stringReader.ReadLine();            
