@@ -74,7 +74,7 @@ namespace SpaceTaxi_1 {
                 if (obstacle.symbol.ToString().Equals(currentLevel.customer.spawnplatform)) {
 //                    spawnPlatform = obstacle;
                     Console.WriteLine("works");
-                    currentLevel.customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X, obstacle.shape.Position.Y+0.2f);
+                    currentLevel.customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X, obstacle.shape.Position.Y+0.05f);
                     break;
                 }
             }
