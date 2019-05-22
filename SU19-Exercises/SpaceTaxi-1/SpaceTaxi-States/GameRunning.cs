@@ -74,18 +74,24 @@ namespace SpaceTaxi_1 {
         }
 
         private List<string> GetPlatformName() {
-            var list1 = new List<string>();   
-            switch (currentLevel.levelName) {
-            case "short-n-sweet.txt":
-                list1.Add("neptune-square.png");
-                break;
-            case "the-beach.txt":
-                list1.Add("ironstone-square.png");
-                list1.Add("studio-square.png");
-                list1.Add("white-square.png");
-                break;
-            }
-            return list1;
+            var list1 = new List<string>();
+            var list2 = new List<string>();
+            var templist = new List<string>();
+//            switch (currentLevel.levelName) {
+//            case "short-n-sweet.txt":
+                list2.Add("neptune-square.png");
+//                templist = list1;
+//                break;
+//            case "the-beach.txt":
+                list2.Add("ironstone-square.png");
+                list2.Add("studio-square.png");
+                list2.Add("white-square.png");
+//                templist = list2;
+//                break;
+//            }
+
+            
+            return list2;
         }
         
 
@@ -94,24 +100,35 @@ namespace SpaceTaxi_1 {
                 CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
 
             if (collisiondata.Collision) {
+                Console.WriteLine("collision");
                 currentLevel.customer.entity.DeleteEntity();
             }
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
                             if (obstacle.fileName.Equals(GetPlatformName()[0]) || obstacle.fileName.Equals(GetPlatformName()[1])
-                               || obstacle.fileName.Equals(GetPlatformName()[2]))  {
+                               || obstacle.fileName.Equals(GetPlatformName()[2]) || obstacle.fileName.Equals(GetPlatformName()[3]))  {
+
+                                if (customer != null) {
+//                                    Console.WriteLine("not null");
+//                                    Console.WriteLine(customer.landplatform);
+                                    if (obstacle.fileName.Equals(customer.landplatform)) {
+                                        Console.WriteLine("ADDPOINT");
+                                        score.AddPoint();
+                                    }
+                                    
+                                }
                                 
                                 //if collision from below then gameover and explosion
                                 if (collisionData.DirectionFactor.Y < 1) {
-                                    AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                            
-                                    SpaceTaxiBus.GetBus().RegisterEvent(
-                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                            GameEventType.GameStateEvent,
-                                            this,
-                                            "CHANGE_STATE",
-                                            "GAME_OVER", ""));   
+//                                    AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+//                                        obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                            
+//                                    SpaceTaxiBus.GetBus().RegisterEvent(
+//                                        GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                                            GameEventType.GameStateEvent,
+//                                            this,
+//                                            "CHANGE_STATE",
+//                                            "GAME_OVER", ""));   
                                 }
                                 
                                 if (currentVelocity.Y < -0.0001f && currentVelocity.Y > -0.0075f) {
@@ -121,20 +138,25 @@ namespace SpaceTaxi_1 {
                                 }
                                 
                             } else {
-                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
-                                SpaceTaxiBus.GetBus().RegisterEvent(
-                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                        GameEventType.GameStateEvent,
-                                        this,
-                                        "CHANGE_STATE",
-                                        "GAME_OVER", ""));                                 
+//                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+//                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
+//                                SpaceTaxiBus.GetBus().RegisterEvent(
+//                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                                        GameEventType.GameStateEvent,
+//                                        this,
+//                                        "CHANGE_STATE",
+//                                        "GAME_OVER", ""));                                 
                             } 
                 } else {
                     if (player.shape.Position.Y > 1) {
 
-                        //if customer has been picked up
-                        if (currentLevel.customer.entity.IsDeleted()) {
+                        //if customer has been picked up and has to be dropped off at next level
+                        if (currentLevel.customer.entity.IsDeleted() && currentLevel.customer.landplatform.Contains("^")) {
+                            //change customer.platformname to remove ^
+                            currentLevel.customer.landplatform =
+                                currentLevel.customer.landplatform.Substring(1, 1);
+                            Console.WriteLine("done");
+                            Console.WriteLine( currentLevel.customer.landplatform );
                             ChoseLevel.GetInstance().Customer = currentLevel.customer;
                         }
                         
