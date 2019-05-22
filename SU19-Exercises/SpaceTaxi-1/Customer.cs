@@ -18,7 +18,7 @@ namespace SpaceTaxi_1 {
         private DynamicShape shape;
         private Entity entity;
         
-        
+
         public Customer(string name, int spawntime, string spawnplatform, string landplatform, int droptime, int droppoints) {
             this.name = name;
             this.spawntime = spawntime;
@@ -34,7 +34,6 @@ namespace SpaceTaxi_1 {
         }
         public void RenderCustomer() {
             entity.RenderEntity();
-            
         }
     } 
 }

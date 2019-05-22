@@ -24,7 +24,6 @@ namespace SpaceTaxi_1 {
         private string platformName;
         private Vec2F currentVelocity;
         public Score score;      
-
         
         private GameRunning(Game game) {
             this.game = game;
@@ -50,14 +49,13 @@ namespace SpaceTaxi_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
-            score = new Score(new Vec2F(0.5f,0.5f), new Vec2F(0.2f,0.2f));           
+            
+            score = new Score(new Vec2F(0.05f,0.55f), new Vec2F(0.4f,0.4f));           
             currentVelocity = new Vec2F(0f, 0f);
         }
 
         private string GetPlatformName() {
-
-            var name = "";
-            
+            var name = "";           
             switch (currentLevel.levelName) {
             case "short-n-sweet.txt":
                 name = "neptune-square.png";
@@ -66,7 +64,6 @@ namespace SpaceTaxi_1 {
                 name = "ironstone-square.png";
                 break;
             }
-
             return name;
         }
         
@@ -89,7 +86,6 @@ namespace SpaceTaxi_1 {
                                 }
                                 
                                 if (currentVelocity.Y < -0.0001f && currentVelocity.Y > -0.0075f) {
-
                                     isOnPlatform = true;
                                     currentVelocity.Y = 0;
                                     currentVelocity.X = 0;
