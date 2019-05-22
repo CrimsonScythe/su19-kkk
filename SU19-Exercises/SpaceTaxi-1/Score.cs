@@ -16,7 +16,7 @@ namespace SpaceTaxi_1 {
         }
 
         public void RenderScore() {
-            display.SetText(string.Format("Score: {0}", score.ToString()));
+            display.SetText(string.Format(score.ToString()));
             display.SetColor(new Vec3I(255,0,0));
             display.RenderText();
         }
