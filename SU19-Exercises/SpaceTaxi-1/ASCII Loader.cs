@@ -29,7 +29,7 @@ namespace SpaceTaxi_1 {
          Uses regex to create a list of a tuple. The tuple contains two strings.
          The two strings are the ASCII map and the key legends, respectively.                 
         */
-        public (List<Tuple<string,string>>, string) ReadText() {
+        public (List<Tuple<string,string>>, string, Customer) ReadText() {
             fileLoaded = File.ReadAllText(GetLevelFilePath(fileName));
             // regex spilts the file at the string Platforms
             regex = new Regex("\\bPlatforms");            
@@ -43,6 +43,7 @@ namespace SpaceTaxi_1 {
             // checks if the current variable is not empty, a ":" or an empty string
             while (current != null) {
 
+              
                 if (new Regex("\\bCustomer\\b").IsMatch(current)) {
                     var splitted = new Regex("\\s").Split(current);
 
@@ -73,8 +74,8 @@ namespace SpaceTaxi_1 {
             }
             
             customer = new Customer(name, spawntime, spawnplatform, landplatform, droptime, droppoints);
-            
-            return (legendPairs, Map);
+
+            return (legendPairs, Map, customer);
         }
         
         private string GetLevelFilePath(string filename) {

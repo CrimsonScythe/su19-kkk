@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Timers;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
+using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1 {
     public class GameRunning : IGameState {
@@ -23,7 +26,13 @@ namespace SpaceTaxi_1 {
         private bool isOnPlatform = false;
         private string platformName;
         private Vec2F currentVelocity;
-        public Score score;      
+        public Score score;
+
+        private bool first = true;
+        private int time;
+        private int elapsedtime;
+
+        private Stopwatch stopwatch;
         
         private GameRunning(Game game) {
             this.game = game;
@@ -125,7 +134,7 @@ namespace SpaceTaxi_1 {
             AsciiLoader asciiLoader = new AsciiLoader(fileName);
             var txt = asciiLoader.ReadText();
             // currentLevel changes to Item1 and Item2 from the txt variable.      
-            currentLevel = new Level(txt.Item1, txt.Item2, fileName);             
+            currentLevel = new Level(txt.Item1, txt.Item2,fileName , txt.Item3);             
         }
 
         private void AddExplosion(float posX, float posY,
@@ -153,6 +162,23 @@ namespace SpaceTaxi_1 {
                 obstacle.RenderEntity(); 
             }   
             score.RenderScore();
+
+            if (first) {
+                stopwatch = Stopwatch.StartNew();
+                first = false;
+            }
+
+//            Console.WriteLine(stopwatch.Elapsed.Seconds);
+
+//            Console.WriteLine(currentLevel.customer.spawntime);
+
+            if (stopwatch.Elapsed.Seconds >= currentLevel.customer.spawntime) {
+                currentLevel.customer.RenderCustomer();
+            }
+            
+//            Console.WriteLine(game.gameTimer.CapturedUpdates);
+                        
+                        
         }
 
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -16,14 +17,20 @@ namespace SpaceTaxi_1 {
         public List<Obstacle> obstacles;
 
         public string levelName;
+
+        public Customer customer;
+
+        
+        
         /*
          The Level constructor makes obstacles all the places where there are key legends.
          This makes it based on the ASCII map and the key legends given from the ASCII loader class.
         */
-        public Level(List<Tuple<string, string>> legendPairs, string Map, string levelName) {
+        public Level(List<Tuple<string, string>> legendPairs, string Map, string levelName, Customer customer) {
             this.levelName = levelName;
             this.legendPairs = legendPairs;
             this.Map = Map;
+            this.customer = customer;
             obstacles = new List<Obstacle>();           
             StringReader stringReader = new StringReader(Map);                      
             string currentLine = stringReader.ReadLine();            
@@ -32,6 +39,9 @@ namespace SpaceTaxi_1 {
                      
             // two string readers changes position to get through the hole .txt file
             while (currentLine != null) {
+
+      
+                
                 while (currentChar != -1) {
                     posX += 0.025f;                    
                     foreach (var pair in legendPairs) {                       
@@ -53,7 +63,8 @@ namespace SpaceTaxi_1 {
                     stringReader2 = new StringReader(currentLine);
                     currentChar = stringReader2.Read();
                 }                
-            }          
+            }
+
         }
    
         private string GetAssetsFilePath(string filename) {
