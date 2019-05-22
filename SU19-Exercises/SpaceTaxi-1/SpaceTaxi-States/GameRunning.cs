@@ -63,25 +63,35 @@ namespace SpaceTaxi_1 {
             currentVelocity = new Vec2F(0f, 0f);
         }
 
-        private string GetPlatformName() {
-            var name = "";           
+        private List<string> GetPlatformName() {
+            var list1 = new List<string>();   
             switch (currentLevel.levelName) {
             case "short-n-sweet.txt":
-                name = "neptune-square.png";
+                list1.Add("neptune-square.png");
                 break;
             case "the-beach.txt":
-                name = "ironstone-square.png";
+                list1.Add("ironstone-square.png");
+                list1.Add("studio-square.png");
+                list1.Add("white-square.png");
                 break;
             }
-            return name;
+            return list1;
         }
         
 
-        public void UpdateGameLogic() {            
+        public void UpdateGameLogic() {       
+            var collisiondata =
+                CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
+
+            if (collisiondata.Collision) {
+                currentLevel.customer.entity.DeleteEntity();
+            }
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
-                            if (obstacle.fileName.Equals(GetPlatformName())) {
+                            if (obstacle.fileName.Equals(GetPlatformName()[0]) || obstacle.fileName.Equals(GetPlatformName()[1])
+                               || obstacle.fileName.Equals(GetPlatformName()[2]))  {
+                                
                                 //if collision from below then gameover and explosion
                                 if (collisionData.DirectionFactor.Y < 1) {
                                     AddExplosion(player.shape.Position.X,player.shape.Position.Y,
