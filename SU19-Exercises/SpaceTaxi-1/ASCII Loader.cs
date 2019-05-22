@@ -12,6 +12,14 @@ namespace SpaceTaxi_1 {
         private string Map;
         private Regex regex;
         
+        private string name;
+        private int spawntime;
+        private string spawnplatform;
+        private string landplatform;
+        private int droptime;
+        private int droppoints;
+        private Customer customer;
+        
         // AsciiLoader constructor given a string fileName.
         public AsciiLoader(string fileName) {
             this.fileName = fileName;    
@@ -34,6 +42,25 @@ namespace SpaceTaxi_1 {
             
             // checks if the current variable is not empty, a ":" or an empty string
             while (current != null) {
+
+                if (new Regex("\\bCustomer\\b").IsMatch(current)) {
+                    var splitted = new Regex("\\s").Split(current);
+
+                    name = splitted[1];
+
+                    spawntime = Convert.ToInt32(splitted[2]);
+                    
+                    spawnplatform = splitted[3];
+
+                    landplatform = splitted[4];
+
+                    droptime = Convert.ToInt32(splitted[5]);
+
+                    droppoints = Convert.ToInt32(splitted[6]);
+
+//                    Console.WriteLine(spawntime);
+                }
+                
                 if (!current.Contains(":") && !current.Equals("")) {
                     /*
                      as long as current is not empty, an empty string or ":" legendPairs will add
@@ -44,6 +71,9 @@ namespace SpaceTaxi_1 {
                 }
                 current = stringReader.ReadLine();
             }
+            
+            customer = new Customer(name, spawntime, spawnplatform, landplatform, droptime, droppoints);
+            
             return (legendPairs, Map);
         }
         

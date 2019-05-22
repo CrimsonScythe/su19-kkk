@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ASCII Loader.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="SpaceTaxi-States\ChoseLevel.cs" />
     <Compile Include="SpaceTaxi-States\GameOver.cs" />
     <Compile Include="SpaceTaxi-States\GamePaused.cs" />

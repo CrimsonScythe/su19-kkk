@@ -286,6 +286,7 @@
           </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Customer.cs" t="Include" />
         <e p="Game.cs" t="Include" />
         <e p="Level.cs" t="Include" />
         <e p="Levels" t="Include">
@@ -298,6 +299,7 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
+        <e p="Score.cs" t="Include" />
         <e p="SpaceTaxi-1.csproj" t="IncludeRecursive" />
         <e p="SpaceTaxi-States" t="Include">
           <e p="ChoseLevel.cs" t="Include" />
