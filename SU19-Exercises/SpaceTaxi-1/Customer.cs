@@ -10,16 +10,15 @@ namespace SpaceTaxi_1 {
 
         private string name;
         private int spawntime;
-        private char spawnplatform;
-        private char landplatform;
+        private string spawnplatform;
+        private string landplatform;
         private int droptime;
         private int droppoints;
         private readonly DIKUArcade.Graphics.Image image1;
         private DynamicShape shape;
         private Entity entity;
         
-        
-        public Customer(string name, int spawntime, char spawnplatform, char landplatform, int droptime, int droppoints) {
+        public Customer(string name, int spawntime, string spawnplatform, string landplatform, int droptime, int droppoints) {
             this.name = name;
             this.spawntime = spawntime;
             this.spawnplatform = spawnplatform;
@@ -34,7 +33,6 @@ namespace SpaceTaxi_1 {
         }
         public void RenderCustomer() {
             entity.RenderEntity();
-            
         }
     } 
 }
