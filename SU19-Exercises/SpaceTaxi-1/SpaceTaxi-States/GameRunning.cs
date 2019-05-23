@@ -27,6 +27,8 @@ namespace SpaceTaxi_1 {
         private string platformName;
         private Vec2F currentVelocity;
         public Score score;
+        private CollisionData[] collisiondatas;
+        
 
         private bool first = true;
         private int time;
@@ -34,11 +36,11 @@ namespace SpaceTaxi_1 {
 
         private Stopwatch stopwatch;
 
-        private Customer customer = null;
+        private List<Customer> customer = null;
 
         private Obstacle spawnPlatform;
         
-        private GameRunning(Game game, Customer customer) {
+        private GameRunning(Game game, List<Customer> customer) {
             this.game = game;
             if (customer!=null) {
                 this.customer = customer;
@@ -47,43 +49,56 @@ namespace SpaceTaxi_1 {
             InitializeGameState();
         }
 
-        public static GameRunning GetInstance(Game gm, Customer cust) {
+        public static GameRunning GetInstance(Game gm, List<Customer> cust) {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm, cust));
         }
 
         public void GameLoop() {
         }
-        
 
-        public void InitializeGameState() { 
+
+        public void InitializeGameState() {
             player = new Player();
-            player.SetPosition(ChoseLevel.GetInstance().posX,ChoseLevel.GetInstance().posY);
+            player.SetPosition(ChoseLevel.GetInstance().posX, ChoseLevel.GetInstance().posY);
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-            CreateLevel(ChoseLevel.GetInstance().filename);             
+            CreateLevel(ChoseLevel.GetInstance().filename);
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
-            
-            score = new Score(new Vec2F(0.05f,0.55f), new Vec2F(0.4f,0.4f));           
+
+            score = new Score(new Vec2F(0.05f, 0.55f), new Vec2F(0.4f, 0.4f));
             currentVelocity = new Vec2F(0f, 0f);
-            
-            
-            foreach (var obstacle in currentLevel.obstacles) {
-                if (obstacle.symbol.ToString().Equals(currentLevel.customer.spawnplatform)) {
-//                    spawnPlatform = obstacle;
-                    Console.WriteLine("works");
-                    currentLevel.customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X, obstacle.shape.Position.Y+0.05f);
-                    break;
+
+            foreach (var customer in currentLevel.cusList) {
+                foreach (var obstacle in currentLevel.obstacles) {
+                    if (obstacle.symbol.ToString().Equals(customer.spawnplatform)) {
+                        spawnPlatform = obstacle;
+                        Console.WriteLine("works");
+                        customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X,
+                            obstacle.shape.Position.Y + 0.05f);
+                        break;
+                    }
+
                 }
             }
+            
+         collisiondatas = new CollisionData[currentLevel.cusList.Count];
+         
+         for (int i = 0; i < currentLevel.cusList.Count; i++) {
+             collisiondatas[i] = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(),
+                 currentLevel.cusList[i].entity.Shape);
+         }
+            
+        }
+
             
             //if customer is not null then it is a customer from the previous level
 //            if (customer != null) {
                 
 //            }
-        }
+        
 
         private List<string> GetPlatformName() {
             var list1 = new List<string>();
@@ -108,28 +123,44 @@ namespace SpaceTaxi_1 {
         
 
         public void UpdateGameLogic() {       
-            var collisiondata =
-                CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
+//            var collisiondata =
+//                CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
+//
+//            if (collisiondata.Collision) {
+//                Console.WriteLine("collision");
+//                currentLevel.customer.entity.DeleteEntity();
+//            }
 
-            if (collisiondata.Collision) {
-                Console.WriteLine("collision");
-                currentLevel.customer.entity.DeleteEntity();
+
+            for (int i = 0; i < currentLevel.cusList.Count; i++) {
+                if (collisiondatas[i].Collision) {
+                    currentLevel.cusList[i].entity.DeleteEntity();
+                }
             }
+
+//            foreach (var collisiondata in collisiondatas) {
+//                if (collisiondata.Collision)
+//                    Console.WriteLine("Collision :)");
+//                ;
+//
+//            }
+                
+                
+            
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
                             if (obstacle.fileName.Equals(GetPlatformName()[0]) || obstacle.fileName.Equals(GetPlatformName()[1])
                                || obstacle.fileName.Equals(GetPlatformName()[2]) || obstacle.fileName.Equals(GetPlatformName()[3]))  {
 
-                                if (customer != null) {
-//                                    Console.WriteLine("not null");
-//                                    Console.WriteLine(customer.landplatform);
-                                    if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
-                                        Console.WriteLine("ADDPOINT");
-                                        score.AddPoint();
-                                    }
-                                    
-                                }
+//                                if (customer != null) {
+////                                    Console.WriteLine("not null");
+////                                    Console.WriteLine(customer.landplatform);
+//                                    if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
+//                                        Console.WriteLine("ADDPOINT");
+//                                        score.AddPoint();
+//                                    }
+//                                }
                                 
                                 //if collision from below then gameover and explosion
                                 if (collisionData.DirectionFactor.Y < 1) {
@@ -164,15 +195,15 @@ namespace SpaceTaxi_1 {
                 } else {
                     if (player.shape.Position.Y > 1) {
 
-                        //if customer has been picked up and has to be dropped off at next level
-                        if (currentLevel.customer.entity.IsDeleted() && currentLevel.customer.landplatform.Contains("^")) {
-                            //change customer.platformname to remove ^
-                            currentLevel.customer.landplatform =
-                                currentLevel.customer.landplatform.Substring(1, 1);
-                            Console.WriteLine("done");
-                            Console.WriteLine( currentLevel.customer.landplatform );
-                            ChoseLevel.GetInstance().Customer = currentLevel.customer;
-                        }
+//                        //if customer has been picked up and has to be dropped off at next level
+//                        if (currentLevel.customer.entity.IsDeleted() && currentLevel.customer.landplatform.Contains("^")) {
+//                            //change customer.platformname to remove ^
+//                            currentLevel.customer.landplatform =
+//                                currentLevel.customer.landplatform.Substring(1, 1);
+//                            Console.WriteLine("done");
+//                            Console.WriteLine( currentLevel.customer.landplatform );
+//                            ChoseLevel.GetInstance().Customer = currentLevel.customer;
+//                        }
                         
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
@@ -230,32 +261,13 @@ namespace SpaceTaxi_1 {
                 first = false;
             }
 
-//            Console.WriteLine(stopwatch.Elapsed.Seconds);
-
-//            Console.WriteLine(currentLevel.customer.spawntime);
-
+            foreach (var customer in currentLevel.cusList) {
+                if (stopwatch.Elapsed.Seconds >= customer.spawntime)
+                    customer.RenderCustomer();
+            }
 
 //replace constant below with spawntime
-            if (stopwatch.Elapsed.Seconds >= currentLevel.customer.spawntime) {
-                var collisiondata =
-                    CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), currentLevel.customer.entity.Shape);
 
-                if (collisiondata.Collision)
-                {
-                    Console.WriteLine("collison");
-                    currentLevel.customer.entity.DeleteEntity();
-                } 
-                if (!currentLevel.customer.entity.IsDeleted())
-                {
-
-                    currentLevel.customer.RenderCustomer();
-                }
-               
-            }
-            
-//            Console.WriteLine(game.gameTimer.CapturedUpdates);
-                        
-                        
         }
 
 
