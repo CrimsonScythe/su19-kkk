@@ -173,13 +173,12 @@ namespace SpaceTaxi_1 {
                                 if (customer != null) {
 //                                    Console.WriteLine("not null");
 //                                    Console.WriteLine(customer.landplatform);
-                                    if (obstacle.symbol.ToString().Equals(customer[0].landplatform)) {
+                                    if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
                                         Console.WriteLine("ADDPOINT");
                                         score.AddPoint();
                                     }
                                 }
-
-                               
+     
                                 
                                 //if collision from below then gameover and explosion
 //                                if (collisionData.CollisionDir != CollisionDirection.CollisionDirDown || 
@@ -204,14 +203,14 @@ namespace SpaceTaxi_1 {
                                 
                             } else {
 
-                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
-                                SpaceTaxiBus.GetBus().RegisterEvent(
-                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                        GameEventType.GameStateEvent,
-                                        this,
-                                        "CHANGE_STATE",
-                                        "GAME_OVER", ""));                               
+//                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+//                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
+//                                SpaceTaxiBus.GetBus().RegisterEvent(
+//                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                                        GameEventType.GameStateEvent,
+//                                        this,
+//                                        "CHANGE_STATE",
+//                                        "GAME_OVER", ""));                               
                             }   
 
                 } else {
@@ -219,44 +218,36 @@ namespace SpaceTaxi_1 {
 
                         //if customer has been picked up and has to be dropped off at next level
 
-                        List<Customer> list = new List<Customer>();
-                        
-                        foreach (var customer in currentLevel.cusList) {
+                                                
                             if (customer.entity.IsDeleted() && customer.landplatform.Contains("^")) {
                             
-                            
-                            list.Add(customer);
-                            
+                                                        
                             //change customer.platformname to remove ^
                             if (customer.landplatform.Length > 1) {
                                 customer.landplatform =
                                     customer.landplatform.Substring(1, 1);    
                             }
                             
-//                            Console.WriteLine("done");
-//                            Console.WriteLine( currentLevel.customer.landplatform );
-                            ChoseLevel.GetInstance().Customer = list;
+
+                            ChoseLevel.GetInstance().Customer = customer;
                             
                             }                            
-                        }
-                        
-//                        if (currentLevel.customer.entity.IsDeleted() && currentLevel.customer.landplatform.Contains("^")) {
-//                            //change customer.platformname to remove ^
-//                            
-//                            currentLevel.customer.landplatform =
-//                                currentLevel.customer.landplatform.Substring(1, 1);
-//                            Console.WriteLine("done");
-//                            Console.WriteLine( currentLevel.customer.landplatform );
-//                            ChoseLevel.GetInstance().Customer = currentLevel.customer;
-//                        }
-                        
+                       
+   
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
                         isOnPlatform = true;                        
                         GameRunning.instance = null;
-                        ChoseLevel.GetInstance().filename = "the-beach.txt";
-                        ChoseLevel.GetInstance().posX = 0.25f;
-                        ChoseLevel.GetInstance().posY = 0.20f;
+                        if (currentLevel.levelName.Equals("short-n-sweet.txt")) {
+                            ChoseLevel.GetInstance().filename = "the-beach.txt";
+                            ChoseLevel.GetInstance().posX = 0.25f;
+                            ChoseLevel.GetInstance().posY = 0.20f;    
+                        } else {
+                            ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
+                            ChoseLevel.GetInstance().posX = 0.45f;
+                            ChoseLevel.GetInstance().posY = 0.15f;       
+                        }
+                        
                         SpaceTaxiBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent,

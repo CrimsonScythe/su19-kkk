@@ -21,7 +21,7 @@ namespace SpaceTaxi_1 {
         public float posY = 0.075f;
         public float extX = 0.1f;
         public float extY = 0.1f;
-        public List<Customer> Customer = null;
+        public Customer Customer = null;
 
         public static ChoseLevel GetInstance() {
             return ChoseLevel.instance ?? (ChoseLevel.instance = new ChoseLevel());
