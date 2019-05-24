@@ -91,6 +91,8 @@ namespace SpaceTaxi_1 {
                 }
             }
 
+            Console.WriteLine(currentLevel.cusList.Count);
+
             singletonTimer = SingletonTimer.Instance;
 
 
@@ -185,6 +187,7 @@ namespace SpaceTaxi_1 {
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
                                         Console.WriteLine("ADDPOINT");
                                         score.AddPoint();
+                                        customer = null;
                                     }
                                 }
      
@@ -310,7 +313,7 @@ namespace SpaceTaxi_1 {
 
 
             if (customer!=null) {
-                if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime) {
+                if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime && customer!=null) {
                     //END GAME
                     Console.WriteLine("dead");
                 }     
@@ -321,8 +324,11 @@ namespace SpaceTaxi_1 {
             
             foreach (var cus in currentLevel.cusList) {
                 if (stopwatch.Elapsed.Seconds + (stopwatch.Elapsed.Minutes*60) >= cus.spawntime) {
-                    if (customer == null) {
-                        cus.RenderCustomer();    
+//                    if (customer == null) {
+//                        cus.RenderCustomer();    
+//                    }
+                    if (!cus.entity.IsDeleted()) {
+                        cus.RenderCustomer();
                     }
                     
                 }
