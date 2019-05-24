@@ -181,13 +181,17 @@ namespace SpaceTaxi_1 {
                             if (obstacle.fileName.Equals(GetPlatformName()[0]) || obstacle.fileName.Equals(GetPlatformName()[1])
                                || obstacle.fileName.Equals(GetPlatformName()[2]) || obstacle.fileName.Equals(GetPlatformName()[3]))  {
 
+                                
+                                // lands
                                 if (customer != null) {
 //                                    Console.WriteLine("not null");
 //                                    Console.WriteLine(customer.landplatform);
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
                                         Console.WriteLine("ADDPOINT");
                                         score.AddPoint();
+                                        singletonTimer.stopwatch.Reset();
                                         customer = null;
+                                        
                                     }
                                 }
      

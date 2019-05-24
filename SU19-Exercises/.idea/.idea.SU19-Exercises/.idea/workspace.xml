@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="Merge branch 'master' of https://github.com/CrimsonScythe/su19-kkk&#10;&#10;# Conflicts:&#10;#&#9;SU19-Exercises/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,65 +15,65 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="321" />
+            <state relative-caret-position="213">
+              <caret line="191" column="73" selection-start-line="191" selection-start-column="73" selection-end-line="191" selection-end-column="73" />
               <folding>
-                <marker date="1558695868413" expanded="false" signature="6:290" ph="..." />
-                <marker date="1558695868413" expanded="true" signature="314:17231" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="358:17229" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="1314:1506" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="1378:1435" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="1578:1684" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="1717:1728" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="1773:3809" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="2611:3111" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="2678:3097" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="2763:3078" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="3255:3464" ph="/* Console.WriteLine(currentLevel.cusList[0].spawntime); ... */" />
-                <marker date="1558695868413" expanded="true" signature="3623:3786" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="3836:3978" ph="/* if customer is not null then it is a customer from the previous level ... */" />
-                <marker date="1558695868413" expanded="true" signature="4036:4679" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="4173:4260" ph="/* switch (currentLevel.levelName) { ... */" />
-                <marker date="1558695868413" expanded="true" signature="4310:4406" ph="/* templist = list1; ... */" />
-                <marker date="1558695868413" expanded="true" signature="4553:4629" ph="/* templist = list2; ... */" />
-                <marker date="1558695868413" expanded="true" signature="4728:11613" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="4737:5064" ph="/* var collisiondata = ... */" />
-                <marker date="1558695868413" expanded="true" signature="5130:5302" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="5369:5767" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="5420:5753" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="5599:5735" ph="/* singletonTimer.setCountDown(currentLevel.cusList[i].droptime); ... */" />
-                <marker date="1558695868413" expanded="true" signature="5770:6024" ph="/* var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), ... */" />
-                <marker date="1558695868413" expanded="true" signature="6141:11592" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="6319:9422" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="6583:8699" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="6640:7148" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="6642:6790" ph="/* Console.WriteLine(&quot;not null&quot;); ... */" />
-                <marker date="1558695868413" expanded="true" signature="6889:7114" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="7220:8260" ph="/* if collision from below then gameover and explosion ... */" />
-                <marker date="1558695868413" expanded="true" signature="8392:8602" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="8708:9370" ph="/* AddExplosion(player.shape.Position.X,player.shape.Position.Y, ... */" />
-                <marker date="1558695868413" expanded="true" signature="9483:11545" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="9733:10287" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="9958:10124" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="10640:10886" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="11665:11965" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="12067:12272" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="12308:14130" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="12422:12870" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="12492:12595" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="12903:12977" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13039:13096" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13157:13286" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13321:13539" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13423:13520" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13680:14078" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13779:14060" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="13781:13902" ph="/* if (customer == null) { ... */" />
-                <marker date="1558695868413" expanded="true" signature="13952:14021" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="14203:17223" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="14236:17213" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="14310:16051" ph="{...}" />
-                <marker date="1558695868413" expanded="true" signature="16154:17172" ph="{...}" />
+                <marker date="1558696662813" expanded="false" signature="6:290" ph="..." />
+                <marker date="1558696662813" expanded="true" signature="314:17420" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="358:17418" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="1314:1506" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="1378:1435" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="1578:1684" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="1717:1728" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="1773:3809" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="2611:3111" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="2678:3097" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="2763:3078" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="3255:3464" ph="/* Console.WriteLine(currentLevel.cusList[0].spawntime); ... */" />
+                <marker date="1558696662813" expanded="true" signature="3623:3786" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="3836:3978" ph="/* if customer is not null then it is a customer from the previous level ... */" />
+                <marker date="1558696662813" expanded="true" signature="4036:4679" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="4173:4260" ph="/* switch (currentLevel.levelName) { ... */" />
+                <marker date="1558696662813" expanded="true" signature="4310:4406" ph="/* templist = list1; ... */" />
+                <marker date="1558696662813" expanded="true" signature="4553:4629" ph="/* templist = list2; ... */" />
+                <marker date="1558696662813" expanded="true" signature="4728:11802" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="4737:5064" ph="/* var collisiondata = ... */" />
+                <marker date="1558696662813" expanded="true" signature="5130:5302" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="5369:5767" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="5420:5753" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="5599:5735" ph="/* singletonTimer.setCountDown(currentLevel.cusList[i].droptime); ... */" />
+                <marker date="1558696662813" expanded="true" signature="5770:6024" ph="/* var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), ... */" />
+                <marker date="1558696662813" expanded="true" signature="6141:11781" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="6319:9611" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="6583:8888" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="6714:7337" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="6716:6864" ph="/* Console.WriteLine(&quot;not null&quot;); ... */" />
+                <marker date="1558696662813" expanded="true" signature="6963:7303" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="7409:8449" ph="/* if collision from below then gameover and explosion ... */" />
+                <marker date="1558696662813" expanded="true" signature="8581:8791" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="8897:9559" ph="/* AddExplosion(player.shape.Position.X,player.shape.Position.Y, ... */" />
+                <marker date="1558696662813" expanded="true" signature="9672:11734" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="9922:10476" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="10147:10313" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="10829:11075" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="11854:12154" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="12256:12461" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="12497:14319" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="12611:13059" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="12681:12784" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13092:13166" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13228:13285" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13346:13475" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13510:13728" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13612:13709" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13869:14267" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13968:14249" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="13970:14091" ph="/* if (customer == null) { ... */" />
+                <marker date="1558696662813" expanded="true" signature="14141:14210" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="14392:17412" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="14425:17402" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="14499:16240" ph="{...}" />
+                <marker date="1558696662813" expanded="true" signature="16343:17361" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -170,7 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>game</find>
       <find>ironstone-square</find>
       <find>directionfactor</find>
       <find>collisionDir</find>
@@ -194,12 +192,13 @@
       <find>levelname</find>
       <find>delete</find>
       <find>initia</find>
-      <find>customer =</find>
       <find>singletonTimer</find>
       <find>rendering</find>
       <find>customer.entity</find>
       <find>customer = nul</find>
       <find>if</find>
+      <find>customer =</find>
+      <find>dead</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -510,12 +509,12 @@
       <workItem from="1557473657243" duration="13864000" />
       <workItem from="1558627844343" duration="6404000" />
       <workItem from="1558648877098" duration="221000" />
-      <workItem from="1558683633111" duration="12497000" />
+      <workItem from="1558683633111" duration="12826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258370000" />
+    <option name="totallyTimeSpent" value="258699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -537,7 +536,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3512748" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3512748" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1327,65 +1326,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="321" lean-forward="true" selection-start-line="321" selection-end-line="321" />
+        <state relative-caret-position="213">
+          <caret line="191" column="73" selection-start-line="191" selection-start-column="73" selection-end-line="191" selection-end-column="73" />
           <folding>
-            <marker date="1558695868413" expanded="false" signature="6:290" ph="..." />
-            <marker date="1558695868413" expanded="true" signature="314:17231" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="358:17229" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="1314:1506" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="1378:1435" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="1578:1684" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="1717:1728" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="1773:3809" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="2611:3111" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="2678:3097" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="2763:3078" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="3255:3464" ph="/* Console.WriteLine(currentLevel.cusList[0].spawntime); ... */" />
-            <marker date="1558695868413" expanded="true" signature="3623:3786" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="3836:3978" ph="/* if customer is not null then it is a customer from the previous level ... */" />
-            <marker date="1558695868413" expanded="true" signature="4036:4679" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="4173:4260" ph="/* switch (currentLevel.levelName) { ... */" />
-            <marker date="1558695868413" expanded="true" signature="4310:4406" ph="/* templist = list1; ... */" />
-            <marker date="1558695868413" expanded="true" signature="4553:4629" ph="/* templist = list2; ... */" />
-            <marker date="1558695868413" expanded="true" signature="4728:11613" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="4737:5064" ph="/* var collisiondata = ... */" />
-            <marker date="1558695868413" expanded="true" signature="5130:5302" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="5369:5767" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="5420:5753" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="5599:5735" ph="/* singletonTimer.setCountDown(currentLevel.cusList[i].droptime); ... */" />
-            <marker date="1558695868413" expanded="true" signature="5770:6024" ph="/* var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), ... */" />
-            <marker date="1558695868413" expanded="true" signature="6141:11592" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="6319:9422" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="6583:8699" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="6640:7148" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="6642:6790" ph="/* Console.WriteLine(&quot;not null&quot;); ... */" />
-            <marker date="1558695868413" expanded="true" signature="6889:7114" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="7220:8260" ph="/* if collision from below then gameover and explosion ... */" />
-            <marker date="1558695868413" expanded="true" signature="8392:8602" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="8708:9370" ph="/* AddExplosion(player.shape.Position.X,player.shape.Position.Y, ... */" />
-            <marker date="1558695868413" expanded="true" signature="9483:11545" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="9733:10287" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="9958:10124" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="10640:10886" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="11665:11965" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="12067:12272" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="12308:14130" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="12422:12870" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="12492:12595" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="12903:12977" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13039:13096" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13157:13286" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13321:13539" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13423:13520" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13680:14078" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13779:14060" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="13781:13902" ph="/* if (customer == null) { ... */" />
-            <marker date="1558695868413" expanded="true" signature="13952:14021" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="14203:17223" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="14236:17213" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="14310:16051" ph="{...}" />
-            <marker date="1558695868413" expanded="true" signature="16154:17172" ph="{...}" />
+            <marker date="1558696662813" expanded="false" signature="6:290" ph="..." />
+            <marker date="1558696662813" expanded="true" signature="314:17420" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="358:17418" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="1314:1506" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="1378:1435" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="1578:1684" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="1717:1728" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="1773:3809" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="2611:3111" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="2678:3097" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="2763:3078" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="3255:3464" ph="/* Console.WriteLine(currentLevel.cusList[0].spawntime); ... */" />
+            <marker date="1558696662813" expanded="true" signature="3623:3786" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="3836:3978" ph="/* if customer is not null then it is a customer from the previous level ... */" />
+            <marker date="1558696662813" expanded="true" signature="4036:4679" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="4173:4260" ph="/* switch (currentLevel.levelName) { ... */" />
+            <marker date="1558696662813" expanded="true" signature="4310:4406" ph="/* templist = list1; ... */" />
+            <marker date="1558696662813" expanded="true" signature="4553:4629" ph="/* templist = list2; ... */" />
+            <marker date="1558696662813" expanded="true" signature="4728:11802" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="4737:5064" ph="/* var collisiondata = ... */" />
+            <marker date="1558696662813" expanded="true" signature="5130:5302" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="5369:5767" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="5420:5753" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="5599:5735" ph="/* singletonTimer.setCountDown(currentLevel.cusList[i].droptime); ... */" />
+            <marker date="1558696662813" expanded="true" signature="5770:6024" ph="/* var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), ... */" />
+            <marker date="1558696662813" expanded="true" signature="6141:11781" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="6319:9611" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="6583:8888" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="6714:7337" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="6716:6864" ph="/* Console.WriteLine(&quot;not null&quot;); ... */" />
+            <marker date="1558696662813" expanded="true" signature="6963:7303" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="7409:8449" ph="/* if collision from below then gameover and explosion ... */" />
+            <marker date="1558696662813" expanded="true" signature="8581:8791" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="8897:9559" ph="/* AddExplosion(player.shape.Position.X,player.shape.Position.Y, ... */" />
+            <marker date="1558696662813" expanded="true" signature="9672:11734" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="9922:10476" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="10147:10313" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="10829:11075" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="11854:12154" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="12256:12461" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="12497:14319" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="12611:13059" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="12681:12784" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13092:13166" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13228:13285" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13346:13475" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13510:13728" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13612:13709" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13869:14267" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13968:14249" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="13970:14091" ph="/* if (customer == null) { ... */" />
+            <marker date="1558696662813" expanded="true" signature="14141:14210" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="14392:17412" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="14425:17402" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="14499:16240" ph="{...}" />
+            <marker date="1558696662813" expanded="true" signature="16343:17361" ph="{...}" />
           </folding>
         </state>
       </provider>
