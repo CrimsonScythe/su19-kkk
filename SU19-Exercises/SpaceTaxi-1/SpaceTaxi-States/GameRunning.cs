@@ -256,7 +256,7 @@ namespace SpaceTaxi_1 {
                         GameRunning.instance = null;
                         ChoseLevel.GetInstance().filename = "the-beach.txt";
                         ChoseLevel.GetInstance().posX = 0.25f;
-                        ChoseLevel.GetInstance().posY = 0.162f;
+                        ChoseLevel.GetInstance().posY = 0.20f;
                         SpaceTaxiBus.GetBus().RegisterEvent(
                             GameEventFactory<object>.CreateGameEventForAllProcessors(
                                 GameEventType.GameStateEvent,

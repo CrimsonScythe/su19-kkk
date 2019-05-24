@@ -111,7 +111,7 @@ namespace SpaceTaxi_1 {
                                     GameRunning.instance = null;
                                     filename = "short-n-sweet.txt";
                                     posX = 0.45f;
-                                    posY = 0.075f;
+                                    posY = 0.15f;
                                     extX = 0.1f;
                                     extY = 0.1f;
                                     SpaceTaxiBus.GetBus().RegisterEvent(
@@ -126,8 +126,8 @@ namespace SpaceTaxi_1 {
                                     GameRunning.instance = null;
                                     filename = "the-beach.txt";
                                     posX = 0.25f; 
-                                    posY = 0.162f;
-//                                    posY = 0.3f;
+//                                    posY = 0.162f;
+                                    posY = 0.20f;
                                     extX = 0.1f; 
                                     extY = 0.1f;
                                     GameRunning.instance = null;                                   
