@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi-1", "SpaceTaxi-1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi_Tests", "SpaceTaxi_Tests\SpaceTaxi_Tests.csproj", "{6CA1FB16-E52F-43F7-B436-878FD63C03D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTaxi-2", "SpaceTaxi-2\SpaceTaxi-2.csproj", "{6B6B73FE-D105-4F0E-9B51-069B6FD6328F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

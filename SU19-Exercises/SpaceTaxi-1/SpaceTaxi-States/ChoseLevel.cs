@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using DIKUArcade.Entities;
@@ -20,7 +21,7 @@ namespace SpaceTaxi_1 {
         public float posY = 0.075f;
         public float extX = 0.1f;
         public float extY = 0.1f;
-        public Customer Customer = null;
+        public List<Customer> Customer = null;
 
         public static ChoseLevel GetInstance() {
             return ChoseLevel.instance ?? (ChoseLevel.instance = new ChoseLevel());
@@ -126,6 +127,7 @@ namespace SpaceTaxi_1 {
                                     filename = "the-beach.txt";
                                     posX = 0.25f; 
                                     posY = 0.162f;
+//                                    posY = 0.3f;
                                     extX = 0.1f; 
                                     extY = 0.1f;
                                     GameRunning.instance = null;                                   

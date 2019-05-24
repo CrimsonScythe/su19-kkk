@@ -20,6 +20,7 @@ namespace SpaceTaxi_1 {
         private bool isUp = false;
 
         public Player() {
+           
             shape = new DynamicShape(new Vec2F(), new Vec2F());
             taxiBoosterOffImageLeft =
                 new Image(Path.Combine("Assets", "Images", "Taxi_Thrust_None.png"));
@@ -87,28 +88,48 @@ namespace SpaceTaxi_1 {
                     case "BOOSTER_UPWARDS":
                         if (taxiOrientation == Orientation.Left) {
                             taxiOrientation = Orientation.UpLeft;
+//                            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(-0.01f, 0.01f));
+
                         }
                         else if (taxiOrientation == Orientation.Right) {
                             taxiOrientation = Orientation.UpRight;
+//                            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(0.01f, 0.01f));
+
                         }
                         else {
+//                            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(0.01f, 0.01f));
+
                             taxiOrientation = Orientation.Up;
                         }
+                        
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(Entity.Shape.AsDynamicShape().Direction.X,1));
 
                         thrust.Y = 0.00001f;
                         break;
                     case "STOP_ACCELERATE_UP":
                         thrust.Y = 0f;
                         taxiOrientation = Orientation.None;
+                        
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(Entity.Shape.AsDynamicShape().Direction.X, -1f));
+
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(Entity.Shape.AsDynamicShape().Direction.X,-1));
+
+                        
                         break;
                     case "BOOSTER_TO_LEFT":
                         if (taxiOrientation == Orientation.Up) {
                             taxiOrientation = Orientation.UpLeft;
+//                            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(-0.01f, 0.01f));
+
                         }
                         else {
+//                            Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(-0.01f, Entity.Shape.AsDynamicShape().Direction.Y));
+
                             taxiOrientation = Orientation.Left;
                         }
 
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(-1,0));
+                        
                         thrust.X = -0.000005f;
                         break;
                     case "STOP_ACCELERATE_LEFT":
@@ -122,6 +143,10 @@ namespace SpaceTaxi_1 {
                         else {
                             taxiOrientation = Orientation.Right;
                         }
+                        
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(0.01f, Entity.Shape.AsDynamicShape().Direction.Y));
+
+//                        Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(1,0));
 
                         thrust.X = 0.000005f;
                         break;

@@ -12,7 +12,7 @@ namespace SpaceTaxi_1 {
         private List<Tuple<string, string>> legendPairs;
         private string Map;
         private Regex regex;
-        private List<Customer> cusList;
+        private List<Customer> cusList = new List<Customer>();
         private string name;
         private int spawntime;
         private string spawnplatform;
@@ -58,9 +58,10 @@ namespace SpaceTaxi_1 {
                     droptime = Convert.ToInt32(splitted[5]);
 
                     droppoints = Convert.ToInt32(splitted[6]);
+                    cusList.Add(new Customer(name,spawntime,spawnplatform,landplatform,droptime,droppoints));
+
                 }
                 
-                cusList.Add(new Customer(name,spawntime,spawnplatform,landplatform,droptime,droppoints));
                 
                 if (!current.Contains(":") && !current.Equals("")) {
                     /*

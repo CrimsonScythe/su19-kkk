@@ -15,7 +15,7 @@ namespace SpaceTaxi_1 {
         private float posX = -0.025f;
         private float posY = 0.96f;
         public List<Obstacle> obstacles;
-        private List<Customer> cusList;
+        public List<Customer> cusList;
         public string levelName;
         
         
