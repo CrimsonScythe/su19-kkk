@@ -201,25 +201,17 @@ namespace SpaceTaxi_1 {
                                     currentVelocity.X = 0;
                                 } 
                                 
-                                /*
-                                 * Else statement below is new, please remove later
-                                 */
-                                
-                                else {
-
-                                 
-                                }
                                 
                             } else {
 
-//                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-//                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
-//                                SpaceTaxiBus.GetBus().RegisterEvent(
-//                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                        GameEventType.GameStateEvent,
-//                                        this,
-//                                        "CHANGE_STATE",
-//                                        "GAME_OVER", ""));                               
+                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
+                                SpaceTaxiBus.GetBus().RegisterEvent(
+                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                        GameEventType.GameStateEvent,
+                                        this,
+                                        "CHANGE_STATE",
+                                        "GAME_OVER", ""));                               
                             }   
 
                 } else {
