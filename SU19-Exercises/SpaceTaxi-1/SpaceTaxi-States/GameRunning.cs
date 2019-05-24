@@ -41,6 +41,9 @@ namespace SpaceTaxi_1 {
         private Obstacle spawnPlatform;
         private bool startup = false;
 
+        private SingletonTimer singletonTimer;
+
+
         private GameRunning(Game game, Customer customer) {
             this.game = game;
             if (customer!=null) {
@@ -88,6 +91,11 @@ namespace SpaceTaxi_1 {
                 }
             }
 
+            singletonTimer = SingletonTimer.Instance;
+
+
+            
+            
 //            Console.WriteLine(currentLevel.cusList[0].spawntime);
 //            Console.WriteLine(currentLevel.cusList[0].landplatform);
 //            Console.WriteLine(currentLevel.cusList[0].landplatform);
@@ -138,29 +146,30 @@ namespace SpaceTaxi_1 {
 //                Console.WriteLine("collision");
 //                currentLevel.customer.entity.DeleteEntity();
 //            }
-
-
-//            for (int i = 0; i < currentLevel.cusList.Count; i++) {
-//                if (collisiondatas[i].Collision) {
-//                    currentLevel.cusList[i].entity.DeleteEntity();
-//                    Console.WriteLine("deleted");
-//                }
-//            }
-
-
-            var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(),
-                currentLevel.cusList[0].entity.Shape);
-
-            if (collision.Collision) {
-                Console.WriteLine("DELTE");
+            for (int i = 0; i < currentLevel.cusList.Count; i++) {
+                collisiondatas[i] = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(),
+                    currentLevel.cusList[i].entity.Shape);
             }
 
-//            foreach (var collisiondata in collisiondatas) {
-//                if (collisiondata.Collision)
-//                    Console.WriteLine("Collision :)");
-//                ;
+            for (int i = 0; i < currentLevel.cusList.Count; i++) {
+                if (collisiondatas[i].Collision) {
+                    currentLevel.cusList[i].entity.DeleteEntity();
+                    customer = currentLevel.cusList[i];
+                    singletonTimer.stopwatch.Start();
+//                    singletonTimer.setCountDown(currentLevel.cusList[i].droptime);
+//                    Console.WriteLine("deleted");
+                }
+            }
+
+
+//            var collision = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(),
+//                currentLevel.cusList[0].entity.Shape);
 //
+//            if (collision.Collision) {
+//                Console.WriteLine("DELTE");
 //            }
+
+      
                 
                 
             
@@ -296,8 +305,16 @@ namespace SpaceTaxi_1 {
             if (first) {
                 stopwatch = Stopwatch.StartNew();
                 first = false;
+//                starttime = 0;
             }
 
+
+            if (customer!=null) {
+                if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime) {
+                    //END GAME
+                    Console.WriteLine("dead");
+                }     
+            }
            
 
 //            Console.WriteLine(stopwatch.Elapsed.Minutes);
