@@ -36,12 +36,12 @@ namespace SpaceTaxi_1 {
 
         private Stopwatch stopwatch;
 
-        private List<Customer> customer = null;
+        private Customer customer = null;
 
         private Obstacle spawnPlatform;
         private bool startup = false;
 
-        private GameRunning(Game game, List<Customer> customer) {
+        private GameRunning(Game game, Customer customer) {
             this.game = game;
             if (customer!=null) {
                 this.customer = customer;
@@ -51,7 +51,7 @@ namespace SpaceTaxi_1 {
             InitializeGameState();
         }
 
-        public static GameRunning GetInstance(Game gm, List<Customer> cust) {
+        public static GameRunning GetInstance(Game gm, Customer cust) {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm, cust));
         }
 
