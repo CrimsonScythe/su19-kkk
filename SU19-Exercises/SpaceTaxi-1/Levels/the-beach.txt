@@ -63,5 +63,5 @@ r) studio-square.png
 t) tacha-square.png
 s) tacha-upper-right.png
 
-Customer: Bob 10 J r 10 100
-Customer: Carol 30 r ^ 10 100
+Customer: Bob 2 J r 50 100
+Customer: Carol 15 r ^ 50 100

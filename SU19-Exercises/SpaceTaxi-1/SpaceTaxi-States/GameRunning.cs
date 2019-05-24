@@ -183,8 +183,9 @@ namespace SpaceTaxi_1 {
 
                                 
                                 // lands
+//                                Console.WriteLine(customer.landplatform);
                                 if (customer != null) {
-//                                    Console.WriteLine("not null");
+//                                    Console.WriteLine(customer.landplatform);
 //                                    Console.WriteLine(customer.landplatform);
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
                                         Console.WriteLine("ADDPOINT");
@@ -234,20 +235,37 @@ namespace SpaceTaxi_1 {
 
                         //if customer has been picked up and has to be dropped off at next level
 
-                                                
-                            if (customer.entity.IsDeleted() && customer.landplatform.Contains("^")) {
-                            
-                                                        
+                        if (customer.entity.IsDeleted()) {
+
+
                             //change customer.platformname to remove ^
-                            if (customer.landplatform.Length > 1) {
-                                customer.landplatform =
-                                    customer.landplatform.Substring(1, 1);    
+
+                            if (customer.landplatform.Contains("^")) {
+                                if (customer.landplatform.Length > 1) {
+                                    customer.landplatform =
+                                        customer.landplatform.Substring(1, 1);    
+                                }   
                             }
                             
-
+                            
                             ChoseLevel.GetInstance().Customer = customer;
                             
-                            }                            
+                        }            
+                                                
+//                            if (customer.entity.IsDeleted() && customer.landplatform.Contains("^")) {
+//                            
+//                                                        
+//                            //change customer.platformname to remove ^
+//                            if (customer.landplatform.Length > 1) {
+//                                customer.landplatform =
+//                                    customer.landplatform.Substring(1, 1);    
+//                            }
+//                            
+//                            
+//                            
+//                            ChoseLevel.GetInstance().Customer = customer;
+//                            
+//                            }                            
                        
    
                         currentVelocity.Y = 0;
