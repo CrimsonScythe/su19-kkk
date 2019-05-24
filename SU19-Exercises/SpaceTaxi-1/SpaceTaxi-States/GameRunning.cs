@@ -26,7 +26,7 @@ namespace SpaceTaxi_1 {
         private bool isOnPlatform = false;
         private string platformName;
         private Vec2F currentVelocity;
-        public Score score;
+        
         private CollisionData[] collisiondatas;
         
 
@@ -43,6 +43,7 @@ namespace SpaceTaxi_1 {
 
         private SingletonTimer singletonTimer;
 
+        public SingletonScore singletonScore;
 
         private GameRunning(Game game, Customer customer) {
             this.game = game;
@@ -73,7 +74,7 @@ namespace SpaceTaxi_1 {
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
 
-            score = new Score(new Vec2F(0.05f, 0.55f), new Vec2F(0.4f, 0.4f));
+
             currentVelocity = new Vec2F(0f, 0f);
 
             
@@ -94,7 +95,7 @@ namespace SpaceTaxi_1 {
             Console.WriteLine(currentLevel.cusList.Count);
 
             singletonTimer = SingletonTimer.Instance;
-
+            singletonScore = SingletonScore.Instance;
 
             
             
@@ -155,11 +156,16 @@ namespace SpaceTaxi_1 {
 
             for (int i = 0; i < currentLevel.cusList.Count; i++) {
                 if (collisiondatas[i].Collision) {
-                    currentLevel.cusList[i].entity.DeleteEntity();
-                    customer = currentLevel.cusList[i];
-                    singletonTimer.stopwatch.Start();
+
+                    //if no customer on board
+                    if (customer == null) {
+                        currentLevel.cusList[i].entity.DeleteEntity();
+                        customer = currentLevel.cusList[i];
+                        singletonTimer.stopwatch.Start();
 //                    singletonTimer.setCountDown(currentLevel.cusList[i].droptime);
 //                    Console.WriteLine("deleted");
+                    } 
+                    
                 }
             }
 
@@ -183,13 +189,18 @@ namespace SpaceTaxi_1 {
 
                                 
                                 // lands
-//                                Console.WriteLine(customer.landplatform);
+//                                
                                 if (customer != null) {
+
+                                    
+
 //                                    Console.WriteLine(customer.landplatform);
-//                                    Console.WriteLine(customer.landplatform);
-                                    if (obstacle.symbol.ToString().Equals(customer.landplatform)) {
+                                    
+                                    
+                                    if (obstacle.symbol.ToString().Equals(customer.landplatform) ||
+                                        (customer.landplatform == "^" && currentLevel.levelName=="short-n-sweet.txt")) {
                                         Console.WriteLine("ADDPOINT");
-                                        score.AddPoint();
+                                        singletonScore.AddPoint();
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;
                                         
@@ -220,14 +231,14 @@ namespace SpaceTaxi_1 {
                                 
                             } else {
 
-//                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
-//                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
-//                                SpaceTaxiBus.GetBus().RegisterEvent(
-//                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                        GameEventType.GameStateEvent,
-//                                        this,
-//                                        "CHANGE_STATE",
-//                                        "GAME_OVER", ""));                               
+                                AddExplosion(player.shape.Position.X,player.shape.Position.Y,
+                                    obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
+                                SpaceTaxiBus.GetBus().RegisterEvent(
+                                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                        GameEventType.GameStateEvent,
+                                        this,
+                                        "CHANGE_STATE",
+                                        "GAME_OVER", ""));                               
                             }   
 
                 } else {
@@ -325,7 +336,7 @@ namespace SpaceTaxi_1 {
             foreach (var obstacle in currentLevel.obstacles) {
                 obstacle.RenderEntity(); 
             }   
-            score.RenderScore();
+            singletonScore.RenderScore();
 
             if (first) {
                 stopwatch = Stopwatch.StartNew();

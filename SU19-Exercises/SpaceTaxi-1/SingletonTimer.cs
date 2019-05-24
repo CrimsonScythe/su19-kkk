@@ -9,19 +9,6 @@ namespace SpaceTaxi_1 {
             this.stopwatch = stopwatch;
         }
 
-        
-
-        
-        
-//        public void setCountDown(int timer) {
-//            SingletonTimer.timer = timer;
-//        }
-//
-//        public int getTimer() {
-//            return SingletonTimer.timer;
-//        }
-
-
         private static SingletonTimer instance = null;
 
         public static SingletonTimer Instance {

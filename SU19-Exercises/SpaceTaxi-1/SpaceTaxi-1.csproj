@@ -47,7 +47,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
-    <Compile Include="Score.cs" />
+    <Compile Include="SingletonScore.cs" />
     <Compile Include="SingletonTimer.cs" />
     <Compile Include="SpaceTaxi-States\ChoseLevel.cs" />
     <Compile Include="SpaceTaxi-States\GameOver.cs" />
