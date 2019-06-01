@@ -22,7 +22,7 @@ namespace SpaceTaxi_1 {
         private int explosionLength = 500;
         private string globalMove = "down";
         private Game game;
-        private Level currentLevel;
+        public Level currentLevel;
         private bool isOnPlatform = false;
         private string platformName;
         private Vec2F currentVelocity;        
@@ -37,7 +37,7 @@ namespace SpaceTaxi_1 {
         private SingletonTimer singletonTimer;
         private SingletonScore singletonScore;
 
-        private GameRunning(Game game, Customer customer) {
+        public GameRunning(Game game, Customer customer) {
             this.game = game;
             if (customer!=null) {
                 this.customer = customer;
@@ -191,7 +191,7 @@ namespace SpaceTaxi_1 {
             }           
         }
 
-        private void CreateLevel(string fileName) {
+        public void CreateLevel(string fileName) {
             AsciiLoader asciiLoader = new AsciiLoader(fileName);
             var txt = asciiLoader.ReadText();
             // currentLevel changes to Item1 and Item2 from the txt variable.      
