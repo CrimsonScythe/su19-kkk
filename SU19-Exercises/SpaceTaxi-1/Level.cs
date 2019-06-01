@@ -17,7 +17,7 @@ namespace SpaceTaxi_1 {
         public List<Obstacle> obstacles;
         public List<Customer> cusList;
         public string levelName;
-        
+        public Vec2F spawnPos;
         
         /*
          The Level constructor makes obstacles all the places where there are key legends.
@@ -40,15 +40,30 @@ namespace SpaceTaxi_1 {
       
                 
                 while (currentChar != -1) {
-                    posX += 0.025f;                    
-                    foreach (var pair in legendPairs) {                       
-                        if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
+                    posX += 0.025f;
+
+//                    if (System.Convert.ToChar(currentChar).ToString() == ">") {
+//                        Console.WriteLine("YES");
+//                        spawnPos = new Vec2F(posX, posY);
+//                    }
+
+                    foreach (var pair in legendPairs) {
+                        
+
+                        if (pair.Item1 == System.Convert.ToChar(currentChar).ToString() + ")") {
                             // adds an obstacle with a shape (the position and an Image. 
                             obstacles.Add(new Obstacle
-                            (new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.025f, 0.0435f)),
-                                new Image(GetAssetsFilePath(pair.Item2)),pair.Item2, System.Convert.ToChar(currentChar)));
+                            (new DynamicShape(new Vec2F(posX, posY), new Vec2F(0.025f, 0.0435f)),
+                                new Image(GetAssetsFilePath(pair.Item2)), pair.Item2,
+                                System.Convert.ToChar(currentChar)));
                         }
-                    }                        
+                        
+                    }
+                    
+                    if (System.Convert.ToChar(currentChar).ToString() == ">") {
+                        spawnPos = new Vec2F(posX, posY);
+                    }
+                    
                     currentChar = stringReader2.Read();
                 }            
                 currentLine = stringReader.ReadLine();

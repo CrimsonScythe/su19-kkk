@@ -54,11 +54,7 @@ namespace SpaceTaxi_1 {
 
 
         public void InitializeGameState() {
-            player = new Player();
-            player.SetPosition(ChoseLevel.GetInstance().posX, ChoseLevel.GetInstance().posY);
-            player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
-            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            
             CreateLevel(ChoseLevel.GetInstance().filename);
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
@@ -69,12 +65,18 @@ namespace SpaceTaxi_1 {
                     if (obstacle.symbol.ToString().Equals(customer.spawnplatform)) {
                         spawnPlatform = obstacle;
                         customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X,
-                            obstacle.shape.Position.Y);
+                            obstacle.shape.Position.Y+0.05f);
                         break;
                     }
-
                 }
             }
+            
+            player = new Player();
+            player.SetPosition(currentLevel.spawnPos.X, currentLevel.spawnPos.Y);
+            
+            player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
 
             Console.WriteLine(currentLevel.cusList.Count);
             singletonTimer = SingletonTimer.Instance;

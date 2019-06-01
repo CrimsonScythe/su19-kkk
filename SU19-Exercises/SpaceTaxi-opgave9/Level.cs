@@ -37,6 +37,7 @@ namespace SpaceTaxi_opgave9 {
                     foreach (var pair in legendPairs) {                       
                         if (pair.Item1 == System.Convert.ToChar(currentChar).ToString()+")") {
                             // adds an obstacle with a shape (the position and an Image. 
+                            Console.WriteLine(    pair.Item2);
                             obstacles.Add(new Obstacle
                             (new DynamicShape(new Vec2F(posX,posY), new Vec2F(0.025f, 0.0435f)),
                                 new Image(GetAssetsFilePath(pair.Item2)),pair.Item2));

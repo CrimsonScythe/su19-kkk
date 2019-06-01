@@ -126,7 +126,6 @@ namespace SpaceTaxi_1 {
                                     GameRunning.instance = null;
                                     filename = "the-beach.txt";
                                     posX = 0.25f; 
-//                                    posY = 0.162f;
                                     posY = 0.20f;
                                     extX = 0.1f; 
                                     extY = 0.1f;
