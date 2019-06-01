@@ -18,7 +18,7 @@ namespace SpaceTaxi_1 {
                 if (SingletonScore.instance==null) {
                     SingletonScore.instance = new SingletonScore(new Vec2F(0.05f, 0.55f),new Vec2F(0.4f,0.4f) );
                 }
-
+    
                 return SingletonScore.instance;
             }
         }

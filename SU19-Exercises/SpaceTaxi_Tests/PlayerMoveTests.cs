@@ -15,6 +15,7 @@ namespace SpaceTaxi_Test
         [SetUp]
         public void InitiateGame() {
             game = new Game();
+            game.GameLoop();
             gameR = new GameRunning(game,new Customer(",",1,",",",",4,5));
         }
 
@@ -22,14 +23,17 @@ namespace SpaceTaxi_Test
         [Test]
         public void PlayerMoveRight () {
             var x1 = gameR.player.shape.Position.X; 
-            Console.WriteLine(x1);
-            /* SpaceTaxiBus.GetBus().RegisterEvent(
+
+            Console.WriteLine(gameR.player.shape.Position);
+
+//            Console.WriteLine(x1);
+             SpaceTaxiBus.GetBus().RegisterEvent(
                 GameEventFactory<object>.CreateGameEventForSpecificProcessor(
-                    GameEventType.PlayerEvent, this, gameR.player, "BOOSTER_TO_RIGHT", "", "")); */
-            gameR.HandleKeyEvent("KEY_PRESS","KEY_RIGHT"); 
-            gameR.HandleKeyEvent("KEY_RELEASE","KEY_RIGHT");
+                    GameEventType.PlayerEvent, this, gameR.player, "BOOSTER_TO_RIGHT", "", ""));
+//            gameR.HandleKeyEvent("KEY_PRESS","KEY_RIGHT"); 
+//            gameR.HandleKeyEvent("KEY_RELEASE","KEY_RIGHT");
             var x2 = gameR.player.shape.Position.X;      
-            Console.WriteLine(x2);
+            Console.WriteLine(gameR.player.shape.Position);
             Assert.That(x1 < x2);
             
         }    

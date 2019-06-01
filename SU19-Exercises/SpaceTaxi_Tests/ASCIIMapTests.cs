@@ -29,8 +29,6 @@ namespace SpaceTaxi_Test
         [TestCase("the-n-sweet.txt")]
         public void TestNull(string fileName) {
             Assert.Throws<FileNotFoundException>((() =>  gameR.CreateLevel(fileName)));
-
-            Assert.Throws<FileNotFoundException>((() =>  gameR.CreateLevel(fileName)));           
         }      
     }
 } 

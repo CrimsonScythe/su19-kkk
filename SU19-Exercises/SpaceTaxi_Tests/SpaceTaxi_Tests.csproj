@@ -42,7 +42,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ASCIIMapTests.cs" />
+    <Compile Include="PlayerMoveTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingletonScoreTest.cs" />
     <Compile Include="SpaceTaxiStatesTests.cs" />
     <Compile Include="StateMachineTests.cs" />
   </ItemGroup>

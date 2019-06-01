@@ -59,7 +59,8 @@ namespace SpaceTaxi_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
-            currentVelocity = new Vec2F(0f, 0f);
+//            currentVelocity = new Vec2F(-0.000001f, 0f);
+            currentVelocity = new Vec2F(-0.000001f, 0f);
             foreach (var customer in currentLevel.cusList) {
                 foreach (var obstacle in currentLevel.obstacles) {
                     if (obstacle.symbol.ToString().Equals(customer.spawnplatform)) {
@@ -209,12 +210,12 @@ namespace SpaceTaxi_1 {
             player.RenderPlayer();
             explosions.RenderAnimations();
             if (!isOnPlatform) {               
-            if (game.gameTimer.CapturedUpdates == 0) {
-                currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
-            } else {
+//            if (game.gameTimer.CapturedUpdates == 0) {
+//                currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
+//            } else {
                 currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
                 player.Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(currentVelocity.X, currentVelocity.Y));
-                }
+//                }
             }
 
             if (!isOnPlatform) {
