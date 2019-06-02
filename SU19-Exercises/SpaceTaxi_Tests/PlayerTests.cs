@@ -98,29 +98,25 @@ namespace SpaceTaxi_Test
         public void PlayerCollision(int timerToTest, string directionValue) {
             gameR.player.Entity.Shape.SetPosition(new Vec2F(0.3f,0.3f));           
             int i = 0;
-            if (directionValue == "Left") {
-                while (i < timerToTest) {
+            while (i < timerToTest) {
+                if (directionValue == "Left") {
                     gameR.currentVelocity = new Vec2F(-0.1f, 0f);
                     gameR.UpdateGameLogic();
                     gameR.RenderState();
                     i++;
-                }               
-            }
-            else if (directionValue == "Right") {
-                while (i < timerToTest) {
+                }
+                else if (directionValue == "Right") {
                     gameR.currentVelocity = new Vec2F(0.1f, 0.0f);
                     gameR.UpdateGameLogic();
                     gameR.RenderState();
                     i++;
-                }              
-            }
-            else {
-                while (i < timerToTest) {
+                }
+                else {
                     gameR.currentVelocity = new Vec2F(0.0f, -0.1f);
                     gameR.UpdateGameLogic();
                     gameR.RenderState();
-                    i++;
-                }                
+                    i++;                    
+                }                              
             }
             SpaceTaxiBus.GetBus().ProcessEventsSequentially();
             Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameOver>());            
