@@ -6,71 +6,118 @@ using DIKUArcade.Math;
 using NUnit.Framework;
 using SpaceTaxi_1;
 
-namespace SpaceTaxi_Test {
+namespace SpaceTaxi_Test
+{
     [TestFixture]
-    public class PlayerTests {
+    public class PlayerTests
+    {
         // sets up a game instance
         private GameRunning gameR;
         private Game game;
+        private StateMachine stateMachine;
+
 
         [SetUp]
-        public void InitiateGame() {
-            game = new Game();           
+        public void InitiateGame()
+        {
+            game = new Game();
             gameR = GameRunning.GetInstance(game, null);
+            stateMachine = new StateMachine(game);
         }
 
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        [TestCase(5)]                
-        public void PlayerMoveRight (int timerToTest) {
+        [TestCase(5)]
+        public void PlayerMoveRight(int timerToTest)
+        {
             int i = 0;
-            double xStartPostion = gameR.player.shape.Position.X; 
-            while (i < timerToTest) {
+            double xStartPostion = gameR.player.shape.Position.X;
+            while (i < timerToTest)
+            {
                 gameR.currentVelocity = new Vec2F(0.01f, 0f);
                 gameR.UpdateGameLogic();
-                gameR.RenderState();              
+                gameR.RenderState();
                 i++;
             }
-            double xEndPosition = gameR.player.shape.Position.X;      
-            Assert.That(xStartPostion < xEndPosition);           
+
+            double xEndPosition = gameR.player.shape.Position.X;
+            Assert.That(xStartPostion < xEndPosition);
         }
-        
+
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        [TestCase(5)]                
-        public void PlayerMoveLeft (int timerToTest) {
+        [TestCase(5)]
+        public void PlayerMoveLeft(int timerToTest)
+        {
             int i = 0;
-            double xStartPostion = gameR.player.shape.Position.X; 
-            while (i < timerToTest) {
-                gameR.currentVelocity = new Vec2F(-0.01f, 0f);
+            double xStartPostion = gameR.player.shape.Position.X;
+            while (i < timerToTest)
+            {
+                gameR.currentVelocity = new Vec2F(-0.1f, 0f);
                 gameR.UpdateGameLogic();
-                gameR.RenderState();              
+                gameR.RenderState();
                 i++;
             }
-            double xEndPosition = gameR.player.shape.Position.X;      
+
+            double xEndPosition = gameR.player.shape.Position.X;
             Assert.That(xStartPostion > xEndPosition);
-            
-        }  
+
+        }
+
         [TestCase(1)]
         [TestCase(2)]
         [TestCase(3)]
         [TestCase(4)]
-        [TestCase(5)]                
-        public void PlayerMoveUp (int timerToTest) {
+        [TestCase(5)]
+        public void PlayerMoveUp(int timerToTest)
+        {
             int i = 0;
-            double yStartPostion = gameR.player.shape.Position.Y; 
-            while (i < timerToTest) {
+            double yStartPostion = gameR.player.shape.Position.Y;
+            while (i < timerToTest)
+            {
                 gameR.currentVelocity = new Vec2F(0.0f, 0.001f);
                 gameR.UpdateGameLogic();
-                gameR.RenderState();              
+                gameR.RenderState();
                 i++;
             }
-            double yEndPosition = gameR.player.shape.Position.Y;      
-            Assert.That(yStartPostion < yEndPosition);           
-        }    
+
+            double yEndPosition = gameR.player.shape.Position.Y;
+            Assert.That(yStartPostion < yEndPosition);
+        }
+
+        [TestCase(10,"LeftOrRight")]
+        [TestCase(13,"LeftOrRight")]
+        [TestCase(15,"LeftOrRight")]
+        [TestCase(10,"UpOrDown")]
+        [TestCase(13,"UpOrDown")]
+        [TestCase(10,"UpOrDown")]
+        [TestCase(13,"UpOrDown")]
+
+        public void PlayerCollision(int timerToTest, string directionValue) {
+            gameR.player.Entity.Shape.SetPosition(new Vec2F(0.3f,0.3f));           
+            int i = 0;
+            if (directionValue == "LeftOrRight") {
+                while (i < timerToTest) {
+                    gameR.currentVelocity = new Vec2F(-0.1f, 0f);
+                    gameR.UpdateGameLogic();
+                    gameR.RenderState();
+                    i++;
+                }               
+            }
+            else {
+                while (i < timerToTest) {
+                    gameR.currentVelocity = new Vec2F(0.0f, -0.1f);
+                    gameR.UpdateGameLogic();
+                    gameR.RenderState();
+                    i++;
+                }                  
+            }
+            SpaceTaxiBus.GetBus().ProcessEventsSequentially();
+            Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameOver>());            
+        }
     }
-} 
+}
