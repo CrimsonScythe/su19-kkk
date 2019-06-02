@@ -14,7 +14,6 @@ namespace SpaceTaxi_Test {
         private Game game;
         private StateMachine stateMachine;
 
-
         [SetUp]
         public void InitiateGame() {
             game = new Game();
