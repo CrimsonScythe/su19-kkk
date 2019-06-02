@@ -89,18 +89,16 @@ namespace SpaceTaxi_Test
             Assert.That(yStartPostion < yEndPosition);
         }
 
-        [TestCase(10,"LeftOrRight")]
-        [TestCase(13,"LeftOrRight")]
-        [TestCase(15,"LeftOrRight")]
-        [TestCase(10,"UpOrDown")]
-        [TestCase(13,"UpOrDown")]
-        [TestCase(10,"UpOrDown")]
-        [TestCase(13,"UpOrDown")]
-
+        [TestCase(10,"Left")]
+        [TestCase(13,"Left")]
+        [TestCase(10,"Right")]
+        [TestCase(13,"Right")]
+        [TestCase(10,"Down")]
+        [TestCase(13,"Down")]
         public void PlayerCollision(int timerToTest, string directionValue) {
             gameR.player.Entity.Shape.SetPosition(new Vec2F(0.3f,0.3f));           
             int i = 0;
-            if (directionValue == "LeftOrRight") {
+            if (directionValue == "Left") {
                 while (i < timerToTest) {
                     gameR.currentVelocity = new Vec2F(-0.1f, 0f);
                     gameR.UpdateGameLogic();
@@ -108,13 +106,21 @@ namespace SpaceTaxi_Test
                     i++;
                 }               
             }
+            else if (directionValue == "Right") {
+                while (i < timerToTest) {
+                    gameR.currentVelocity = new Vec2F(0.1f, 0.0f);
+                    gameR.UpdateGameLogic();
+                    gameR.RenderState();
+                    i++;
+                }              
+            }
             else {
                 while (i < timerToTest) {
                     gameR.currentVelocity = new Vec2F(0.0f, -0.1f);
                     gameR.UpdateGameLogic();
                     gameR.RenderState();
                     i++;
-                }                  
+                }                
             }
             SpaceTaxiBus.GetBus().ProcessEventsSequentially();
             Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameOver>());            
