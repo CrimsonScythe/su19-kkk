@@ -25,7 +25,7 @@ namespace SpaceTaxi_1 {
         public Level currentLevel;
         private bool isOnPlatform = false;
         private string platformName;
-        private Vec2F currentVelocity;        
+        public Vec2F currentVelocity;        
         private CollisionData[] collisiondatas;
         private bool first = true;
         private int time;
@@ -37,6 +37,10 @@ namespace SpaceTaxi_1 {
         private SingletonTimer singletonTimer;
         private SingletonScore singletonScore;
 
+//        public Vec2F gravity = new Vec2F(0f, 0f);
+
+        public Vec2F gravity = new Vec2F(0f, -0.000003f);
+        
         public GameRunning(Game game, Customer customer) {
             this.game = game;
             if (customer!=null) {
@@ -110,8 +114,9 @@ namespace SpaceTaxi_1 {
             for (int i = 0; i < currentLevel.cusList.Count; i++) {
                 if (collisiondatas[i].Collision) {
 
-                    //if no customer on board
+                    //if no customer on board then delete (pickup) customer
                     if (customer == null) {
+//                        Console.WriteLine("customer picked up");
                         currentLevel.cusList[i].entity.DeleteEntity();
                         customer = currentLevel.cusList[i];
                         singletonTimer.stopwatch.Start();
@@ -213,9 +218,10 @@ namespace SpaceTaxi_1 {
 //            if (game.gameTimer.CapturedUpdates == 0) {
 //                currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
 //            } else {
-                currentVelocity = (game.gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
+                currentVelocity = (gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
                 player.Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(currentVelocity.X, currentVelocity.Y));
 //                }
+//                Console.WriteLine(currentVelocity);
             }
 
             if (!isOnPlatform) {
@@ -244,6 +250,8 @@ namespace SpaceTaxi_1 {
                 }     
             }
 
+            
+            //renders customers in current level
             foreach (var cus in currentLevel.cusList) {
                 if (stopwatch.Elapsed.Seconds + (stopwatch.Elapsed.Minutes * 60) >= cus.spawntime) {
                     if (!cus.entity.IsDeleted()) {
