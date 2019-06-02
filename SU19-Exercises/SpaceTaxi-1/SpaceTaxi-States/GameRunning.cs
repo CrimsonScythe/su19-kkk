@@ -31,7 +31,7 @@ namespace SpaceTaxi_1 {
         private int time;
         private int elapsedtime;
         private Stopwatch stopwatch;
-        private Customer customer = null;
+        public Customer customer { get; private set; }
         private Obstacle spawnPlatform;
         private bool startup = false;
         private SingletonTimer singletonTimer;
@@ -39,7 +39,7 @@ namespace SpaceTaxi_1 {
 
 //        public Vec2F gravity = new Vec2F(0f, 0f);
 
-        public Vec2F gravity = new Vec2F(0f, -0.000003f);
+        public Vec2F gravity = new Vec2F(0f, -0.000005f);
         
         public GameRunning(Game game, Customer customer) {
             this.game = game;

@@ -3,7 +3,7 @@ using DIKUArcade.Math;
 
 namespace SpaceTaxi_1 {
     public class SingletonScore {
-        private int score;
+        public int score { get; private set; }
         private Text display;
 
         private SingletonScore(Vec2F position, Vec2F extent) {

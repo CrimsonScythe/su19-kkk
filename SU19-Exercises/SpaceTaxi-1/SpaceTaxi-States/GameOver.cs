@@ -11,7 +11,7 @@ using Image = DIKUArcade.Graphics.Image;
 namespace SpaceTaxi_1 {
     public class GameOver : IGameState {
 
-        private static GameOver instance = null;
+        public static GameOver instance = null;
         private Entity backgroundImage;
         private Text[] menuButtons;
         private int activeMenuButton =0;

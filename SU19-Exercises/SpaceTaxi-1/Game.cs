@@ -10,15 +10,18 @@ using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1 {
     public class Game : IGameEventProcessor<object> {
-        private Entity backGroundImage;
-        private GameEventBus<object> eventBus;
+        
         public GameTimer gameTimer;
-        private Window win;
+        
         private List<Obstacle> obstacles;
         public Level currentLevel;
         public Vec2F gravity = new Vec2F(0f, -0.000003f);
+
+        public Entity backGroundImage;
+        public Window win;
         public StateMachine stateMachine;
-        
+        public GameEventBus<object> eventBus;
+
         public Game() {
             // window
             win = new Window("Space Taxi Game v0.1", 500, AspectRatio.R1X1);
