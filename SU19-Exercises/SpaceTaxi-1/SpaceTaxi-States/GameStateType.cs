@@ -5,7 +5,7 @@ using System;
 namespace SpaceTaxi_1 {
     public class StateTransformer {
         
-        public enum GameStateType { GameRunning, MainMenu, GamePaused, ChoseLevel, GameOver}
+        public enum GameStateType { GameRunning, MainMenu, GamePaused, ChoseLevel, GameOver, GameWon}
 
         public static GameStateType TransformStringToState(string state) {
             switch (state) {
@@ -19,6 +19,8 @@ namespace SpaceTaxi_1 {
                     return GameStateType.MainMenu;
                 case "GAME_OVER":
                     return GameStateType.GameOver;
+                case "GAME_WON":
+                    return GameStateType.GameWon;
                 default:
                     throw new ArgumentException();
             }
@@ -36,6 +38,8 @@ namespace SpaceTaxi_1 {
                     return "MAIN_MENU";
                 case GameStateType.GameOver:
                     return "GAME_OVER";
+                case GameStateType.GameWon:
+                    return "GAME_WON";
                 default:
                     throw new ArgumentException();
             }
