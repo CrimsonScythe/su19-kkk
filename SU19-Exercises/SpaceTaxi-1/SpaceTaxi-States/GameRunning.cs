@@ -146,7 +146,8 @@ namespace SpaceTaxi_1 {
                                 }                               
                                 
                             } else {
-
+                                singletonTimer.stopwatch.Reset();
+                                ChoseLevel.GetInstance().Customer = null;
                                 singletonScore.PointChanger("Reset");
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
@@ -165,6 +166,8 @@ namespace SpaceTaxi_1 {
 //                        if (customer!=null) {
 
                         if (customer==null) {
+                            singletonTimer.stopwatch.Reset();
+                            ChoseLevel.GetInstance().Customer = null;
                             //END GAME
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
@@ -264,6 +267,9 @@ namespace SpaceTaxi_1 {
 
             if (customer!=null) {
                 if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime && customer!=null) {
+                    singletonTimer.stopwatch.Reset();
+                    ChoseLevel.GetInstance().Customer = null;
+                    Console.WriteLine("END GAME");
                     //END GAME
                     SpaceTaxiBus.GetBus().RegisterEvent(
                         GameEventFactory<object>.CreateGameEventForAllProcessors(
