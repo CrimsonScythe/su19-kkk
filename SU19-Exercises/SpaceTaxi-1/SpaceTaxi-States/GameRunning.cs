@@ -35,7 +35,7 @@ namespace SpaceTaxi_1 {
         private Obstacle spawnPlatform;
         private bool startup = false;
         private SingletonTimer singletonTimer;
-        private SingletonScore singletonScore;
+        public SingletonScore singletonScore;
 
 //        public Vec2F gravity = new Vec2F(0f, 0f);
 
@@ -178,6 +178,7 @@ namespace SpaceTaxi_1 {
                         if (customer==null) {
                             singletonTimer.stopwatch.Reset();
                             ChoseLevel.GetInstance().Customer = null;
+                            singletonScore.PointChanger("Reset");
                             //END GAME
                             SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
@@ -281,6 +282,7 @@ namespace SpaceTaxi_1 {
                     ChoseLevel.GetInstance().Customer = null;
                     Console.WriteLine("END GAME");
                     //END GAME
+                    singletonScore.PointChanger("Reset");
                     SpaceTaxiBus.GetBus().RegisterEvent(
                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                             GameEventType.GameStateEvent,
