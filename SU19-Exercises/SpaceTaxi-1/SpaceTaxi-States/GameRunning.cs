@@ -36,9 +36,6 @@ namespace SpaceTaxi_1 {
         private bool startup = false;
         private SingletonTimer singletonTimer;
         public SingletonScore singletonScore;
-
-//        public Vec2F gravity = new Vec2F(0f, 0f);
-
         public Vec2F gravity = new Vec2F(0f, -0.000005f);
         
         public GameRunning(Game game, Customer customer) {
@@ -53,9 +50,7 @@ namespace SpaceTaxi_1 {
             return GameRunning.instance ?? (GameRunning.instance = new GameRunning(gm, cust));
         }
 
-        public void GameLoop() {
-        }
-
+        public void GameLoop() {}
 
         public void InitializeGameState() {
             
@@ -63,7 +58,6 @@ namespace SpaceTaxi_1 {
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
-//            currentVelocity = new Vec2F(-0.000001f, 0f);
             currentVelocity = new Vec2F(-0.000001f, 0f);
             foreach (var customer in currentLevel.cusList) {
                 foreach (var obstacle in currentLevel.obstacles) {
@@ -77,12 +71,10 @@ namespace SpaceTaxi_1 {
             }
             
             player = new Player();
-            player.SetPosition(currentLevel.spawnPos.X, currentLevel.spawnPos.Y);
-            
+            player.SetPosition(currentLevel.spawnPos.X, currentLevel.spawnPos.Y);            
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-
             Console.WriteLine(currentLevel.cusList.Count);
             singletonTimer = SingletonTimer.Instance;
             singletonScore = SingletonScore.Instance;           
@@ -113,10 +105,8 @@ namespace SpaceTaxi_1 {
 
             for (int i = 0; i < currentLevel.cusList.Count; i++) {
                 if (collisiondatas[i].Collision) {
-
                     //if no customer on board then delete (pickup) customer
                     if (customer == null) {
-//                        Console.WriteLine("customer picked up");
                         currentLevel.cusList[i].entity.DeleteEntity();
                         customer = currentLevel.cusList[i];
                         singletonTimer.stopwatch.Start();
@@ -126,19 +116,19 @@ namespace SpaceTaxi_1 {
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
-                            if (obstacle.fileName.Equals(GetPlatformName()[0]) || obstacle.fileName.Equals(GetPlatformName()[1])
-                               || obstacle.fileName.Equals(GetPlatformName()[2]) || obstacle.fileName.Equals(GetPlatformName()[3]))  {
+                            if (obstacle.fileName.Equals(GetPlatformName()[0]) || 
+                                obstacle.fileName.Equals(GetPlatformName()[1]) || 
+                                obstacle.fileName.Equals(GetPlatformName()[2]) || 
+                                obstacle.fileName.Equals(GetPlatformName()[3]))  {
                                  // lands                                
                                 if (customer != null) {
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform) ||
                                         (customer.landplatform == "^" && currentLevel.levelName=="short-n-sweet.txt")) {
-                                        Console.WriteLine("ADDPOINT");
                                         singletonScore.PointChanger("Add");
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;  
                                         Console.WriteLine(singletonScore.score.ToString());
-                                        if (singletonScore.score == 300)
-                                        {
+                                        if (singletonScore.score == 300) {
                                             SpaceTaxiBus.GetBus().RegisterEvent(
                                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                                     GameEventType.GameStateEvent,
@@ -155,7 +145,8 @@ namespace SpaceTaxi_1 {
                                     currentVelocity.X = 0;
                                 }                               
                                 
-                            } else {
+                            } 
+                            else {
                                 singletonTimer.stopwatch.Reset();
                                 ChoseLevel.GetInstance().Customer = null;
                                 singletonScore.PointChanger("Reset");
@@ -168,14 +159,11 @@ namespace SpaceTaxi_1 {
                                         "CHANGE_STATE",
                                         "GAME_OVER", ""));                               
                             }   
-
-                } else {
+                        } 
+                else {
                     if (player.shape.Position.Y > 1) {
-
-                        //if customer has been picked up and has to be dropped off at next level
-//                        if (customer!=null) {
-
-                        if (customer==null) {
+                        // if customer has been picked up and has to be dropped off at next level
+                        if (customer == null) {
                             singletonTimer.stopwatch.Reset();
                             ChoseLevel.GetInstance().Customer = null;
                             singletonScore.PointChanger("Reset");
@@ -185,52 +173,42 @@ namespace SpaceTaxi_1 {
                                     GameEventType.GameStateEvent,
                                     this,
                                     "CHANGE_STATE",
-                                    "GAME_OVER", "")); 
-                        } else {
-                        
-                        if (customer.entity.IsDeleted()) {
-                            //change customer.platformname to remove ^
-                            if (customer.landplatform.Contains("^")) {
-                                if (customer.landplatform.Length > 1) {
-                                    customer.landplatform =
-                                        customer.landplatform.Substring(1, 1);    
-                                }   
-                            }                                                        
-                            ChoseLevel.GetInstance().Customer = customer;                            
-                        }       
-//                        } else {
-//                            END GAME
-//                            SpaceTaxiBus.GetBus().RegisterEvent(
-//                                GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                    GameEventType.GameStateEvent,
-//                                    this,
-//                                    "CHANGE_STATE",
-//                                    "GAME_OVER", ""));
-//                        }
+                                    "GAME_OVER", ""));
+                        }
+                        else {
+                            if (customer.entity.IsDeleted()) {
+                                //change customer.platformname to remove ^
+                                if (customer.landplatform.Contains("^")) {
+                                    if (customer.landplatform.Length > 1) {
+                                        customer.landplatform =
+                                            customer.landplatform.Substring(1, 1);
+                                    }
+                                }
+                                ChoseLevel.GetInstance().Customer = customer;
+                            }
+                            currentVelocity.Y = 0;
+                            currentVelocity.X = 0;
+                            isOnPlatform = true;
+                            GameRunning.instance = null;
+                            if (currentLevel.levelName.Equals("short-n-sweet.txt")) {
+                                ChoseLevel.GetInstance().filename = "the-beach.txt";
+                                ChoseLevel.GetInstance().posX = 0.25f;
+                                ChoseLevel.GetInstance().posY = 0.20f;
+                            }
+                            else {
+                                ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
+                                ChoseLevel.GetInstance().posX = 0.45f;
+                                ChoseLevel.GetInstance().posY = 0.15f;
+                            }
 
-                        currentVelocity.Y = 0;
-                        currentVelocity.X = 0;
-                        isOnPlatform = true;                        
-                        GameRunning.instance = null;
-                        if (currentLevel.levelName.Equals("short-n-sweet.txt")) {
-                            ChoseLevel.GetInstance().filename = "the-beach.txt";
-                            ChoseLevel.GetInstance().posX = 0.25f;
-                            ChoseLevel.GetInstance().posY = 0.20f;    
-                        } else {
-                            ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
-                            ChoseLevel.GetInstance().posX = 0.45f;
-                            ChoseLevel.GetInstance().posY = 0.15f;       
+                            SpaceTaxiBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                    GameEventType.GameStateEvent,
+                                    this,
+                                    "CHANGE_STATE",
+                                    "GAME_RUNNING", ""));
                         }
-                        
-                        SpaceTaxiBus.GetBus().RegisterEvent(
-                            GameEventFactory<object>.CreateGameEventForAllProcessors(
-                                GameEventType.GameStateEvent,
-                                this,
-                                "CHANGE_STATE",
-                                "GAME_RUNNING", ""));    
-                        }
-
-                        }
+                    }
                 }               
             }           
         }
@@ -253,13 +231,8 @@ namespace SpaceTaxi_1 {
             player.RenderPlayer();
             explosions.RenderAnimations();
             if (!isOnPlatform) {               
-//            if (game.gameTimer.CapturedUpdates == 0) {
-//                currentVelocity = (game.gravity + player.thrust) * 1 + currentVelocity;
-//            } else {
                 currentVelocity = (gravity + player.thrust) * game.gameTimer.CapturedUpdates + currentVelocity;
                 player.Entity.Shape.AsDynamicShape().ChangeDirection(new Vec2F(currentVelocity.X, currentVelocity.Y));
-//                }
-//                Console.WriteLine(currentVelocity);
             }
 
             if (!isOnPlatform) {

@@ -18,6 +18,7 @@ namespace SpaceTaxi_1 {
         private int maxMenuButtons;
         private Game game;
         private Window win;
+        private Customer customer;
 
         public GameOver() {
             backgroundImage = new Entity(
@@ -27,11 +28,10 @@ namespace SpaceTaxi_1 {
             menuButtons = new Text[3];           
             menuButtons[0] = new Text("GAME OVER!", new Vec2F(0.035f, 0.4f), new Vec2F(1.1f,0.4f) );
             menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
-            menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );
+            menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f,0.4f) );                               
             menuButtons[0].SetColor(Color.Yellow);
             menuButtons[1].SetColor(Color.Red);
             menuButtons[2].SetColor(Color.DarkRed);
-
             activeMenuButton = 1;
         }
         
@@ -55,16 +55,13 @@ namespace SpaceTaxi_1 {
             backgroundImage.RenderEntity();
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
-            menuButtons[2].RenderText();
-     
+            menuButtons[2].RenderText();                   
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {
-
             switch (keyAction) {
                 case "KEY_PRESS":
-                    switch (keyValue) {
-                        
+                    switch (keyValue) {                      
                         case "KEY_UP":
                             if (activeMenuButton == 2) {
                                 menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
@@ -87,10 +84,8 @@ namespace SpaceTaxi_1 {
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
-                            }
-                                                 
-                            break;
-                       
+                            }                                                
+                            break;                      
                         case "KEY_ENTER":
                             switch (activeMenuButton) {                                                         
                                 case 1:

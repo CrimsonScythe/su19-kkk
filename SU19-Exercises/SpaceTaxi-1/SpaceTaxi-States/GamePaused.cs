@@ -52,7 +52,6 @@ namespace SpaceTaxi_1 {
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
                             }
-
                             break;
                         case "KEY_DOWN":
                             if (activeMenuButton == 0) {
@@ -64,7 +63,6 @@ namespace SpaceTaxi_1 {
                                 menuButtons[0].RenderText();
                                 menuButtons[1].RenderText();
                             }
-
                             break;
                         case "KEY_ENTER":
                             switch (activeMenuButton) {

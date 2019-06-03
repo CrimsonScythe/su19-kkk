@@ -8,12 +8,9 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace SpaceTaxi_1
-{
-    public class GameWon : IGameState
-    {
-
-        public static GameWon instance = null;
+namespace SpaceTaxi_1 {
+    public class GameWon : IGameState {
+        private static GameWon instance = null;
         private Entity backgroundImage;
         private Text[] menuButtons;
         private int activeMenuButton = 0;
@@ -22,8 +19,7 @@ namespace SpaceTaxi_1
         private Window win;
         private Customer customer;
 
-        public GameWon()
-        {
+        public GameWon() {
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
@@ -40,49 +36,34 @@ namespace SpaceTaxi_1
             activeMenuButton = 1;
         }
 
-        public static GameWon GetInstance()
-        {
+        public static GameWon GetInstance() {
             return GameWon.instance ?? (GameWon.instance = new GameWon());
         }
 
-        public void GameLoop()
-        {
+        public void GameLoop() {
             throw new System.NotImplementedException();
         }
 
-        public void InitializeGameState()
-        {
+        public void InitializeGameState() {
             throw new System.NotImplementedException();
         }
 
-        public void UpdateGameLogic()
-        {
-        }
+        public void UpdateGameLogic() {}
 
-        public void RenderState()
-        {
-
+        public void RenderState() {
             backgroundImage.RenderEntity();
             menuButtons[0].RenderText();
             menuButtons[1].RenderText();
             menuButtons[2].RenderText();
             menuButtons[3].RenderText();
-
-
         }
 
-        public void HandleKeyEvent(string keyValue, string keyAction)
-        {
-
-            switch (keyAction)
-            {
+        public void HandleKeyEvent(string keyValue, string keyAction) {
+            switch (keyAction) { 
                 case "KEY_PRESS":
-                    switch (keyValue)
-                    {
-
+                    switch (keyValue) {
                         case "KEY_UP":
-                            if (activeMenuButton == 2)
-                            {
+                            if (activeMenuButton == 2) {
                                 menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f, 0.4f));
                                 menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.4f, 0.4f));
                                 menuButtons[1].SetColor(Color.Red);
@@ -92,11 +73,9 @@ namespace SpaceTaxi_1
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
                             }
-
                             break;
                         case "KEY_DOWN":
-                            if (activeMenuButton == 1)
-                            {
+                            if (activeMenuButton == 1) {
                                 menuButtons[1] = new Text("Main Menu", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f, 0.4f));
                                 menuButtons[2] = new Text("Quit", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f, 0.4f));
                                 menuButtons[1].SetColor(Color.DarkRed);
@@ -106,12 +85,9 @@ namespace SpaceTaxi_1
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
                             }
-
                             break;
-
                         case "KEY_ENTER":
-                            switch (activeMenuButton)
-                            {
+                            switch (activeMenuButton) {
                                 case 1:
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
@@ -130,7 +106,6 @@ namespace SpaceTaxi_1
                                             "", ""));
                                     break;
                             }
-
                             break;
                         case "KEY_ESCAPE":
                             SpaceTaxiBus.GetBus().RegisterEvent(
@@ -141,7 +116,6 @@ namespace SpaceTaxi_1
                                     "", ""));
                             break;
                     }
-
                     break;
                 case "KEY_RELEASE":
                     break;

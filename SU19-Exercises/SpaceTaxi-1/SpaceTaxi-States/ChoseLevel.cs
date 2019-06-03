@@ -78,8 +78,7 @@ namespace SpaceTaxi_1 {
                             }
                             break;
                         case "KEY_DOWN":
-                            if (activeMenuButton == 1)
-                            {
+                            if (activeMenuButton == 1) {
                                 menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.4f,0.4f));
                                 menuButtons[2] = new Text("Back", new Vec2F(0.35f, 0.0f), new Vec2F(0.5f,0.4f) );
                                 menuButtons[0].SetColor(Color.DarkRed);
@@ -90,8 +89,7 @@ namespace SpaceTaxi_1 {
                                 menuButtons[1].RenderText();
                                 menuButtons[2].RenderText();
                             }
-                            if (activeMenuButton == 0)
-                            {
+                            if (activeMenuButton == 0) {
                                 menuButtons[0] = new Text("Short n Sweet", new Vec2F(0.35f, 0.2f), new Vec2F(0.4f,0.4f) );
                                 menuButtons[1] = new Text("The Beach", new Vec2F(0.35f, 0.1f), new Vec2F(0.5f,0.4f));
                                 menuButtons[0].SetColor(Color.DarkRed);
