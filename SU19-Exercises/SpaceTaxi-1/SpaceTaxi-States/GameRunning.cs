@@ -137,7 +137,7 @@ namespace SpaceTaxi_1 {
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;  
                                         Console.WriteLine(singletonScore.score.ToString());
-                                        if (singletonScore.score == 100)
+                                        if (singletonScore.score == 300)
                                         {
                                             SpaceTaxiBus.GetBus().RegisterEvent(
                                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
