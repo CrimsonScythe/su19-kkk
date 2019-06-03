@@ -133,7 +133,7 @@ namespace SpaceTaxi_1 {
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform) ||
                                         (customer.landplatform == "^" && currentLevel.levelName=="short-n-sweet.txt")) {
                                         Console.WriteLine("ADDPOINT");
-                                        singletonScore.AddPoint();
+                                        singletonScore.PointChanger("Add");
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;                                        
                                     }

@@ -17,7 +17,8 @@ namespace SpaceTaxi_Tests {
         [SetUp]
         public void Initialize() {
 
-            game = new Game();            
+            game = new Game();     
+            
             GameRunning.GetInstance(game, null);
 
         }
@@ -27,6 +28,7 @@ namespace SpaceTaxi_Tests {
 
             ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
             GameRunning.instance = null;
+            GameOver.instance = null;
             GameRunning.GetInstance(game, null);
             
 //            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
@@ -45,7 +47,7 @@ namespace SpaceTaxi_Tests {
                     "CHANGE_STATE",
                     "GAME_RUNNING", ""));
             
-
+            SpaceTaxiBus.GetBus().ProcessEventsSequentially();
 
             while (GameOver.instance == null) {
 
@@ -178,28 +180,56 @@ namespace SpaceTaxi_Tests {
             
         }
         
-//        [Test]
-//        public void NoCustomerNextLevel() {
+        [Test]
+        public void NoCustomerNextLevel() {
+            ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
+            GameOver.instance = null;
+            GameRunning.instance = null;
+            GameRunning.GetInstance(game, null);
+//            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
+            //sets a convenient start position for player
+            GameRunning.instance.player.Entity.Shape.SetPosition(new Vec2F(0.48f
+                ,GameRunning.instance.player.Entity.Shape.Position.Y-0.1f));
 //            
-////            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
-//            //sets a convenient start position for player
-//            GameRunning.instance.player.Entity.Shape.SetPosition(new Vec2F(0.5f
-//                ,GameRunning.instance.player.Entity.Shape.Position.Y-0.1f));
-////            
-//            // changes currentVelocity to "move" player 
-//            GameRunning.instance.currentVelocity = new Vec2F(0f, 0.002f);
-//            
-//            // mock game loop
-//            while (!GameRunning.instance.currentLevel.cusList[0].entity.IsDeleted()) {
-//
-//                GameRunning.instance.UpdateGameLogic();        
-//                GameRunning.instance.RenderState();        
-//                
-//            }
-//            
-////            Assert.IsTrue(GameRunning.instance.currentLevel.cusList[0].entity.IsDeleted());
-//            
-//        }
+            // changes currentVelocity to "move" player 
+            GameRunning.instance.currentVelocity = new Vec2F(0f, 0.008f);
+            
+            SpaceTaxiBus.GetBus().RegisterEvent(
+                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                    GameEventType.GameStateEvent,
+                    this,
+                    "CHANGE_STATE",
+                    "GAME_RUNNING", ""));
+            
+            // mock game loop
+            while (GameOver.instance==null) {
+                        
+                game.gameTimer.MeasureTime();
+
+                while (game.gameTimer.ShouldUpdate()) {
+                    SpaceTaxiBus.GetBus().ProcessEvents();                  
+                    game.win.PollEvents();
+                    game.eventBus.ProcessEvents();
+                    game.stateMachine.ActiveState.UpdateGameLogic();
+                }
+
+                if (game.gameTimer.ShouldRender()) {
+                    game.win.Clear();
+                    game.backGroundImage.RenderEntity();
+                    game.stateMachine.ActiveState.RenderState();                                    
+                    game.win.SwapBuffers(); 
+                }
+
+                if (game.gameTimer.ShouldReset()) {
+                    // 1 second has passed - display last captured ups and fps from the timer
+//                    win.Title = "Space Taxi | UPS: " + gameTimer.CapturedUpdates + ", FPS: " +
+//                                gameTimer.CapturedFrames;
+                }
+            }
+            
+            Assert.That(game.stateMachine.ActiveState, Is.InstanceOf<GameOver>());
+            
+        }
         
     }
     

@@ -522,6 +522,7 @@
         <e p="CustomerTests.cs" t="Include" />
         <e p="Levels" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="PlayerTests.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
