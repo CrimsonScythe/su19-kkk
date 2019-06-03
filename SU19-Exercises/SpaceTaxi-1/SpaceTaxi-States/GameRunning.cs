@@ -135,7 +135,17 @@ namespace SpaceTaxi_1 {
                                         Console.WriteLine("ADDPOINT");
                                         singletonScore.PointChanger("Add");
                                         singletonTimer.stopwatch.Reset();
-                                        customer = null;                                        
+                                        customer = null;  
+                                        Console.WriteLine(singletonScore.score.ToString());
+                                        if (singletonScore.score == 100)
+                                        {
+                                            SpaceTaxiBus.GetBus().RegisterEvent(
+                                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                                    GameEventType.GameStateEvent,
+                                                    this,
+                                                    "CHANGE_STATE",
+                                                    "GAME_WON", ""));                                     
+                                        }
                                     }
                                 }
      
@@ -351,3 +361,4 @@ namespace SpaceTaxi_1 {
         }
     }
 }
+

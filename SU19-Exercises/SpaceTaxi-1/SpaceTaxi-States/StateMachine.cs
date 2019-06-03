@@ -1,7 +1,6 @@
 using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using System; 
-
 using DIKUArcade.EventBus;
 using DIKUArcade.State;
 using System; 
@@ -24,7 +23,7 @@ namespace SpaceTaxi_1 {
                     ActiveState = MainMenu.GetInstance();
                     break;
                 case StateTransformer.GameStateType.GameRunning:
-                    ActiveState = GameRunning.GetInstance(game, ChoseLevel.GetInstance().Customer);
+                    ActiveState = GameRunning.GetInstance(game, ChoseLevel.GetInstance().Customer );
                     break;
                 case StateTransformer.GameStateType.GamePaused:
                     ActiveState = GamePaused.GetInstance();
@@ -34,6 +33,9 @@ namespace SpaceTaxi_1 {
                     break;
                 case StateTransformer.GameStateType.GameOver:
                     ActiveState = GameOver.GetInstance();
+                    break;
+                case StateTransformer.GameStateType.GameWon:
+                    ActiveState = GameWon.GetInstance();
                     break;
             }
         }
