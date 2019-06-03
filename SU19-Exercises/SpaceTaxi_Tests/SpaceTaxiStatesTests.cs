@@ -33,7 +33,8 @@ namespace SpaceTaxi_Test {
         [Test]
         public void TestNull() {
 
-            Assert.Throws<ArgumentException>((() => StateTransformer.TransformStringToState("STOP")));
+            Assert.Throws<ArgumentException>(()
+                => StateTransformer.TransformStringToState("STOP"));
 
         }
 

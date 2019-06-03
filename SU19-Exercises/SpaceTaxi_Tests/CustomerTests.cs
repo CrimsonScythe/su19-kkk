@@ -79,7 +79,7 @@ namespace SpaceTaxi_Tests {
         }
 
         [Test]
-        public void CustomerSpawn() {
+        public void CustomerDropOff() {
 
             
             GameRunning.instance = null;

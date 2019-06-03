@@ -187,15 +187,7 @@ namespace SpaceTaxi_1 {
                             }                                                        
                             ChoseLevel.GetInstance().Customer = customer;                            
                         }       
-//                        } else {
-//                            END GAME
-//                            SpaceTaxiBus.GetBus().RegisterEvent(
-//                                GameEventFactory<object>.CreateGameEventForAllProcessors(
-//                                    GameEventType.GameStateEvent,
-//                                    this,
-//                                    "CHANGE_STATE",
-//                                    "GAME_OVER", ""));
-//                        }
+
 
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
@@ -285,6 +277,7 @@ namespace SpaceTaxi_1 {
             foreach (var cus in currentLevel.cusList) {
                 if (stopwatch.Elapsed.Seconds + (stopwatch.Elapsed.Minutes * 60) >= cus.spawntime) {
                     if (!cus.entity.IsDeleted()) {
+                        
                         cus.RenderCustomer();
                     }
                 }
