@@ -147,6 +147,7 @@ namespace SpaceTaxi_1 {
                                 
                             } else {
 
+                                singletonScore.PointChanger("Reset");
                                 AddExplosion(player.shape.Position.X,player.shape.Position.Y,
                                     obstacle.shape.Extent.X+0.1f,obstacle.shape.Extent.Y+0.1f);                                
                                 SpaceTaxiBus.GetBus().RegisterEvent(

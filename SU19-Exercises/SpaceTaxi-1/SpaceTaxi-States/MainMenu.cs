@@ -19,7 +19,7 @@ namespace SpaceTaxi_1 {
         private Game game;
         private Window win;
 
-        private MainMenu() {
+        public MainMenu() {
             backgroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1.0f, 1.0f)),
                 new Image(Path.Combine("Assets", "Images", "SpaceBackground.png")));
@@ -126,6 +126,7 @@ namespace SpaceTaxi_1 {
                                 case 0:                             
                                     // new game button selected  
                                     GameRunning.instance = null;
+                                    ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
                                     SpaceTaxiBus.GetBus().RegisterEvent(
                                         GameEventFactory<object>.CreateGameEventForAllProcessors(
                                             GameEventType.GameStateEvent,
