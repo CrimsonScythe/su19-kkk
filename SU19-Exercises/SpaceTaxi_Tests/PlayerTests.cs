@@ -56,7 +56,6 @@ namespace SpaceTaxi_Test {
 
             double xEndPosition = gameR.player.shape.Position.X;
             Assert.That(xStartPostion > xEndPosition);
-
         }
 
         [TestCase(1)]
@@ -73,17 +72,35 @@ namespace SpaceTaxi_Test {
                 gameR.RenderState();
                 i++;
             }
-
             double yEndPosition = gameR.player.shape.Position.Y;
             Assert.That(yStartPostion < yEndPosition);
         }
 
-        [TestCase(10,"Left")]
-        [TestCase(13,"Left")]
-        [TestCase(10,"Right")]
-        [TestCase(13,"Right")]
-        [TestCase(10,"Down")]
-        [TestCase(13,"Down")]
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(10)]
+        public void AssumePlayerDoNotMove(int timerToTest) {
+            int i = 0;
+            double xStartPosition = gameR.player.shape.Position.X;
+            double yStartPosition = gameR.player.shape.Position.Y;
+            while (i < timerToTest) {
+                gameR.currentVelocity = new Vec2F(0.0f, 0.0f);
+                gameR.UpdateGameLogic();
+                gameR.RenderState();
+                i++;
+            }
+            double yEndPosition = gameR.player.shape.Position.Y;
+            double xEndPosition = gameR.player.shape.Position.X;
+            Assert.IsTrue(yStartPosition == yEndPosition && xStartPosition == xEndPosition);            
+        }
+
+        [TestCase(3,"Left")]
+        [TestCase(4,"Left")]
+        [TestCase(7,"Right")]
+        [TestCase(8,"Right")]
+        [TestCase(4,"Down")]
+        [TestCase(5,"Down")]
         public void PlayerCollision(int timerToTest, string directionValue) {
             gameR.player.Entity.Shape.SetPosition(new Vec2F(0.3f,0.3f));           
             int i = 0;
