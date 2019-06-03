@@ -161,6 +161,18 @@ namespace SpaceTaxi_1 {
                     if (player.shape.Position.Y > 1) {
 
                         //if customer has been picked up and has to be dropped off at next level
+//                        if (customer!=null) {
+
+                        if (customer==null) {
+                            //END GAME
+                            SpaceTaxiBus.GetBus().RegisterEvent(
+                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                    GameEventType.GameStateEvent,
+                                    this,
+                                    "CHANGE_STATE",
+                                    "GAME_OVER", "")); 
+                        } else {
+                        
                         if (customer.entity.IsDeleted()) {
                             //change customer.platformname to remove ^
                             if (customer.landplatform.Contains("^")) {
@@ -170,8 +182,17 @@ namespace SpaceTaxi_1 {
                                 }   
                             }                                                        
                             ChoseLevel.GetInstance().Customer = customer;                            
-                        }            
-                                                
+                        }       
+//                        } else {
+//                            END GAME
+//                            SpaceTaxiBus.GetBus().RegisterEvent(
+//                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+//                                    GameEventType.GameStateEvent,
+//                                    this,
+//                                    "CHANGE_STATE",
+//                                    "GAME_OVER", ""));
+//                        }
+
                         currentVelocity.Y = 0;
                         currentVelocity.X = 0;
                         isOnPlatform = true;                        
@@ -192,7 +213,9 @@ namespace SpaceTaxi_1 {
                                 this,
                                 "CHANGE_STATE",
                                 "GAME_RUNNING", ""));    
-                    }
+                        }
+
+                        }
                 }               
             }           
         }

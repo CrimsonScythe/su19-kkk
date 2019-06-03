@@ -24,6 +24,10 @@ namespace SpaceTaxi_Tests {
 
         [Test]
         public void CustomerTimeOut() {
+
+            ChoseLevel.GetInstance().filename = "short-n-sweet.txt";
+            GameRunning.instance = null;
+            GameRunning.GetInstance(game, null);
             
 //            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
             
@@ -75,6 +79,10 @@ namespace SpaceTaxi_Tests {
         [Test]
         public void CustomerSpawn() {
 
+            
+            GameRunning.instance = null;
+            GameRunning.GetInstance(game, null);
+            
 //            GameRunning.instance.player.thrust.Y = 0f;
    
             //sets a convenient start position for player
@@ -146,6 +154,9 @@ namespace SpaceTaxi_Tests {
         
         [Test]
         public void CustomerCollision() {
+
+            GameRunning.instance = null;
+            GameRunning.GetInstance(game, null);
             
 //            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
             //sets a convenient start position for player
@@ -166,6 +177,30 @@ namespace SpaceTaxi_Tests {
             Assert.IsTrue(GameRunning.instance.currentLevel.cusList[0].entity.IsDeleted());
             
         }
+        
+//        [Test]
+//        public void NoCustomerNextLevel() {
+//            
+////            GameRunning.instance.player.thrust = new Vec2F(-0.00001f, 0f);
+//            //sets a convenient start position for player
+//            GameRunning.instance.player.Entity.Shape.SetPosition(new Vec2F(0.5f
+//                ,GameRunning.instance.player.Entity.Shape.Position.Y-0.1f));
+////            
+//            // changes currentVelocity to "move" player 
+//            GameRunning.instance.currentVelocity = new Vec2F(0f, 0.002f);
+//            
+//            // mock game loop
+//            while (!GameRunning.instance.currentLevel.cusList[0].entity.IsDeleted()) {
+//
+//                GameRunning.instance.UpdateGameLogic();        
+//                GameRunning.instance.RenderState();        
+//                
+//            }
+//            
+////            Assert.IsTrue(GameRunning.instance.currentLevel.cusList[0].entity.IsDeleted());
+//            
+//        }
+        
     }
     
 }
