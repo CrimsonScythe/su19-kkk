@@ -45,6 +45,7 @@
     <Compile Include="ASCII Loader.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameRunning.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="SingletonScore.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="SpaceTaxi-States\GamePaused.cs" />
     <Compile Include="SpaceTaxi-States\GameRunning.cs" />
     <Compile Include="SpaceTaxi-States\GameStateType.cs" />
+    <Compile Include="SpaceTaxi-States\GameWon.cs" />
     <Compile Include="SpaceTaxi-States\MainMenu.cs" />
     <Compile Include="SpaceTaxi-States\StateMachine.cs" />
     <Compile Include="SpaceTaxiBus.cs" />
