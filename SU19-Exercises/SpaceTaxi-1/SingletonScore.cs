@@ -18,13 +18,23 @@ namespace SpaceTaxi_1 {
                 if (SingletonScore.instance==null) {
                     SingletonScore.instance = new SingletonScore(new Vec2F(0.05f, 0.55f),new Vec2F(0.4f,0.4f) );
                 }
-    
+
                 return SingletonScore.instance;
             }
         }
 
-        public void AddPoint() {
-            score += 100;
+        public void PointChanger(string value) {
+            switch (value) {         
+            case "Add":
+                score += 100;
+                break;       
+            case "Reset":
+                score = 0;
+                break;
+            default:
+                score = score + 0;
+                break;
+            }           
         }
 
         public void RenderScore() {
