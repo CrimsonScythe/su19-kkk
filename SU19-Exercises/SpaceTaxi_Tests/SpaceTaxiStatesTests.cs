@@ -14,6 +14,7 @@ namespace SpaceTaxi_Test {
         [TestCase(StateTransformer.GameStateType.MainMenu, "MAIN_MENU")]
         [TestCase(StateTransformer.GameStateType.ChoseLevel, "CHOSE_LEVEL")]
         [TestCase(StateTransformer.GameStateType.GameOver, "GAME_OVER")]
+        [TestCase(StateTransformer.GameStateType.GameWon, "GAME_WON")]
 
         public void TestStringToState(StateTransformer.GameStateType type, string input) {
             Assert.AreEqual(type, StateTransformer.TransformStringToState(input));
@@ -25,6 +26,7 @@ namespace SpaceTaxi_Test {
         [TestCase("MAIN_MENU", StateTransformer.GameStateType.MainMenu)]
         [TestCase("CHOSE_LEVEL", StateTransformer.GameStateType.ChoseLevel)]
         [TestCase("GAME_OVER", StateTransformer.GameStateType.GameOver)]
+        [TestCase("GAME_WON", StateTransformer.GameStateType.GameWon)]
 
         public void TestStateToString(string str, StateTransformer.GameStateType type) {
             Assert.AreEqual(str, StateTransformer.TransformStateToString(type));
@@ -33,8 +35,7 @@ namespace SpaceTaxi_Test {
         [Test]
         public void TestNull() {
 
-            Assert.Throws<ArgumentException>(()
-                => StateTransformer.TransformStringToState("STOP"));
+            Assert.Throws<ArgumentException>((() => StateTransformer.TransformStringToState("STOP")));
 
         }
 

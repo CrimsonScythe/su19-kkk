@@ -18,10 +18,8 @@ namespace SpaceTaxi_Test
                 GameEventType.PlayerEvent
             });
             
-            
             Game game = new Game();
             stateMachine = new StateMachine(game);
-
         }
 
         [Test]
@@ -49,8 +47,7 @@ namespace SpaceTaxi_Test
                 GameEventType.GameStateEvent,
                 this,
                 "CHANGE_STATE",
-                "GAME_RUNNING",""));
-            
+                "GAME_RUNNING",""));           
             SpaceTaxiBus.GetBus().ProcessEventsSequentially();
             Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameRunning>());
         }
@@ -80,8 +77,7 @@ namespace SpaceTaxi_Test
         }
 
         [Test]
-        public void TestEventGameOver()
-        {
+        public void TestEventGameOver() {
             SpaceTaxiBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
                 GameEventType.GameStateEvent,
                 this,
@@ -90,6 +86,19 @@ namespace SpaceTaxi_Test
 
             SpaceTaxiBus.GetBus().ProcessEventsSequentially();
             Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameOver>());
+        }
+
+        [Test]
+        public void TestEventGameWon() {
+
+            SpaceTaxiBus.GetBus().RegisterEvent(GameEventFactory<object>.CreateGameEventForAllProcessors(
+                GameEventType.GameStateEvent,
+                this,
+                "CHANGE_STATE",
+                "GAME_WON", ""));
+
+            SpaceTaxiBus.GetBus().ProcessEventsSequentially();
+            Assert.That(stateMachine.ActiveState, Is.InstanceOf<GameWon>());
         }
     }
 }
