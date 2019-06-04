@@ -308,6 +308,7 @@
           <e p="GamePaused.cs" t="Include" />
           <e p="GameRunning.cs" t="Include" />
           <e p="GameStateType.cs" t="Include" />
+          <e p="GameWon.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="StateMachine.cs" t="Include" />
         </e>
@@ -527,7 +528,7 @@
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="SingletonScoreTest.cs" t="Include" />
+        <e p="SingletonScoreTests.cs" t="Include" />
         <e p="SpaceTaxi_Tests.csproj" t="IncludeRecursive" />
         <e p="SpaceTaxiStatesTests.cs" t="Include" />
         <e p="StateMachineTests.cs" t="Include" />

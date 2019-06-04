@@ -45,7 +45,6 @@
     <Compile Include="ASCII Loader.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GameRunning.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Obstacle.cs" />
     <Compile Include="SingletonScore.cs" />
