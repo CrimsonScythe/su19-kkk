@@ -75,7 +75,6 @@ namespace SpaceTaxi_1 {
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
-            Console.WriteLine(currentLevel.cusList.Count);
             singletonTimer = SingletonTimer.Instance;
             singletonScore = SingletonScore.Instance;           
             collisiondatas = new CollisionData[currentLevel.cusList.Count];
@@ -97,7 +96,16 @@ namespace SpaceTaxi_1 {
         }
         
 
-        public void UpdateGameLogic() {       
+        public void UpdateGameLogic() {
+            if (singletonScore.score == 300) {
+                SpaceTaxiBus.GetBus().RegisterEvent(
+                    GameEventFactory<object>.CreateGameEventForAllProcessors(
+                        GameEventType.GameStateEvent,
+                        this,
+                        "CHANGE_STATE",
+                        "GAME_WON", ""));
+            }
+
             for (int i = 0; i < currentLevel.cusList.Count; i++) {
                 collisiondatas[i] = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(),
                     currentLevel.cusList[i].entity.Shape);
@@ -127,15 +135,14 @@ namespace SpaceTaxi_1 {
                                         singletonScore.PointChanger("Add");
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;  
-                                        Console.WriteLine(singletonScore.score.ToString());
-                                        if (singletonScore.score == 300) {
+                                        /* if (singletonScore.score == 300) {
                                             SpaceTaxiBus.GetBus().RegisterEvent(
                                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                                     GameEventType.GameStateEvent,
                                                     this,
                                                     "CHANGE_STATE",
-                                                    "GAME_WON", ""));                                     
-                                        }
+                                                    "GAME_WON", ""));                                    
+                                        } */
                                     }
                                 }
      
@@ -253,7 +260,6 @@ namespace SpaceTaxi_1 {
                 if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime && customer!=null) {
                     singletonTimer.stopwatch.Reset();
                     ChoseLevel.GetInstance().Customer = null;
-                    Console.WriteLine("END GAME");
                     //END GAME
                     singletonScore.PointChanger("Reset");
                     SpaceTaxiBus.GetBus().RegisterEvent(
@@ -307,7 +313,6 @@ namespace SpaceTaxi_1 {
                                     GameEventType.PlayerEvent, this, player, "BOOSTER_TO_RIGHT", "", ""));
                             break;
                         default:
-                            Console.WriteLine("pressed");
                             break;
                     }
 
