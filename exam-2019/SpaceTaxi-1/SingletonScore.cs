@@ -1,7 +1,7 @@
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class SingletonScore {
         public int score;
         private Text display;

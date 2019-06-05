@@ -8,7 +8,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class GameOver : IGameState {
 
         public static GameOver instance = null;

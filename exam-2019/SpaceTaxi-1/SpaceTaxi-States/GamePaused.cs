@@ -7,7 +7,7 @@ using DIKUArcade.Math;
 using DIKUArcade.State;
 using Image = DIKUArcade.Graphics.Image;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class GamePaused : IGameState {
         private static GamePaused instance = null;
         private Entity backgroundImage;

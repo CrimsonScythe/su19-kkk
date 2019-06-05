@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class SingletonTimer {
 //        public static int timer;
 

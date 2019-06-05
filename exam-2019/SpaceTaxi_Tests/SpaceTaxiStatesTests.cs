@@ -1,9 +1,8 @@
 using System;
-using exam_2019;
 using NUnit.Framework;
+using SpaceTaxi_1;
 
-
-namespace SpaceTaxi_Test {
+namespace SpaceTaxi_Tests {
     public class SpaceTaxiStatesTests {
   
         [SetUp]

@@ -2,7 +2,7 @@ using DIKUArcade.EventBus;
 using DIKUArcade.State;
 
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class StateMachine : IGameEventProcessor<object> {
         public  IGameState ActiveState { get; private set; }
         private Game game;

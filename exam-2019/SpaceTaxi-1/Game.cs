@@ -8,7 +8,7 @@ using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Timers;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class Game : IGameEventProcessor<object> {
         
         public GameTimer gameTimer;

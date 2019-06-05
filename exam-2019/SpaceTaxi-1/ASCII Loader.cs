@@ -5,7 +5,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using DIKUArcade.Entities;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class AsciiLoader {        
         private string fileName;
         private string fileLoaded;
@@ -41,7 +41,6 @@ namespace exam_2019 {
             legendPairs = new List<Tuple<string, string>>();           
             string current = stringReader.ReadLine();
             
-            // checks if the current variable is not empty, a ":" or an empty string
             while (current != null) {
               
                 if (new Regex("\\bCustomer\\b").IsMatch(current)) {
@@ -62,7 +61,7 @@ namespace exam_2019 {
 
                 }
                 
-                
+                // checks if the current variable is not empty, a ":" or an empty string
                 if (!current.Contains(":") && !current.Equals("")) {
                     /*
                      as long as current is not empty, an empty string or ":" legendPairs will add

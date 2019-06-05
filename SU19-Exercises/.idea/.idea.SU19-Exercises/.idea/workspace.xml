@@ -2,15 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="091d03ab-5d6b-46f3-b388-b5aeb2e7aa50" name="Default Changelist" comment="Merge branch 'master' of https://github.com/CrimsonScythe/su19-kkk&#10;&#10;# Conflicts:&#10;#&#9;SU19-Exercises/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs">
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/ASCII Loader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Customer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Game.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Level.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Obstacle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonScore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonTimer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxiBus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Exercises/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/ASCII Loader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/ASCII Loader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Customer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Customer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Level.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Level.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Obstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Obstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SingletonTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/ChoseLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/ChoseLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameOver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameOver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GamePaused.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GamePaused.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameRunning.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameStateType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameStateType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameWon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/GameWon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxi-States/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxiBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/SpaceTaxiBus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Taxi/Orientation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Taxi/Orientation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Taxi/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi-1/Taxi/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/ASCIIMapTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/ASCIIMapTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/CustomerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/CustomerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/LevelTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/LevelTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/PlayerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/PlayerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/SingletonScoreTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/SingletonScoreTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/SpaceTaxiStatesTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/SpaceTaxiStatesTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/StateMachineTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../exam-2019/SpaceTaxi_Tests/StateMachineTests.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,22 +37,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Customer.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-              <folding>
-                <marker date="1559380976545" expanded="false" signature="6:133" ph="..." />
-                <marker date="1559380976545" expanded="true" signature="157:1237" ph="{...}" />
-                <marker date="1559380976545" expanded="true" signature="185:1234" ph="{...}" />
-                <marker date="1559380976545" expanded="true" signature="639:1144" ph="{...}" />
-                <marker date="1559380976545" expanded="true" signature="1182:1228" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxiBus.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -124,7 +125,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SpaceTaxi_Tests/ASCIIMapTests.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
@@ -289,6 +290,7 @@
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Galaga-Exercise-3/Game.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/App.config" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SpaceTaxi_Tests/CustomerTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/Customer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/SpaceTaxi-1/Game.cs" root0="FORCE_HIGHLIGHTING" />
@@ -419,7 +421,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -440,7 +442,7 @@
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="SU19-Exercises" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="SpaceTaxi_Tests" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="SpaceTaxi-1" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -568,12 +570,12 @@
       <workItem from="1559553380147" duration="17397000" />
       <workItem from="1559641326827" duration="3789000" />
       <workItem from="1559654782760" duration="4898000" />
-      <workItem from="1559666147238" duration="4612000" />
+      <workItem from="1559666147238" duration="5213000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333747000" />
+    <option name="totallyTimeSpent" value="334348000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -585,10 +587,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="830" extended-state="1" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37864077" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18322147" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -692,21 +694,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Properties/AssemblyInfo.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1558684147639" expanded="false" signature="6:62" ph="..." />
-            <marker date="1558684147639" expanded="true" signature="64:263" ph="/* Allgemeine Informationen über eine Assembly werden über die folgenden ... */" />
-            <marker date="1558684147639" expanded="true" signature="572:835" ph="/* Durch Festlegen von ComVisible auf FALSE werden die Typen in dieser Assembly ... */" />
-            <marker date="1558684147639" expanded="true" signature="1032:1377" ph="/* Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten: ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SpaceTaxi-opgave9/App.config">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/SU19-Exercises.sln.DotSettings.user">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1629,18 +1616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxiBus.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <marker date="1558448150369" expanded="true" signature="50:283" ph="{...}" />
-            <marker date="1558448150369" expanded="true" signature="82:281" ph="{...}" />
-            <marker date="1558448150369" expanded="true" signature="191:275" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Program.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1666,6 +1641,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/Properties/AssemblyInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1558684147639" expanded="false" signature="6:62" ph="..." />
+            <marker date="1558684147639" expanded="true" signature="64:263" ph="/* Allgemeine Informationen über eine Assembly werden über die folgenden ... */" />
+            <marker date="1558684147639" expanded="true" signature="572:835" ph="/* Durch Festlegen von ComVisible auf FALSE werden die Typen in dieser Assembly ... */" />
+            <marker date="1558684147639" expanded="true" signature="1032:1377" ph="/* Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten: ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/App.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SpaceTaxi_Tests/ASCIIMapTests.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1677,6 +1671,18 @@
             <marker date="1559384704157" expanded="true" signature="286:403" ph="{...}" />
             <marker date="1559384704157" expanded="true" signature="582:702" ph="{...}" />
             <marker date="1559384704157" expanded="true" signature="904:1003" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpaceTaxi-1/SpaceTaxiBus.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <marker date="1558448150369" expanded="true" signature="50:283" ph="{...}" />
+            <marker date="1558448150369" expanded="true" signature="82:281" ph="{...}" />
+            <marker date="1558448150369" expanded="true" signature="191:275" ph="{...}" />
           </folding>
         </state>
       </provider>

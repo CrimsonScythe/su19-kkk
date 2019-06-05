@@ -8,7 +8,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace exam_2019 {
+namespace SpaceTaxi_1 {
     public class Level {
         private List<Tuple<string, string>> legendPairs;
         private string Map;
