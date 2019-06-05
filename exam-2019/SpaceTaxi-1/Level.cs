@@ -42,11 +42,6 @@ namespace SpaceTaxi_1 {
                 while (currentChar != -1) {
                     posX += 0.025f;
 
-//                    if (System.Convert.ToChar(currentChar).ToString() == ">") {
-//                        Console.WriteLine("YES");
-//                        spawnPos = new Vec2F(posX, posY);
-//                    }
-
                     foreach (var pair in legendPairs) {
                         
 
