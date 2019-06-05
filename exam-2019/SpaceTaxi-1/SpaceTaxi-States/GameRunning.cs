@@ -1,12 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Timers;
 using DIKUArcade.Entities;
 using DIKUArcade.EventBus;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.State;
+using DIKUArcade.Timers;
 
 namespace SpaceTaxi_1 {
     public class GameRunning : IGameState {
@@ -56,10 +59,10 @@ namespace SpaceTaxi_1 {
                 Path.Combine("Assets", "Images", "Explosion.png"));
             explosions = new AnimationContainer(5);
             currentVelocity = new Vec2F(-0.000001f, 0f);
-            
             foreach (var customer in currentLevel.cusList) {
                 foreach (var obstacle in currentLevel.obstacles) {
                     if (obstacle.symbol.ToString().Equals(customer.spawnplatform)) {
+                        spawnPlatform = obstacle;
                         customer.entity.Shape.Position = new Vec2F(obstacle.shape.Position.X,
                             obstacle.shape.Position.Y+0.05f);
                         break;
@@ -70,6 +73,7 @@ namespace SpaceTaxi_1 {
             player = new Player();
             player.SetPosition(currentLevel.spawnPos.X, currentLevel.spawnPos.Y);            
             player.SetExtent(ChoseLevel.GetInstance().extX, ChoseLevel.GetInstance().extY);
+            SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             SpaceTaxiBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
             singletonTimer = SingletonTimer.Instance;
             singletonScore = SingletonScore.Instance;           
@@ -82,6 +86,7 @@ namespace SpaceTaxi_1 {
         }
 
         private List<string> GetPlatformName() {
+            var list1 = new List<string>();
             var list2 = new List<string>();
                 list2.Add("neptune-square.png");
                 list2.Add("ironstone-square.png");
@@ -119,25 +124,28 @@ namespace SpaceTaxi_1 {
             foreach (var obstacle in currentLevel.obstacles) {
                 var collisionData = CollisionDetection.Aabb(player.Entity.Shape.AsDynamicShape(), obstacle.Shape);                
                 if (collisionData.Collision) {
-                    
-                            // if collision with platforms
                             if (obstacle.fileName.Equals(GetPlatformName()[0]) || 
                                 obstacle.fileName.Equals(GetPlatformName()[1]) || 
                                 obstacle.fileName.Equals(GetPlatformName()[2]) || 
                                 obstacle.fileName.Equals(GetPlatformName()[3]))  {
-                                
-                                // give points on successful landing                                 
+                                 // lands                                
                                 if (customer != null) {
                                     if (obstacle.symbol.ToString().Equals(customer.landplatform) ||
                                         (customer.landplatform == "^" && currentLevel.levelName=="short-n-sweet.txt")) {
                                         singletonScore.PointChanger("Add");
                                         singletonTimer.stopwatch.Reset();
                                         customer = null;  
-            
+                                        /* if (singletonScore.score == 300) {
+                                            SpaceTaxiBus.GetBus().RegisterEvent(
+                                                GameEventFactory<object>.CreateGameEventForAllProcessors(
+                                                    GameEventType.GameStateEvent,
+                                                    this,
+                                                    "CHANGE_STATE",
+                                                    "GAME_WON", ""));                                    
+                                        } */
                                     }
                                 }
      
-                                // stop movement if successful landing (Y velocity is not too high) 
                                 if (currentVelocity.Y < -0.0001f && currentVelocity.Y > -0.0075f) {
                                     isOnPlatform = true;
                                     currentVelocity.Y = 0;
@@ -145,10 +153,6 @@ namespace SpaceTaxi_1 {
                                 }                               
                                 
                             } 
-                            
-                            // if collision does not occur with a platform,
-                            // or Y velocity is too high on collision with platform,
-                            // end the game, reset timer, reset points and add explosion
                             else {
                                 singletonTimer.stopwatch.Reset();
                                 ChoseLevel.GetInstance().Customer = null;
@@ -164,16 +168,14 @@ namespace SpaceTaxi_1 {
                             }   
                         } 
                 else {
-                    // proceed to next level if the taxi goes up the small gap
                     if (player.shape.Position.Y > 1) {
-                        // game ends if teh player tries to proceed to
-                        // the next level without a customer
+                        // if customer has been picked up and has to be dropped off at next level
                         if (customer == null) {
                             singletonTimer.stopwatch.Reset();
                             ChoseLevel.GetInstance().Customer = null;
                             singletonScore.PointChanger("Reset");
                             //END GAME
-                            SpaceTaxiBus.GetBus().RegisterEvent( 
+                            SpaceTaxiBus.GetBus().RegisterEvent(
                                 GameEventFactory<object>.CreateGameEventForAllProcessors(
                                     GameEventType.GameStateEvent,
                                     this,
@@ -191,7 +193,6 @@ namespace SpaceTaxi_1 {
                                 }
                                 ChoseLevel.GetInstance().Customer = customer;
                             }
-                            
                             currentVelocity.Y = 0;
                             currentVelocity.X = 0;
                             isOnPlatform = true;
@@ -255,8 +256,6 @@ namespace SpaceTaxi_1 {
             }
 
 
-            // if customer has been picked up
-            // and not dropped within the drop time then end game
             if (customer!=null) {
                 if (singletonTimer.stopwatch.Elapsed.Seconds > customer.droptime && customer!=null) {
                     singletonTimer.stopwatch.Reset();
@@ -273,8 +272,7 @@ namespace SpaceTaxi_1 {
             }
 
             
-            //renders customers in current level when spawntime for customer
-            // is reached
+            //renders customers in current level
             foreach (var cus in currentLevel.cusList) {
                 if (stopwatch.Elapsed.Seconds + (stopwatch.Elapsed.Minutes * 60) >= cus.spawntime) {
                     if (!cus.entity.IsDeleted()) {
