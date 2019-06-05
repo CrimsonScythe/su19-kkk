@@ -61,16 +61,6 @@
     <Compile Include="Taxi\Player.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
-      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
-      <Name>DIKUArcade</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DIKUArcade.csproj">
-      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
-      <Name>DIKUArcade</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\Images\aspargus-edge-bottom.png" />
     <Content Include="Assets\Images\aspargus-edge-left.png" />
     <Content Include="Assets\Images\aspargus-edge-right.png" />
@@ -152,6 +142,12 @@
     <Content Include="Assets\Images\yellow-stick.png" />
     <Content Include="Levels\short-n-sweet.txt" />
     <Content Include="Levels\the-beach.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
+      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
+      <Name>DIKUArcade</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
