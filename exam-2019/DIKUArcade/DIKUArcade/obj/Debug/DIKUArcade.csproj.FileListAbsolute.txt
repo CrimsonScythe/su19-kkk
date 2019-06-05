@@ -1,0 +1,15 @@
+C:\su19-kkk\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.dll
+C:\su19-kkk\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.pdb
+C:\su19-kkk\DIKUArcade\DIKUArcade\bin\Debug\OpenTK.dll
+C:\su19-kkk\DIKUArcade\DIKUArcade\bin\Debug\OpenTK.xml
+C:\su19-kkk\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.csprojResolveAssemblyReference.cache
+C:\su19-kkk\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.csproj.CoreCompileInputs.cache
+C:\su19-kkk\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.dll
+C:\su19-kkk\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.pdb
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.dll
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\bin\Debug\DIKUArcade.pdb
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\bin\Debug\OpenTK.xml
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.csprojResolveAssemblyReference.cache
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.csproj.CoreCompileInputs.cache
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.dll
+C:\su19-kkk\exam-2019\DIKUArcade\DIKUArcade\obj\Debug\DIKUArcade.pdb
